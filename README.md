@@ -1,2 +1,2 @@
 # KlientsDB
-KlientsDB - оболочка для БД СС
+KlientsDB - оболочка для БД СЭ
