@@ -13,11 +13,13 @@ require "../includes/constants.php"; //Open database connection
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Добавить Тех.Площадку</title>
     <link rel="stylesheet" type="text/css" href="css/fieldset.css" />
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
   </head>
   <body>
       <?php
         $mysqli = mysqli_connect($host,$user,$password,$db);
       ?>
+  <div class="container-fluid">
     <form method="post" action="tp.main.add.sql.php">
       <fieldset>
         <legend>Адрес узла</legend>
@@ -108,7 +110,7 @@ require "../includes/constants.php"; //Open database connection
         </div>   
         <div>
           <label for="note1">Примечание:</label>
-          <textarea   cols="35" rows="3" name="note1" id="note1" class="note"></textarea>
+          <textarea   cols="69" rows="3" name="note1" id="note1" class="note"></textarea>
         </div>    
       </fieldset>
       <fieldset>
@@ -149,7 +151,7 @@ require "../includes/constants.php"; //Open database connection
         </div> 
         <div>
           <label for="note2">Примечание:</label>
-          <textarea   cols="35" rows="3" name="note2" id="note2" class="note"></textarea>
+          <textarea   cols="69" rows="3" name="note2" id="note2" class="note"></textarea>
         </div> 
         <div>
           <label for="power">Потребляемая мощность (Вт.):</label>
@@ -239,21 +241,24 @@ require "../includes/constants.php"; //Open database connection
         </div> 
         <div>
           <label for="note3">Примечание:</label>
-          <textarea   cols="35" rows="3" name="note3" id="note3" class="note"></textarea>
+          <textarea   cols="69" rows="3" name="note3" id="note3" class="note"></textarea>
         </div>                            
       </fieldset> 
       <fieldset>
         <legend>Владельцы узла и стойки</legend>
         <div>
-          <textarea   cols="100" rows="10" name="note4" id="note4" class="note"></textarea>
+          <label for="note4">Примечание:</label>
+          <textarea   cols="69" rows="10" name="note4" id="note4" class="note"></textarea>
         </div>    
       </fieldset>       
-        <div>
-          <button name="btnOk" id="btnOk" class="btnOk"><img src="../img/ok.png" style="vertical-align: middle"> Ok</button>
+        <div class="col-md-12">
+          <button name="btnOk" id="btnOk" class="btn btn-default"><img src="../img/ok.png" style="vertical-align: middle"> Ok</button>
         </div>
     </form>
+  </div>
 <?php mysqli_close($mysqli); ?>
     <script src="../js/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.min.js" type="text/javascript"></script>
     <script>
 
       function selectRegion(){

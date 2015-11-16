@@ -5,11 +5,11 @@
   }   
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head> 
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <link rel="stylesheet" type="text/css" href="css/fieldset.css" />
   <title>info: о Тех.Площадке</title>
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
 </head>
 <body>
 <?php
@@ -31,174 +31,168 @@
     $res = mysqli_query($mysqli, $sql);
     $row = mysqli_fetch_assoc($res);
 ?>
-    <fieldset>
-        <legend>Адрес узла</legend>
-        <div>
-          <label for="name">Название:</label>
-          <span><?php echo $row['node_old'] ?></span>
+  <div class="container">
+      <legend>Адрес узла</legend>
+        <div class="row">
+            <div class="col-md-4"><label for="node">Название:</label></div>
+            <div class="col-md-8"><strong class="text-info"><?php echo $row['node_old'] ?></strong></div>
         </div>
-        <div>
-          <label for="country">Страна:</label>
-          <span><?php echo $row['country'] ?></span>
+        <div class="row">
+            <div class="col-md-4"><label for="country">Страна:</label></div>
+            <div class="col-md-8"><strong class="text-info"><?php echo $row['country'] ?></strong></div>
         </div>  
-        <div> 
-          <label for="area">Область:</label>
-          <span><?php echo $row['region'] ?></span>
+        <div class="row">
+            <div class="col-md-4"><label for="area">Область:</label></div>
+            <div class="col-md-8"><strong class="text-info"><?php echo $row['region'] ?></strong></div>
         </div>        
-        <div> 
-          <label for="town">Город:</label>
-          <span><?php echo $row['town'] ?></span>
+        <div class="row">
+            <div class="col-md-4"><label for="town">Город:</label></div>
+            <div class="col-md-8"><strong class="text-info"><?php echo $row['town'] ?></strong></div>
         </div>         
-        <div>
-          <label for="address">Адрес:</label>
-          <span><?php echo $row['address'] ?></span>
+        <div class="row">
+            <div class="col-md-4"><label for="address">Адрес:</label></div>
+            <div class="col-md-8"><strong class="text-info"><?php echo $row['address'] ?></strong></div>
         </div>
-        <div> 
-          <label for="lease">Категория аренды:</label>
-          <span><?php echo $row['lc1'] ?></span>
+        <div class="row">
+            <div class="col-md-4"><label for="lease">Категория аренды:</label></div>
+            <div class="col-md-8"><strong class="text-info"><?php echo $row['lc1'] ?></strong></div>
         </div>   
-        <div> 
-          <label for="status">Статус:</label>
-          <span><?php echo $row['statname'] ?></span>
+        <div class="row">
+            <div class="col-md-4"><label for="status">Статус:</label></div>
+            <div class="col-md-8"><strong class="text-info"><?php echo $row['statname'] ?></strong></div>
         </div>   
-        <div>
-          <label for="planner">№ задачи Planner:</label>
-          <span><?php echo $row['planerid'] ?></span>
+        <div class="row">
+            <div class="col-md-4"><label for="planner">№ задачи Planner:</label></div>
+            <div class="col-md-8"><strong class="text-info"><?php echo $row['planerid'] ?></strong></div>
         </div>        
-        <div> 
-          <label for="class">Класс:</label>
-          <span><?php echo $row['nclass_d'] ?></span>
+        <div class="row">
+            <div class="col-md-4"><label for="class">Класс:</label></div>
+            <div class="col-md-8"><strong class="text-info"><?php echo $row['nclass_d'] ?></strong></div>
         </div>   
-    </fieldset> 
-    <fieldset>
-        <legend>Доступ к узлу</legend>
-        <div> 
-          <label for="access">Режим доступа:</label>
-		  <span><?php echo $row['access_mode'] ?></span>  
+      <legend>Доступ к узлу</legend>
+        <div class="row">
+          <div class="col-md-4"><label for="access">Режим доступа:</label></div>
+          <div class="col-md-8"><strong class="text-info"><?php echo $row['access_mode'] ?></strong></div>
         </div>   
-        <div>
-          <label for="note1">Примечание:</label>
-          <textarea   cols="35" rows="3" name="note1" id="note1" class="note"><?php echo $row['node_memo'] ?></textarea>
+        <div class="row">
+          <div class="col-md-4"><label for="note1">Примечание:</label></div>
+          <div class="col-md-8"><textarea rows="3" name="note1" id="note1" class="note col-md-8"><?php echo $row['node_memo'] ?></textarea></div>
         </div>    
-    </fieldset> 
-    <fieldset>
-        <legend>Электропитание</legend>
-        <div> 
-          <label for="grounding">Заземление:</label>
-          <?php 
+      <legend>Электропитание</legend>
+        <div class="row">
+          <div class="col-md-4"><label for="grounding">Заземление:</label></div>
+          <div class="col-md-8"><?php
            switch($row['ground']) {
- 			case 0: echo "<span></span>"; break;
- 			case 1: echo "<span>НЕТ</span>"; break;
- 			case 2: echo "<span>ЕСТЬ</span>"; break;
- 		  }?>
+               case 0: echo ""; break;
+               case 1: echo "<strong class='text-info'>НЕТ</strong>"; break;
+               case 2: echo "<strong class='text-info'>ЕСТЬ</strong>"; break;
+ 		  }?></div>
         </div>   
-        <div> 
-          <label for="generator">Возможность подключить генератор:</label>
-          <?php 
+        <div class="row">
+          <div class="col-md-4"><label for="generator">Возможность подключить генератор:</label></div>
+          <div class="col-md-8"><?php
            switch($row['el_generator']) {
- 			case 0: echo "<span></span>"; break;
- 			case 1: echo "<span>НЕТ</span>"; break;
- 			case 2: echo "<span>ЕСТЬ</span>"; break;
- 		  }?>
+               case 0: echo ""; break;
+               case 1: echo "<strong class='text-info'>НЕТ</strong>"; break;
+               case 2: echo "<strong class='text-info'>ЕСТЬ</strong>"; break;
+ 		  }?></div>
         </div>   
-        <div> 
-          <label for="battery">Возможность подключить батмассив:</label>
-          <?php 
+        <div class="row">
+            <div class="col-md-4"><label for="battery">Возможность подключить батмассив:</label></div>
+            <div class="col-md-8"><?php
            switch($row['el_battery']) {
- 			case 0: echo "<span></span>"; break;
- 			case 1: echo "<span>НЕТ</span>"; break;
- 			case 2: echo "<span>ЕСТЬ</span>"; break;
- 		  }?>
+               case 0: echo ""; break;
+               case 1: echo "<strong class='text-info'>НЕТ</strong>"; break;
+               case 2: echo "<strong class='text-info'>ЕСТЬ</strong>"; break;
+ 		  }?></div>
         </div> 
-        <div> 
-          <label for="acdc">Тип электропитания:</label>
-          <span><?php echo $row['el_type'] ?></span>
+        <div class="row">
+            <div class="col-md-4"><label for="acdc">Тип электропитания:</label></div>
+            <div class="col-md-8"><strong class="text-info"><?php echo $row['el_type'] ?></strong></div>
         </div> 
-        <div>
-          <label for="note2">Примечание:</label>
-          <textarea   cols="35" rows="3" name="note2" id="note2" class="note"><?php echo $row['el_equipment'] ?></textarea>
+        <div class="row">
+            <div class="col-md-4"><label for="note2">Примечание:</label></div>
+            <div class="col-md-8"><textarea rows="3" name="note2" id="note2" class="note col-md-8"><?php echo $row['el_equipment'] ?></textarea></div>
         </div> 
-        <div>
-          <label for="power">Потребляемая мощность (Вт.):</label>
-          <span><?php echo $row['el_power_d'] ?></span>
+        <div class="row">
+            <div class="col-md-4"><label for="power">Потребляемая мощность (Вт.):</label></div>
+            <div class="col-md-8"><strong class="text-info"><?php echo $row['el_power_d'] ?></strong></div>
         </div>           
-        <div>
-          <label for="autonomy">Время автономности (ч.):</label>
-          <span><?php echo $row['el_autonomy_d'] ?></span>
+        <div class="row">
+            <div class="col-md-4"><label for="autonomy">Время автономности (ч.):</label></div>
+            <div class="col-md-8"><strong class="text-info"><?php echo $row['el_autonomy_d'] ?></strong></div>
         </div>
-    </fieldset> 
-    <fieldset>
-        <legend>Кондиционирование</legend>
-        <div> 
-          <label for="system">Система:</label>
-          <span><?php echo $row['cc'] ?></span>
+      <legend>Кондиционирование</legend>
+        <div class="row">
+            <div class="col-md-4"><label for="system">Система:</label></div>
+            <div class="col-md-8"><strong class="text-info"><?php echo $row['cc'] ?></strong></div>
         </div>   
-        <div> 
-          <label for="proprietor">Владелец:</label>
-          <span><?php echo $row['lc2'] ?></span>
+        <div class="row">
+            <div class="col-md-4"><label for="proprietor">Владелец:</label></div>
+            <div class="col-md-8"><strong class="text-info"><?php echo $row['lc2'] ?></strong></div>
         </div>   
-    </fieldset>  
-    <fieldset>
-        <legend>Система контроля и сигнализации</legend>
-        <div> 
-          <label for="outpower">внешнее питание:</label>
-          <?php 
+      <legend>Система контроля и сигнализации</legend>
+        <div class="row">
+            <div class="col-md-4"><label for="outpower">внешнее питание:</label></div>
+            <div class="col-md-8"><?php
            switch($row['m_power']) {
- 			case 0: echo "<span></span>"; break;
- 			case 1: echo "<span>НЕТ</span>"; break;
- 			case 2: echo "<span>ЕСТЬ</span>"; break;
- 		  }?>
+               case 0: echo ""; break;
+               case 1: echo "<strong class='text-info'>НЕТ</strong>"; break;
+               case 2: echo "<strong class='text-info'>ЕСТЬ</strong>"; break;
+ 		  }?></div>
  	    </div>   
-        <div> 
-          <label for="doors">двери:</label>
-          <?php 
+        <div class="row">
+            <div class="col-md-4"><label for="doors">двери:</label></div>
+            <div class="col-md-8"><?php
            switch($row['m_door']) {
- 			case 0: echo "<span></span>"; break;
- 			case 1: echo "<span>НЕТ</span>"; break;
- 			case 2: echo "<span>ЕСТЬ</span>"; break;
- 		  }?>
+               case 0: echo ""; break;
+               case 1: echo "<strong class='text-info'>НЕТ</strong>"; break;
+               case 2: echo "<strong class='text-info'>ЕСТЬ</strong>"; break;
+ 		  }?></div>
         </div> 
-        <div> 
-          <label for="temr">температура:</label>
-          <?php 
+        <div class="row">
+            <div class="col-md-4"><label for="temr">температура:</label></div>
+            <div class="col-md-8"><?php
            switch($row['m_temperature']) {
- 			case 0: echo "<span></span>"; break;
- 			case 1: echo "<span>НЕТ</span>"; break;
- 			case 2: echo "<span>ЕСТЬ</span>"; break;
- 		  }?>
+               case 0: echo ""; break;
+               case 1: echo "<strong class='text-info'>НЕТ</strong>"; break;
+               case 2: echo "<strong class='text-info'>ЕСТЬ</strong>"; break;
+ 		  }?></div>
         </div>             
-        <div> 
-          <label for="humidity">влажность:</label>
-          <?php 
+        <div class="row">
+            <div class="col-md-4"><label for="humidity">влажность:</label></div>
+            <div class="col-md-8"><?php
            switch($row['m_humidity']) {
- 			case 0: echo "<span></span>"; break;
- 			case 1: echo "<span>НЕТ</span>"; break;
- 			case 2: echo "<span>ЕСТЬ</span>"; break;
- 		  }?>
+               case 0: echo ""; break;
+               case 1: echo "<strong class='text-info'>НЕТ</strong>"; break;
+               case 2: echo "<strong class='text-info'>ЕСТЬ</strong>"; break;
+ 		  }?></div>
         </div> 
-        <div> 
-          <label for="smoke">дым:</label>
-          <?php 
+        <div class="row">
+            <div class="col-md-4"><label for="smoke">дым:</label></div>
+            <div class="col-md-8"><?php
            switch($row['m_smoke']) {
- 			case 0: echo "<span></span>"; break;
- 			case 1: echo "<span>НЕТ</span>"; break;
- 			case 2: echo "<span>ЕСТЬ</span>"; break;
- 		  }?>
+               case 0: echo ""; break;
+               case 1: echo "<strong class='text-info'>НЕТ</strong>"; break;
+               case 2: echo "<strong class='text-info'>ЕСТЬ</strong>"; break;
+ 		  }?></div>
         </div> 
-        <div> 
-          <label for="water">вода:</label>
-          <?php 
+        <div class="row">
+            <div class="col-md-4"><label for="water">вода:</label></div>
+            <div class="col-md-8"><?php
            switch($row['m_water']) {
- 			case 0: echo "<span></span>"; break;
- 			case 1: echo "<span>НЕТ</span>"; break;
- 			case 2: echo "<span>ЕСТЬ</span>"; break;
- 		  }?>
+               case 0: echo ""; break;
+               case 1: echo "<strong class='text-info'>НЕТ</strong>"; break;
+               case 2: echo "<strong class='text-info'>ЕСТЬ</strong>"; break;
+ 		  }?></div>
         </div> 
-        <div>
-          <label for="note3">Примечание:</label>
-          <textarea   cols="35" rows="3" name="note3" id="note3" class="note"><?php $row['signalling_type'] ?></textarea>
+        <div class="row">
+            <div class="col-md-4"><label for="note3">Примечание:</label></div>
+            <div class="col-md-8"><textarea rows="3" name="note3" id="note3" class="note col-md-8"><?php $row['signalling_type'] ?></textarea></div>
         </div>                            
-    </fieldset>
+  </div>
 <?php mysqli_close($mysqli); ?>
+<script src="../js/jquery-1.11.0.min.js" type="text/javascript"></script>
+<script src="../js/bootstrap.min.js" type="text/javascript"></script>
 </body>
 </html>

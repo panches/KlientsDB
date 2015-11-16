@@ -15,16 +15,16 @@
     <link rel="stylesheet" href="../css/jquery.dataTables.css" />
     <link rel="stylesheet" href="css/fieldset.css" />
     <style type="text/css">
-      input:required:invalid, input:focus:invalid {
-      background-image: url(../img/invalid.png);
-      background-position: right top;
-      background-repeat: no-repeat;
-    }
-    input:required:valid {
-      background-image: url(../img/valid.png);
-      background-position: right top;
-      background-repeat: no-repeat;
-    }
+        input:required:invalid, input:focus:invalid {
+          background-image: url(../img/invalid.png);
+          background-position: right top;
+          background-repeat: no-repeat;
+        }
+        input:required:valid {
+          background-image: url(../img/valid.png);
+          background-position: right top;
+          background-repeat: no-repeat;
+        }
     </style>
     <script src="../js/jquery-1.11.0.min.js"></script>
     <script src="../js/modernizr-2.6.2.min.js"></script>
