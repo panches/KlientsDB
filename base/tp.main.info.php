@@ -15,7 +15,8 @@
 <?php
     require "../includes/constants.php";
 	//Open database connection
-    $mysqli = mysqli_connect($host,$user,$password,$db);
+    $mysqli = mysqli_connect($host,$user,$password,$db)
+                or die("Ошибка " . mysqli_error($mysqli));
 	$sql = "SELECT t.*,c.country,a.region,w.town,lcat.lease_category AS lc1,s.name AS statname,
 				tac.access_mode, ccat.condition_category AS cc,lcat2.lease_category AS lc2 
             FROM tblinform2 t 
@@ -191,8 +192,8 @@
             <div class="col-md-8"><textarea rows="3" name="note3" id="note3" class="note col-md-8"><?php $row['signalling_type'] ?></textarea></div>
         </div>                            
   </div>
-<?php mysqli_close($mysqli); ?>
-<script src="../js/jquery-1.11.0.min.js" type="text/javascript"></script>
-<script src="../js/bootstrap.min.js" type="text/javascript"></script>
+    <?php mysqli_close($mysqli); ?>
+    <script src="../js/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.min.js" type="text/javascript"></script>
 </body>
 </html>

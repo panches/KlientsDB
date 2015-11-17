@@ -1,8 +1,13 @@
 <?php
-  header("Content-Type: text/html; charset=utf-8");
-  if (!isset($_GET['outs_id'])) {
-      header("location: ../includes/info.error.php");
-  }   
+// проверка на существование открытой сессии (вставлять во все новые файлы)
+    session_start();
+    if(!isset($_SESSION["session_username"])) {
+        header("location: ../index.html");
+    };
+    header("Content-Type: text/html; charset=utf-8");
+    if (!isset($_GET['outs_id'])) {
+       header("location: ../includes/info.error.php");
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,7 +20,8 @@
 <?php	
     require "../includes/constants.php";
 	//Open database connection
-    $mysqli = mysqli_connect($host,$user,$password,$db);
+    $mysqli = mysqli_connect($host,$user,$password,$db)
+                or die("Ошибка " . mysqli_error($mysqli));
 	$sql = "SELECT * FROM outs_hardware WHERE  outs_id=".$_GET['outs_id'];
     $res = mysqli_query($mysqli, $sql);
     $outs = mysqli_fetch_assoc($res);

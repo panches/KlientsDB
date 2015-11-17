@@ -17,7 +17,8 @@ require "../includes/constants.php"; //Open database connection
   </head>
   <body>
       <?php
-        $mysqli = mysqli_connect($host,$user,$password,$db);
+        $mysqli = mysqli_connect($host,$user,$password,$db)
+                    or die("Ошибка " . mysqli_error($mysqli));
       ?>
   <div class="container-fluid">
     <form method="post" action="tp.main.add.sql.php">

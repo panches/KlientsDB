@@ -6,12 +6,8 @@ if(!isset($_GET["base"])) {
 } else {
     require "../includes/constants.php";
 //Open database connection
-    $mysqli = mysqli_connect($host,$user,$password,$db);
-    /* проверка подключения */
-    if (mysqli_connect_errno()) {
-        printf("Не удалось подключиться: %s\n", mysqli_connect_error());
-        exit();
-    };
+    $mysqli = mysqli_connect($host,$user,$password,$db)
+                or die("Ошибка " . mysqli_error($mysqli));
 // SQL запрос
     switch($_GET["base"]) {
         case "tp":
@@ -72,6 +68,8 @@ if(!isset($_GET["base"])) {
         $rows[] = $row;
     };
     mysqli_free_result($result);
+// закрываем подключение
+    mysqli_close($mysqli);
 //Return result to
     $out = array('data' => $rows);
     echo json_encode($out);

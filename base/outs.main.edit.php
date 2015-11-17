@@ -6,7 +6,7 @@
     };
     header("Content-Type: text/html; charset=utf-8");
     if (!isset($_GET['outs_id'])) {
-        echo "Не выбрана запись!";  exit();
+        header("location: ../includes/info.error.php");
     }
 ?>
 <!DOCTYPE html>
@@ -41,8 +41,10 @@
 <?php
   require "../includes/constants.php";
   //Open database connection
-  $mysqli = mysqli_connect($host,$user,$password,$db);
-  $sql = 'SELECT outs.outs_id,outs.clients,k.client,outs.hostname,outs.hardware,neq.name_nms,outs.serial,outs.license,outs.info,a.region,t.town,kli.street,concat(teq.brend,"  ",teq.model) as brend_model 
+  $mysqli = mysqli_connect($host,$user,$password,$db)
+                 or die("Ошибка " . mysqli_error($mysqli));
+
+  $sql = 'SELECT outs.outs_id,outs.clients,k.client,outs.hostname,outs.hardware,neq.name_nms,outs.serial,outs.license,outs.info,a.region,t.town,kli.street,concat(teq.brend,"  ",teq.model) as brend_model
           FROM outs_hardware outs, office_kli kli, net_equip neq, tab_klients k, tab_town t,  tab_area a, tab_equip teq, tab_access ac 
           WHERE outs.clients=kli.id_kli AND outs.hardware=neq.id_equip AND kli.klient=k.id AND kli.town_id=t.id AND kli.area_id=a.id AND neq.num_equip=teq.id AND outs.change_login=ac.id AND outs.outs_id='.$_GET['outs_id'];
   $res = mysqli_query($mysqli, $sql);
@@ -94,7 +96,7 @@
   echo  '  </div>';
   echo  '  <div>';
   echo  '    <label for="note">Примечание:</label>';
-  echo  '    <textarea   cols="35" rows="3" name="note" id="f" class="note">'.$outs['info'].'></textarea>';
+  echo  '    <textarea   cols="35" rows="3" name="note" id="f" class="note">'.$outs['info'].'</textarea>';
   echo  '  </div>';
   echo  ' </fieldset>';
 ?>  
@@ -104,6 +106,7 @@
       </form>
       </section>
   	</div>
+<?php  mysqli_close($mysqli); ?>
 <!-- JS -->
     <script> // wizard
     	$(function(){
