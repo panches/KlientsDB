@@ -34,7 +34,7 @@ if(!isset($_SESSION["session_username"])) {
                 "processing": true,
                 "scrollX": true,
                 "pagingType": "full_numbers",
-                "ajax": "all.main.ajax.php",
+                "ajax": "all.main.ajax.php?base=ssy",
                 "columns": [
                     {"title": "№"},
                     {"title": "Город А"},
