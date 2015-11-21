@@ -80,6 +80,14 @@ if(!isset($_GET["base"])) {
                     LEFT JOIN  tab_catal_our_company ON net_o.our_company=tab_catal_our_company.id_our';
             break;
 
+        case "sput":
+            $sql = 'SELECT o.id_kli, k.class, k.client, c.country, a.region, t.town, o.street, q.satellite, n.net, q.name_nms, concat(tq.brend," ",tq.model) as brend_model, q.ip_address, s.name
+                    FROM office_kli o, tab_klients k, tab_town t, tab_country c, tab_area a, net_equip q, tab_nets n, tab_status s, tab_equip tq
+                    WHERE o.klient = k.id and t.id=o.town_id and o.country_id=c.id and o.area_id=a.id and o.id_kli = q.num_node and q.linkage="1" and q.net=n.id and o.status_d=s.id and q.num_equip=tq.id
+                    and (n.sector = "SS")
+                    ORDER BY q.Date_of_add';
+            break;
+
         case "outs":
             $sql = 'SELECT outs.outs_id,k.client,outs.hostname,a.region,t.town,kli.street,concat(teq.brend,"  ",teq.model) as brend_model,outs.serial,outs.license,ac.nik,outs.last_change
                     FROM outs_hardware outs, office_kli kli, net_equip neq, tab_klients k, tab_town t, tab_area a, tab_equip teq, tab_access ac

@@ -34,6 +34,7 @@ if(!isset($_SESSION["session_username"])) {
                 "processing": true,
                 "scrollX": true,
                 "pagingType": "full_numbers",
+                "iDisplayLength": 25,
                 "ajax": "all.main.ajax.php?base=ssy",
                 "columns": [
                     {"title": "№"},

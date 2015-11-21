@@ -33,7 +33,8 @@ if(!isset($_SESSION["session_username"])) {
             var nTable = $('#sputtab').dataTable({
                 "processing": true,
                 "pagingType": "full_numbers",
-                "ajax": "all.main.ajax.php",
+                "iDisplayLength": 25,
+                "ajax": "all.main.ajax.php?base=sput",
                 "columns": [
                     {"title": "№"},
                     {"title": "класс"},

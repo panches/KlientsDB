@@ -33,6 +33,7 @@ if(!isset($_SESSION["session_username"])) {
             var nTable = $('#cytab').dataTable({
                 "processing": true,
                 "pagingType": "full_numbers",
+                "iDisplayLength": 25,
                 "ajax": "all.main.ajax.php?base=cy",
                 "columns": [
                     {"title": "№"},
