@@ -15,7 +15,8 @@ if (!isset($_GET['cy_id'])) {
 <?php
 require "../includes/constants.php";
 //Open database connection
-$mysqli = mysqli_connect($host,$user,$password,$db);
+$mysqli = mysqli_connect($host,$user,$password,$db)
+                or die("Ошибка " . mysqli_error($mysqli));
 
 $sql = 'SELECT e.*, i.town_id, i.address, concat_WS(" ",t.town,i.address) as addr, t.town, n.net AS net1, b.brend, b.model
         FROM klients.net_equip e, klients.tblinform2 i, klients.tab_town t, tab_nets n, tab_equip b
@@ -38,8 +39,13 @@ $sql = "SELECT name FROM tab_status WHERE id = ".$equip['status_d'];
 $res = mysqli_query($mysqli, $sql);
 $temp = mysqli_fetch_assoc($res);
 echo '<div><b>Статус: </b>'.$temp['name'].'</div>';
-echo '<div>в эксплуатации: '.$equip['in_exp'].'</div>';
-echo '<div>демонтирован: '.$equip['out_exp'].'</div>';
+echo '<div>в эксплуатации: '.date("m.d.Y",strtotime($equip['in_exp'])).'</div>';
+if($equip['out_exp'] == '0000-00-00') {
+    $temp_str = "";
+} else {
+    $temp_str = date("m.d.Y",strtotime($equip['out_exp']));
+}
+echo '<div>демонтирован: '.$temp_str.'</div>';
 echo '<div></div>';
 if($equip['linkage'] == 0) {
     $sql = "SELECT owner FROM tblinform2 WHERE inv_id =  ".$equip['num_node'];
@@ -78,6 +84,7 @@ if(in_array($equip['net1'],$radio)) {
     echo '<div>Полоса пропускания (МГц): '.$equip['bandwidth1'].'</div>';
 };
 
+mysqli_free_result($res);
 mysqli_close($mysqli);
 ?>
     </body>

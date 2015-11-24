@@ -44,8 +44,13 @@ echo '<div>Примечание: '.$kli['note'].'</div>';
 echo '<div>'.$kli['chart_joint_nc'].'</div>';
 echo '<div>Скорость: '.$kli['speed'].' Mbps</div>';
 echo '<div>Статус: '.$kli['name'].'</div>';
-echo '<div>в эксплуатации: '.$kli['in_exp'].'</div>';
-echo '<div>демонтирован: '.$kli['out_exp'].'</div>';
+echo '<div>в эксплуатации: '.date("m.d.Y",strtotime($kli['in_exp'])).'</div>';
+if($kli['out_exp'] == '0000-00-00') {
+    $temp_str = "";
+} else {
+    $temp_str = date("m.d.Y",strtotime($kli['out_exp']));
+}
+echo '<div>демонтирован:'.$temp_str.'</div>';
 echo '<div>ID в планере: '.$kli['planerid'].'</div>';
 $sql = "SELECT nik FROM equipments2 WHERE id = ".$kli['equip'];
 $res = mysqli_query($mysqli, $sql);

@@ -50,8 +50,13 @@
 	echo '<div>'.$kli['chart_joint_nc'].'</div>';
 	echo '<div>Скорость: '.$kli['speed'].' Mbps</div>';
 	echo '<div>Статус: '.$kli['name'].'</div>';
-	echo '<div>в эксплуатации: '.$kli['in_exp'].'</div>';
-	echo '<div>демонтирован: '.$kli['out_exp'].'</div>';
+    echo '<div>в эксплуатации: '.date("m.d.Y",strtotime($kli['in_exp'])).'</div>';
+    if($kli['out_exp'] == '0000-00-00') {
+        $temp_str = "";
+    } else {
+        $temp_str = date("m.d.Y",strtotime($kli['out_exp']));
+    }
+    echo '<div>демонтирован:'.$temp_str.'</div>';
 	echo '<div>ID в планере: '.$kli['planerid'].'</div>';
 
 	$sql = "SELECT nik FROM equipments2 WHERE id = ".$kli['equip'];
@@ -94,8 +99,13 @@
     $temp = mysqli_fetch_assoc($res);	
 
     echo '<div><b>Статус:</b> '.$temp['name'].'</div>';
-	echo '<div>в эксплуатации: '.$equ['in_exp'].'</div>';
-	echo '<div>демонтирован: '.$equ['out_exp'].'</div>';
+    echo '<div>в эксплуатации: '.date("m.d.Y",strtotime($equ['in_exp'])).'</div>';
+    if($equ['out_exp'] == '0000-00-00') {
+        $temp_str = "";
+    } else {
+        $temp_str = date("m.d.Y",strtotime($equ['out_exp']));
+    }
+    echo '<div>демонтирован:'.$temp_str.'</div>';
 
 	if ($equ['linkage'] = 0){
 	    $sql = "SELECT owner FROM tblinform2 WHERE inv_id = ".$equ['num_node'];

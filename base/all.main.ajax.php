@@ -13,7 +13,7 @@ if(!isset($_GET["base"])) {
         case "tp":
             $sql = 'SELECT t.inv_id,t.node_old,c.country,a.region,w.town,t.address
                     FROM tblinform2 t, tab_town w, tab_country c, tab_area a
-                    WHERE t.town_id=w.id and t.country_id=c.id and t.area_id=a.id';
+                    WHERE t.town_id=w.id and t.country_id=c.id and t.area_id=a.id ';
             break;
 
         case "cy":
@@ -28,7 +28,16 @@ if(!isset($_GET["base"])) {
                     break;
 
         case "ss":
-            $sql = 'SELECT id_link,sign_net,name,flag_link,planerid,status_d,equip_a,equip_b FROM net_links ORDER BY id_link';
+            $sql = 'SELECT id_link,sign_net,name,
+                      CASE
+                          WHEN flag_link=0 THEN "сетевое"
+                          WHEN flag_link=1 THEN "сервисное"
+                          WHEN flag_link=2 THEN "межсетевое"
+                          WHEN flag_link=3 THEN "сервис провайдера"
+                          ELSE null
+                      END AS dLink
+                    FROM net_links
+                    ORDER BY id_link';
             break;
 
         case "ok":
@@ -82,9 +91,16 @@ if(!isset($_GET["base"])) {
 
         case "sput":
             $sql = 'SELECT o.id_kli, k.class, k.client, c.country, a.region, t.town, o.street, q.satellite, n.net, q.name_nms, concat(tq.brend," ",tq.model) as brend_model, q.ip_address, s.name
-                    FROM office_kli o, tab_klients k, tab_town t, tab_country c, tab_area a, net_equip q, tab_nets n, tab_status s, tab_equip tq
-                    WHERE o.klient = k.id and t.id=o.town_id and o.country_id=c.id and o.area_id=a.id and o.id_kli = q.num_node and q.linkage="1" and q.net=n.id and o.status_d=s.id and q.num_equip=tq.id
-                    and (n.sector = "SS")
+                    FROM office_kli o
+                    LEFT JOIN tab_klients k ON o.klient = k.id
+                    LEFT JOIN tab_town t ON t.id=o.town_id
+                    RIGHT JOIN tab_country c ON o.country_id=c.id
+                    LEFT JOIN tab_area a ON o.area_id=a.id
+                    LEFT JOIN net_equip q ON o.id_kli = q.num_node
+                    LEFT JOIN tab_nets n ON q.net=n.id
+                    LEFT JOIN tab_status s ON o.status_d=s.id
+                    LEFT JOIN tab_equip tq ON q.num_equip=tq.id
+                    WHERE (q.linkage="1") and (n.sector = "SS")
                     ORDER BY q.Date_of_add';
             break;
 
@@ -97,6 +113,7 @@ if(!isset($_GET["base"])) {
     };
 //Get records from database
     $result = mysqli_query($mysqli, $sql);
+    //$numrows=mysqli_num_rows($result);
 //Add all records to an array
     while ($row = mysqli_fetch_array($result, MYSQL_NUM)) {
         $rows[] = $row;
@@ -105,7 +122,12 @@ if(!isset($_GET["base"])) {
 // закрываем подключение
     mysqli_close($mysqli);
 //Return result to
-    $out = array('data' => $rows);
+    $out = array(
+       // "sEcho" => 1,
+       // "iTotalRecords" => $numrows,
+       // "iTotalDisplayRecords" => $numrows,
+        "data" => $rows
+    );
     echo json_encode($out);
 
 }

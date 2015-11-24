@@ -24,7 +24,16 @@ if(!isset($_SESSION["session_username"])) {
         </div>
         <br>
 <!-- Таблица -->
-        <table id="sstab" class="display cell-border compact" cellspacing="0" width="100%"></table>
+        <table id="sstab" class="display cell-border compact" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Тип сети</th>
+                    <th>Link / Соединение</th>
+                    <th>Соединение</th>
+                </tr>
+            </thead>
+        </table>
 <!-- footer: jQuery, SmartMenus + js -->
         <?php include("../includes/footer.php"); ?>
     </div>
@@ -34,13 +43,7 @@ if(!isset($_SESSION["session_username"])) {
                 "processing": true,
                 "pagingType": "full_numbers",
                 "iDisplayLength": 25,
-                "ajax": "all.main.ajax.php?base=ss",
-                "columns": [
-                    {"title": "№"},
-                    {"title": "Тип сети"},
-                    {"title": "IP адрес"},
-                    {"title": "Link / Соединение"},
-                    {"title": "Признак"}]
+                "ajax": "all.main.ajax.php?base=ss"
             });
             // select pressed row
             $('#sstab tbody').on( 'click', 'tr', function () {
