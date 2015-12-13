@@ -8,7 +8,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Add Аутсорсинг</title>
+    <title>Добавить Аутсорсинг</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="../css/jquery.steps.css">
@@ -40,7 +40,7 @@
       <table id="office" class="display cell-border compact" cellspacing="0" width="100%"></table>
       <div id="ok_show"><font color="red"></font></div>
       </section>
- 
+
 	    <h2>Модель устройства</h2>
     	<section>
 <!-- Таблица Модель устройства -->
@@ -79,7 +79,7 @@
         <div>
           <label for="note">Примечание:</label>
           <textarea   cols="35" rows="3" name="note" id="f" class="note"></textarea>
-        </div>         
+        </div>
         </fieldset>
         <div>
          <button name="btnOk" id="btnOk" class="btnOk"><img src="../img/ok.png" style="vertical-align: middle"> Ok</button>
@@ -98,7 +98,7 @@
     </script>
     <script>
     $(document).ready(function(){
-    // Офисы Клиентов  
+    // Офисы Клиентов
       var oTable = $("#office").dataTable({
         "scrollY":        "300px",
         "scrollCollapse": true,
@@ -115,7 +115,7 @@
           {"title": "Страна"},
           {"title": "Область"}
         ]
-      });   
+      });
     // select entery row
       $('#office tbody').on( 'click', 'tr', function () {
         if ( $(this).hasClass('selected') ) {
@@ -125,13 +125,13 @@
             oTable.$('tr.selected').removeClass('selected');
             $(this).addClass('selected');
         };
-        // отбор позиции строки и значение столбца 
+        // отбор позиции строки и значение столбца
         var oPos = oTable.fnGetPosition( this );
         var oData = oTable.fnGetData( oPos );
         $("#ok_show").html('<font color="red">' + oData[1] + ", " + oData[2] + ", " + oData[3] + '</font');
         $("#a1").attr("value",oData[1] + ", " + oData[2] + ", " + oData[3]);
         $("#a2").attr("value",oData[0]);
-      });  
+      });
     // Сетевые Устройства
       var eTable = $("#equip").dataTable({
         "scrollY":        "300px",
@@ -146,8 +146,8 @@
           {"title": "Адрес расположения"},
           {"title": "Производитель"},
           {"title": "Модель"}
-        ] 
-      });   
+        ]
+      });
     // select entery row
       $('#equip tbody').on( 'click', 'tr', function () {
         if ( $(this).hasClass('selected') ) {
@@ -157,14 +157,14 @@
             eTable.$('tr.selected').removeClass('selected');
             $(this).addClass('selected');
         };
-        // отбор позиции строки и значение столбца 
+        // отбор позиции строки и значение столбца
         var ePos = eTable.fnGetPosition( this );
         var eData = eTable.fnGetData( ePos );
-        $("#eq_show").html('<font color="red">' + eData[3] + '</font');        
+        $("#eq_show").html('<font color="red">' + eData[3] + '</font');
         $("#c1").attr("value",eData[3]);
         $("#c2").attr("value",eData[0]);
-      });             
+      });
     })
     </script>
   </body>
-</html>    
+</html>

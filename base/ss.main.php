@@ -16,9 +16,17 @@ if(!isset($_SESSION["session_username"])) {
         <br>
 <!-- Кнопки вверху -->
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 btn-group" role="group" aria-label="eeeee">
                 <a href="ss.main.info.php" target="_blank" class="btn btn-default" id="a1">Info</a>
-                <a href="ss.main.add.php" target="_blank" class="btn btn-default" id="a2">New</a>
+                <div class="btn-group" role="group">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">New
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="ss.main.add.php" target="_blank">сетевое</a></li>
+                        <li><a href="#" target="_blank">межсетевое</a></li>
+                        <li><a href="#" target="_blank">сервис провайдера</a></li>
+                    </ul>
+                </div>
                 <a href="ss.main.edit.php" target="_blank" class="btn btn-default" id="a3">Edit</a>
             </div>
         </div>

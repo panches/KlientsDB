@@ -3,9 +3,9 @@
 session_start();
 if(!isset($_SESSION["session_username"])) {
     header("location: ../index.html");
-}
+};
 ini_set('default_charset',"UTF-8");
-require "../includes/constants.php"; //Open database connection
+require "../includes/constants.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,6 +17,7 @@ require "../includes/constants.php"; //Open database connection
   </head>
   <body>
       <?php
+      //Open database connection
         $mysqli = mysqli_connect($host,$user,$password,$db)
                     or die("Ошибка " . mysqli_error($mysqli));
       ?>

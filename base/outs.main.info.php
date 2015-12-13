@@ -99,11 +99,11 @@
     $temp = mysqli_fetch_assoc($res);	
 
     echo '<div><b>Статус:</b> '.$temp['name'].'</div>';
-    echo '<div>в эксплуатации: '.date("m.d.Y",strtotime($equ['in_exp'])).'</div>';
+    echo '<div>в эксплуатации: '.date("d.m.Y",strtotime($equ['in_exp'])).'</div>';
     if($equ['out_exp'] == '0000-00-00') {
         $temp_str = "";
     } else {
-        $temp_str = date("m.d.Y",strtotime($equ['out_exp']));
+        $temp_str = date("d.m.Y",strtotime($equ['out_exp']));
     }
     echo '<div>демонтирован:'.$temp_str.'</div>';
 

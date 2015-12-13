@@ -39,11 +39,11 @@ $sql = "SELECT name FROM tab_status WHERE id = ".$equip['status_d'];
 $res = mysqli_query($mysqli, $sql);
 $temp = mysqli_fetch_assoc($res);
 echo '<div><b>Статус: </b>'.$temp['name'].'</div>';
-echo '<div>в эксплуатации: '.date("m.d.Y",strtotime($equip['in_exp'])).'</div>';
+echo '<div>в эксплуатации: '.date("d.m.Y",strtotime($equip['in_exp'])).'</div>';
 if($equip['out_exp'] == '0000-00-00') {
     $temp_str = "";
 } else {
-    $temp_str = date("m.d.Y",strtotime($equip['out_exp']));
+    $temp_str = date("d.m.Y",strtotime($equip['out_exp']));
 }
 echo '<div>демонтирован: '.$temp_str.'</div>';
 echo '<div></div>';

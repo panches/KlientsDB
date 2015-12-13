@@ -110,9 +110,9 @@ $sql = "SELECT name FROM tab_status WHERE id = ".$sKli['status_d'];
 $res = mysqli_query($mysqli, $sql);
 $temp = mysqli_fetch_assoc($res);
 if($sKli['out_exp'] == '0000-00-00') {
-    echo '<div>Статус: '.$temp['name'].' '. date("m.d.Y",strtotime($sKli['in_exp'])).'</div>';
+    echo '<div>Статус: '.$temp['name'].' '. date("d.m.Y",strtotime($sKli['in_exp'])).'</div>';
 } else {
-    echo '<div>Статус: '.$temp['name'].', в эксплуатации: '.date("m.d.Y",strtotime($sKli['in_exp'])).', демонтирован: '.date("m.d.Y",strtotime($sKli['out_exp'])).'</div>';
+    echo '<div>Статус: '.$temp['name'].', в эксплуатации: '.date("d.m.Y",strtotime($sKli['in_exp'])).', демонтирован: '.date("d.m.Y",strtotime($sKli['out_exp'])).'</div>';
 };
 echo '<div>Особенности приема в эксплуатацию: '.$sKli['inexp'].'</div>';
 // менеджер

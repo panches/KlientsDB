@@ -48,7 +48,7 @@ switch($sSput['office']) {
 }
 echo '<div><font color="#8b0000">Статус: </font>'.$temp_str.'</div>';
 echo '<div><font color="#8b0000">Состояние: </font>'.$sSput['name'].'</div>';
-$temp_str = date("m.d.Y",strtotime($sSput['in_exp']));
+$temp_str = date("d.m.Y",strtotime($sSput['in_exp']));
 echo '<div><font color="#8b0000">Дата: </font>'.$temp_str.'</div>';
 echo '<div><font color="#8b0000">Схема канала: </font>'.$sSput['scheme'].'</div>';
 

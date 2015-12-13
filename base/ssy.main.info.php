@@ -52,7 +52,7 @@ echo '<div>№ задачи: '.$ssy['plannerid'].'</div>';
 echo '<div>Тип услуги: '.$ssy['name_sk'].'</div>';
 echo '<div>Название клиента: '.$ssy['nmcli'].'</div>';
 echo '<div>corp\retail: '.$ssy['corp_retail'].'</div>';
-echo '<div>Дата включения: '.date("m.d.Y",strtotime($ssy['condition_d'])).'</div>';
+echo '<div>Дата включения: '.date("d.m.Y",strtotime($ssy['condition_d'])).'</div>';
 echo '<div>Состояние: '.$ssy['name_s'].'</div>';
 $sql = 'SELECT note FROM net_operators WHERE id_oper='.$_GET['ssy_id'];
 $res = mysqli_query($mysqli, $sql);
