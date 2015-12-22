@@ -22,9 +22,9 @@ if(!isset($_SESSION["session_username"])) {
                     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">New
                         <span class="caret"></span></button>
                     <ul class="dropdown-menu">
-                        <li><a href="ss.main.add.php" target="_blank">сетевое</a></li>
-                        <li><a href="#" target="_blank">межсетевое</a></li>
-                        <li><a href="#" target="_blank">сервис провайдера</a></li>
+                        <li><a href="ss.main.add1.php" target="_blank">сетевое</a></li>
+                        <li><a href="ss.main.add2.php" target="_blank">межсетевое</a></li>
+                        <li><a href="ss.main.add3.php" target="_blank">сервис провайдера</a></li>
                     </ul>
                 </div>
                 <a href="ss.main.edit.php" target="_blank" class="btn btn-default" id="a3">Edit</a>
