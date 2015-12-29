@@ -58,7 +58,7 @@ $(document).ready(function(){
         // отбор позиции строки и значение столбца
         var aPos = aTable.fnGetPosition( this );
         var aData = aTable.fnGetData( aPos );
-        $("#eqa_show").html('<font color="red">' + aData[3] + '</font');
+        $("#eqa_show").html('<font color="red">' + aData[3] + '</font>');
         $("#b1").attr("value",aData[3]);
         $("#b2").attr("value",aData[0]);
     });

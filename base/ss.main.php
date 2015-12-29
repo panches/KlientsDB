@@ -66,9 +66,9 @@ if(!isset($_SESSION["session_username"])) {
                     var aPos = nTable.fnGetPosition( this );
                     var aData = nTable.fnGetData( aPos );
                     $("#a1").attr("href","ss.main.info.php?ss_id=" + aData[0]);
-                    $("#a3").attr("href","ss.main.edit.php?ss_id=" + aData[0]);
+                    $("#a3").attr("href","ss.main.edit.php?ss_id=" + aData[0] + '&ss_link=' + aData[3]);
                 };
-            })
+            });
         });
     </script>
     </body>

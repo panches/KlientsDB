@@ -54,7 +54,7 @@ $(document).ready(function(){
         // отбор позиции строки и значение столбца
         var aPos = aTable.fnGetPosition( this );
         var aData = aTable.fnGetData( aPos );
-        $("#eqa_show").html('<font color="red">' + aData[3] + '</font');
+        $("#eqa_show").html('<font color="red">' + aData[3] + '</font>');
         $("#b1").attr("value",aData[3]);
         $("#b2").attr("value",aData[0]);
     });
@@ -86,7 +86,7 @@ $(document).ready(function(){
         // отбор позиции строки и значение столбца
         var bPos = bTable.fnGetPosition( this );
         var bData = bTable.fnGetData( bPos );
-        $("#eqb_show").html('<font color="red">' + bData[3] + '</font');
+        $("#eqb_show").html('<font color="red">' + bData[3] + '</font>');
         $("#d1").attr("value",bData[3]);
         $("#d2").attr("value",bData[0]);
     });
