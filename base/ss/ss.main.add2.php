@@ -2,18 +2,18 @@
 // проверка на существование открытой сессии (вставлять во все новые файлы)
 session_start();
 if(!isset($_SESSION["session_username"])) {
-    header("location: ../index.html");
+    header("location: ../../index.html");
 };
 ini_set('default_charset',"UTF-8");
-require "../includes/constants.php"; //Open database connection
+require "../../includes/constants.php"; //Open database connection
 ?>
 <html>
 <head>
     <meta charset="utf-8" />
     <title>Добавить Сетевое Соединение</title>
-    <link rel="stylesheet" href="../css/jquery.dataTables.css" />
-    <link rel="stylesheet" href="../css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../css/dataTables.bootstrap.min.css" />
+    <link rel="stylesheet" href="../../css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../css/dataTables.bootstrap.min.css" />
     <style>
         .error{
             color: red;
@@ -207,7 +207,7 @@ require "../includes/constants.php"; //Open database connection
                         <br>
                         <div class="form-group">
                             <div class="col-sm-13 col-sm-offset-11">
-                                <button name="btnOk" id="btnOk" class="btn"><img src="../img/ok.png"> Ok</button>
+                                <button name="btnOk" id="btnOk" class="btn"><img src="../../img/ok.png"> Ok</button>
                             </div>
                         </div>
                     </form>
@@ -225,14 +225,14 @@ require "../includes/constants.php"; //Open database connection
 <?php mysqli_close($mysqli); ?>
 
 <!-- JS -->
-<script src="../js/jquery-1.11.3.min.js"></script>
-<script src="../js/jquery.dataTables.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/jquery.bootstrap.wizard.min.js"></script>
-<script src="../js/dataTables.bootstrap.min.js"></script>
-<script src="../js/jquery.bootstrap.wizard.min.js"></script>
-<script src="../js/jquery.validate.min.js"></script>
+<script src="../../js/jquery-1.11.3.min.js"></script>
+<script src="../../js/jquery.dataTables.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/jquery.bootstrap.wizard.min.js"></script>
+<script src="../../js/dataTables.bootstrap.min.js"></script>
+<script src="../../js/jquery.bootstrap.wizard.min.js"></script>
+<script src="../../js/jquery.validate.min.js"></script>
 <!-- MyScript -->
-<script src="js/ss.main.add2.js"></script>
+<script src="ss.main.add2.js"></script>
 </body>
 </html>    

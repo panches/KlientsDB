@@ -9,28 +9,28 @@
   <head>
     <meta charset="utf-8" />
     <title>Добавить Аутсорсинг</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="../css/jquery.steps.css">
-    <link rel="stylesheet" href="../css/jquery.dataTables.css" />
-    <link rel="stylesheet" href="css/fieldset.css" />
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../../css/jquery.steps.css">
+    <link rel="stylesheet" href="../../css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="../css/fieldset.css" />
     <style type="text/css">
         input:required:invalid, input:focus:invalid {
-          background-image: url(../img/invalid.png);
+          background-image: url(../../img/invalid.png);
           background-position: right top;
           background-repeat: no-repeat;
         }
         input:required:valid {
-          background-image: url(../img/valid.png);
+          background-image: url(../../img/valid.png);
           background-position: right top;
           background-repeat: no-repeat;
         }
     </style>
-    <script src="../js/jquery-1.11.0.min.js"></script>
-    <script src="../js/modernizr-2.6.2.min.js"></script>
-    <script src="../js/jquery.cookie-1.3.1.js"></script>
-    <script src="../js/jquery.steps.min.js"></script>
-    <script src="../js/jquery.dataTables.min.js"></script>
+    <script src="../../js/jquery-1.11.0.min.js"></script>
+    <script src="../../js/modernizr-2.6.2.min.js"></script>
+    <script src="../../js/jquery.cookie-1.3.1.js"></script>
+    <script src="../../js/jquery.steps.min.js"></script>
+    <script src="../../js/jquery.dataTables.min.js"></script>
   </head>
   <body>
   	<div id="wizard">
@@ -82,7 +82,7 @@
         </div>
         </fieldset>
         <div>
-         <button name="btnOk" id="btnOk" class="btnOk"><img src="../img/ok.png" style="vertical-align: middle"> Ok</button>
+         <button name="btnOk" id="btnOk" class="btnOk"><img src="../../img/ok.png" style="vertical-align: middle"> Ok</button>
         </div>
       </form>
       </section>
@@ -103,7 +103,7 @@
         "scrollY":        "300px",
         "scrollCollapse": true,
         "processing": true,
-        "ajax": "../includes/findOK.ajax.php",
+        "ajax": "../../includes/findOK.ajax.php",
         "columns": [
           {"title": "№"},
           {"title": "Клиент"},
@@ -128,7 +128,7 @@
         // отбор позиции строки и значение столбца
         var oPos = oTable.fnGetPosition( this );
         var oData = oTable.fnGetData( oPos );
-        $("#ok_show").html('<font color="red">' + oData[1] + ", " + oData[2] + ", " + oData[3] + '</font');
+        $("#ok_show").html('<font color="red">' + oData[1] + ", " + oData[2] + ", " + oData[3] + '</font>');
         $("#a1").attr("value",oData[1] + ", " + oData[2] + ", " + oData[3]);
         $("#a2").attr("value",oData[0]);
       });
@@ -137,7 +137,7 @@
         "scrollY":        "300px",
         "scrollCollapse": true,
         "processing": true,
-        "ajax": "../includes/findEq.ajax.php",
+        "ajax": "../../includes/findEq.ajax.php",
         "columns": [
           {"title": "№"},
           {"title": "Тип сети"},
@@ -160,7 +160,7 @@
         // отбор позиции строки и значение столбца
         var ePos = eTable.fnGetPosition( this );
         var eData = eTable.fnGetData( ePos );
-        $("#eq_show").html('<font color="red">' + eData[3] + '</font');
+        $("#eq_show").html('<font color="red">' + eData[3] + '</font>');
         $("#c1").attr("value",eData[3]);
         $("#c2").attr("value",eData[0]);
       });

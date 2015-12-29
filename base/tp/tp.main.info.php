@@ -1,7 +1,7 @@
 <?php
   header("Content-Type: text/html; charset=utf-8");
   if (!isset($_GET['tp_id'])) {
-      header("location: ../includes/info.error.php");
+      header("location: ../../includes/info.error.php");
   }   
 ?>
 <!DOCTYPE html>
@@ -9,11 +9,11 @@
 <head> 
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <title>info: о Тех.Площадке</title>
-  <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css" />
 </head>
 <body>
 <?php
-    require "../includes/constants.php";
+    require "../../includes/constants.php";
 	//Open database connection
     $mysqli = mysqli_connect($host,$user,$password,$db)
                 or die("Ошибка " . mysqli_error($mysqli));
@@ -193,7 +193,7 @@
         </div>                            
   </div>
     <?php mysqli_close($mysqli); ?>
-    <script src="../js/jquery-1.11.0.min.js" type="text/javascript"></script>
-    <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../../js/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="../../js/bootstrap.min.js" type="text/javascript"></script>
 </body>
 </html>

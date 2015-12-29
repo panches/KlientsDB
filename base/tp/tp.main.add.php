@@ -2,18 +2,18 @@
 // проверка на существование открытой сессии (вставлять во все новые файлы)
 session_start();
 if(!isset($_SESSION["session_username"])) {
-    header("location: ../index.html");
+    header("location: ../../index.html");
 };
 ini_set('default_charset',"UTF-8");
-require "../includes/constants.php";
+require "../../includes/constants.php";
 ?>
 <!DOCTYPE html>
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Добавить Тех.Площадку</title>
-    <link rel="stylesheet" type="text/css" href="css/fieldset.css" />
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/fieldset.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css" />
   </head>
   <body>
       <?php
@@ -254,13 +254,13 @@ require "../includes/constants.php";
         </div>    
       </fieldset>       
         <div class="col-md-12">
-          <button name="btnOk" id="btnOk" class="btn btn-default"><img src="../img/ok.png" style="vertical-align: middle"> Ok</button>
+          <button name="btnOk" id="btnOk" class="btn btn-default"><img src="../../img/ok.png" style="vertical-align: middle"> Ok</button>
         </div>
     </form>
   </div>
 <?php mysqli_close($mysqli); ?>
-    <script src="../js/jquery-1.11.0.min.js" type="text/javascript"></script>
-    <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../../js/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="../../js/bootstrap.min.js" type="text/javascript"></script>
     <script>
 
       function selectRegion(){

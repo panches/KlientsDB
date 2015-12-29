@@ -17,17 +17,17 @@ if(!isset($_SESSION["session_username"])) {
 <!-- Кнопки вверху -->
         <div class="row">
             <div class="col-md-12 btn-group" role="group" aria-label="eeeee">
-                <a href="ss.main.info.php" target="_blank" class="btn btn-default" id="a1">Info</a>
+                <a href="ss/ss.main.info.php" target="_blank" class="btn btn-default" id="a1">Info</a>
                 <div class="btn-group" role="group">
                     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">New
                         <span class="caret"></span></button>
                     <ul class="dropdown-menu">
-                        <li><a href="ss.main.add1.php" target="_blank">сетевое</a></li>
-                        <li><a href="ss.main.add2.php" target="_blank">межсетевое</a></li>
-                        <li><a href="ss.main.add3.php" target="_blank">сервис провайдера</a></li>
+                        <li><a href="ss/ss.main.add1.php" target="_blank">сетевое</a></li>
+                        <li><a href="ss/ss.main.add2.php" target="_blank">межсетевое</a></li>
+                        <li><a href="ss/ss.main.add3.php" target="_blank">сервис провайдера</a></li>
                     </ul>
                 </div>
-                <a href="ss.main.edit.php" target="_blank" class="btn btn-default" id="a3">Edit</a>
+                <a href="ss/ss.main.edit.php" target="_blank" class="btn btn-default" id="a3">Edit</a>
             </div>
         </div>
         <br>
@@ -57,7 +57,7 @@ if(!isset($_SESSION["session_username"])) {
             $('#sstab tbody').on( 'click', 'tr', function () {
                 if ( $(this).hasClass('selected') ) {
                     $(this).removeClass('selected');
-                    $("#a1").attr("href","ss.main.info.php");
+                    $("#a1").attr("href","ss/ss.main.info.php");
                 }
                 else {
                     nTable.$('tr.selected').removeClass('selected');
@@ -65,8 +65,8 @@ if(!isset($_SESSION["session_username"])) {
                     // отбор позиции строки и значение столбца
                     var aPos = nTable.fnGetPosition( this );
                     var aData = nTable.fnGetData( aPos );
-                    $("#a1").attr("href","ss.main.info.php?ss_id=" + aData[0]);
-                    $("#a3").attr("href","ss.main.edit.php?ss_id=" + aData[0] + '&ss_link=' + aData[3]);
+                    $("#a1").attr("href","ss/ss.main.info.php?ss_id=" + aData[0]);
+                    $("#a3").attr("href","ss/ss.main.edit.php?ss_id=" + aData[0] + '&ss_link=' + aData[3]);
                 };
             });
         });

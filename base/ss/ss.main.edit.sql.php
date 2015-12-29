@@ -1,9 +1,9 @@
 <?php
 header("Content-Type: text/html; charset=utf-8");
 if (!isset($_POST['equip_a2']) or !isset($_POST['equip_b2'])) {
-    header("location: ../includes/info.error.php");
+    header("location: ../../includes/info.error.php");
 }
-require "../includes/constants.php";
+require "../../includes/constants.php";
 //Open database connection
 $mysqli = mysqli_connect($host,$user,$password,$db)
 or die("Ошибка " . mysqli_error($mysqli));
@@ -96,9 +96,9 @@ if ($_POST['sign'] == "сервис провайдера") {
 };
 //Get records from database
 if (mysqli_query($mysqli, $sql) === TRUE) {
-    header("location: ../includes/info.ok.php?info=1");
+    header("location: ../../includes/info.ok.php?info=1");
 } else {
-    header("location: ../includes/info.error.php?info=1");
+    header("location: ../../includes/info.error.php?info=1");
 };
 // close database connection
 mysqli_close($mysqli);

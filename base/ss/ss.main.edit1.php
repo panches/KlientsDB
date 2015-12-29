@@ -2,21 +2,21 @@
 // проверка на существование открытой сессии (вставлять во все новые файлы)
 session_start();
 if(!isset($_SESSION["session_username"])) {
-    header("location: ../index.html");
+    header("location: ../../index.html");
 };
 ini_set('default_charset',"UTF-8");
 if (!isset($_GET['ss_id'])) {
-    header("location: ../includes/info.error.php");
-}
-require "../includes/constants.php"; //Open database connection
+    header("location: ../../includes/info.error.php");
+};
+require "../../includes/constants.php"; //Open database connection
 ?>
 <html>
 <head>
     <meta charset="utf-8" />
     <title>Изменить Сетевое Соединение</title>
-    <link rel="stylesheet" href="../css/jquery.dataTables.css" />
-    <link rel="stylesheet" href="../css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../css/dataTables.bootstrap.min.css" />
+    <link rel="stylesheet" href="../../css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../css/dataTables.bootstrap.min.css" />
     <style>
         .error{
             color: red;
@@ -31,14 +31,14 @@ require "../includes/constants.php"; //Open database connection
                     or die("Ошибка " . mysqli_error($mysqli));
 
     $sql = 'SELECT *,
-                 eq1.id_equip AS eq1id,eq1.name_nms AS eq1name,
-                 eq2.id_equip AS eq2id,eq2.name_nms AS eq2name,
-                 st.name AS st_name
-                FROM net_links link
-                LEFT JOIN net_equip eq1 ON eq1.id_equip=link.equip_a
-                LEFT JOIN net_equip eq2 ON eq2.id_equip=link.equip_b
-                LEFT JOIN tab_status st ON st.id=link.status_d
-                WHERE id_link='.$_GET['ss_id'];
+             eq1.id_equip AS eq1id,eq1.name_nms AS eq1name,
+             eq2.id_equip AS eq2id,eq2.name_nms AS eq2name,
+             st.name AS st_name
+            FROM net_links link
+            LEFT JOIN net_equip eq1 ON eq1.id_equip=link.equip_a
+            LEFT JOIN net_equip eq2 ON eq2.id_equip=link.equip_b
+            LEFT JOIN tab_status st ON st.id=link.status_d
+            WHERE id_link='.$_GET['ss_id'];
     $res = mysqli_query($mysqli, $sql);
     $link = mysqli_fetch_array($res, MYSQLI_ASSOC);
 ?>
@@ -48,10 +48,9 @@ require "../includes/constants.php"; //Open database connection
         <div class="navbar-inner">
             <div class="container">
                 <ul>
-                    <li><a href="#tab1" data-toggle="tab">1.Выбор устройств А</a></li>
-                    <li><a href="#tab2" data-toggle="tab">2.Выбор устройств Б</a></li>
-                    <li><a href="#tab3" data-toggle="tab">3.Статус соединения</a></li>
-                    <li><a href="#tab4" data-toggle="tab">4.Все данные</a></li>
+                    <li><a href="#tab1" data-toggle="tab">1.Выбор устройств</a></li>
+                    <li><a href="#tab2" data-toggle="tab">2.Статус соединения</a></li>
+                    <li><a href="#tab3" data-toggle="tab">3.Все данные</a></li>
                 </ul>
             </div>
         </div>
@@ -60,9 +59,9 @@ require "../includes/constants.php"; //Open database connection
         <div class="tab-pane" id="tab1">
             <div  class="container">
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Тип сети А:</label>
+                    <label class="col-sm-2 control-label">Тип сети:</label>
                     <div class="col-sm-10">
-                        <select name="netA" id="netA" onchange="javascript:selectNetA();" class="form-control">
+                        <select name="nets" id="nets" onchange="javascript:selectNet();" class="form-control">
                             <?php
                             $sql = 'SELECT id,net FROM tab_nets ORDER BY id';
                             $res = mysqli_query($mysqli, $sql);
@@ -83,28 +82,6 @@ require "../includes/constants.php"; //Open database connection
                 <?php
                 echo '<div id="eqa_show"><font color="red">'.$link['eq1name'].'</font></div><br>';
                 ?>
-            </div>
-        </div>
-        <div class="tab-pane" id="tab2">
-            <div  class="container">
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Тип сети Б:</label>
-                    <div class="col-sm-10">
-                        <select name="netB" id="netB" onchange="javascript:selectNetB();" class="form-control">
-                            <?php
-                            $sql = 'SELECT id,net FROM tab_nets ORDER BY id';
-                            $res = mysqli_query($mysqli, $sql);
-                            while ($row = mysqli_fetch_array($res, MYSQLI_ASSOC)) {
-                                if ($link['sign_net2'] == $row['net'] ) {
-                                    echo '<option value="' . $row['id'] . '" selected>' . $row['net'] . '</option>';
-                                } else {
-                                    echo '<option value="' . $row['id'] . '">' . $row['net'] . '</option>';
-                                }
-                            };
-                            ?>
-                        </select>
-                    </div>
-                </div>  <br>
                 <!-- Устройство Б -->
                 <label for="equipB">Устройство Б:</label>
                 <table id="equipB" class="display cell-border compact" cellspacing="0" width="100%"></table>
@@ -113,7 +90,7 @@ require "../includes/constants.php"; //Open database connection
                 ?>
             </div>
         </div>
-        <div class="tab-pane" id="tab3">
+        <div class="tab-pane" id="tab2">
             <div  class="container">
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Статус соединения:</label>
@@ -136,15 +113,15 @@ require "../includes/constants.php"; //Open database connection
                 </div>
             </div>
         </div>
-        <div class="tab-pane" id="tab4">
+        <div class="tab-pane" id="tab3">
             <div  class="container">
                 <!-- Форма Остальные данные -->
                 <form id="formadd" method="post" action="ss.main.edit.sql.php">
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Тип сети А:</label>
+                        <label class="col-sm-3 control-label">Тип сети:</label>
                         <div class="col-sm-9">
                             <?php
-                            echo '<input type="text" name="type_netA" id="aa1" class="form-control" value="'.$link['sign_net'].'" />';
+                            echo '<input type="text" name="type_net" id="a1" class="form-control" value="'.$link['sign_net'].'" />';
                             ?>
                         </div>
                     </div>
@@ -162,14 +139,6 @@ require "../includes/constants.php"; //Open database connection
                         <div class="col-sm-9">
                             <?php
                             echo '<input type="text" name="port_a" id="c" class="form-control" value="'.$link['port_a'].'" />';
-                            ?>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Тип сети Б:</label>
-                        <div class="col-sm-9">
-                            <?php
-                            echo '<input type="text" name="type_netB" id="ab1" class="form-control" value="'.$link['sign_net2'].'" />';
                             ?>
                         </div>
                     </div>
@@ -242,7 +211,7 @@ require "../includes/constants.php"; //Open database connection
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Признак соединения:</label>
                         <div class="col-sm-9">
-                            <input type="text" name="sign" id="n" class="form-control" value="межсетевое" />
+                            <input type="text" name="sign" id="n" class="form-control" value="сетевое" />
                         </div>
                     </div>
                     <div class="form-group">
@@ -267,7 +236,7 @@ require "../includes/constants.php"; //Open database connection
                     <br>
                     <div class="form-group">
                         <div class="col-sm-13 col-sm-offset-11">
-                            <button name="btnOk" id="btnOk" class="btn"><img src="../img/ok.png"> Ok</button>
+                            <button name="btnOk" id="btnOk" class="btn"><img src="../../img/ok.png"> Ok</button>
                         </div>
                     </div>
                 </form>
@@ -285,21 +254,21 @@ require "../includes/constants.php"; //Open database connection
 <?php mysqli_close($mysqli); ?>
 
 <!-- JS -->
-<script src="../js/jquery-1.11.3.min.js"></script>
-<script src="../js/jquery.dataTables.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/jquery.bootstrap.wizard.min.js"></script>
-<script src="../js/dataTables.bootstrap.min.js"></script>
-<script src="../js/jquery.bootstrap.wizard.min.js"></script>
-<script src="../js/jquery.validate.min.js"></script>
+<script src="../../js/jquery-1.11.3.min.js"></script>
+<script src="../../js/jquery.dataTables.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/jquery.bootstrap.wizard.min.js"></script>
+<script src="../../js/dataTables.bootstrap.min.js"></script>
+<script src="../../js/jquery.bootstrap.wizard.min.js"></script>
+<script src="../../js/jquery.validate.min.js"></script>
 <!-- MyScript -->
-<script src="js/ss.main.add2.js"></script>
+<script src="ss.main.add1.js"></script>
 <script>
-    $(function() {
+$(function() {
 // найти все записи в таблицах, которые содержат выбранный тип сети
-        $("#equipA").dataTable().api().search("<?php echo $link['sign_net'] ?>").draw();
-        $("#equipB").dataTable().api().search("<?php echo $link['sign_net2'] ?>").draw();
-    });
+    $("#equipA").dataTable().api().search("<?php echo $link['sign_net'] ?>").draw();
+    $("#equipB").dataTable().api().search("<?php echo $link['sign_net'] ?>").draw();
+});
 </script>
 </body>
 </html>    

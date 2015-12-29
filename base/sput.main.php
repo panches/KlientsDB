@@ -17,9 +17,9 @@ if(!isset($_SESSION["session_username"])) {
 <!-- Кнопки вверху -->
         <div class="row">
             <div class="col-md-12">
-                <a href="sput.main.info.php" target="_blank" class="btn btn-default" id="a1">Info</a>
-                <a href="sput.main.add.php" target="_blank" class="btn btn-default" id="a2">New</a>
-                <a href="sput.main.edit.php" target="_blank" class="btn btn-default" id="a3">Edit</a>
+                <a href="sput/sput.main.info.php" target="_blank" class="btn btn-default" id="a1">Info</a>
+                <a href="sput/sput.main.add.php" target="_blank" class="btn btn-default" id="a2">New</a>
+                <a href="sput/sput.main.edit.php" target="_blank" class="btn btn-default" id="a3">Edit</a>
             </div>
         </div>
         <br>
@@ -54,7 +54,7 @@ if(!isset($_SESSION["session_username"])) {
             $('#sputtab tbody').on( 'click', 'tr', function () {
                 if ( $(this).hasClass('selected') ) {
                     $(this).removeClass('selected');
-                    $("#a1").attr("href","sput.main.info.php");
+                    $("#a1").attr("href","sput/sput.main.info.php");
                 }
                 else {
                     nTable.$('tr.selected').removeClass('selected');
@@ -62,8 +62,8 @@ if(!isset($_SESSION["session_username"])) {
                     // отбор позиции строки и значение столбца
                     var aPos = nTable.fnGetPosition( this );
                     var aData = nTable.fnGetData( aPos );
-                    $("#a1").attr("href","sput.main.info.php?sput_id=" + aData[0]);
-                    $("#a3").attr("href","sput.main.edit.php?sput_id=" + aData[0]);
+                    $("#a1").attr("href","sput/sput.main.info.php?sput_id=" + aData[0]);
+                    $("#a3").attr("href","sput/sput.main.edit.php?sput_id=" + aData[0]);
                 };
             })
         });

@@ -1,24 +1,20 @@
 /** Created on 22.12.2015. */
     // Type nets, Status :
-function selectNet() {
-    var sel = $("#nets :selected");
+function selectNetA() {
+    var sel = $("#netA :selected");
     // найти все записи в таблицах, которые содержат выбранный тип сети
     $("#equipA").dataTable().api().search( sel.html() ).draw();
     // перенести значения Тип Сети в Форму
     $("#aa1").attr("value", sel.html());
     $("#aa2").attr("value", sel.val());
 };
-function selectKli() {
-    var sel = $("#kli :selected");
-    // перенести значения Партнера в Форму
-    $("#d1").attr("value", sel.html());
-    $("#d2").attr("value", sel.val());
-};
-function selectSLA() {
-    var sel = $("#sla_link :selected");
-    // перенести значения Партнера в Форму
-    $("#ea1").attr("value", sel.html());
-    $("#ea2").attr("value", sel.val());
+function selectNetB() {
+    var sel = $("#netB :selected");
+    // найти все записи в таблицах, которые содержат выбранный тип сети
+    $("#equipB").dataTable().api().search( sel.html() ).draw();
+    // перенести значения Тип Сети в Форму
+    $("#ab1").attr("value", sel.html());
+    $("#ab2").attr("value", sel.val());
 };
 function selectStatus() {
     var sel = $("#status_link :selected");
@@ -35,7 +31,7 @@ $(document).ready(function(){
         "scrollY":        "300px",
         "scrollCollapse": true,
         "processing": true,
-        "ajax": "../includes/findEq.ajax.php",
+        "ajax": "../../includes/findEq.ajax.php",
         "columns": [
             {"title": "№"},
             {"title": "Тип сети"},
@@ -62,10 +58,42 @@ $(document).ready(function(){
         $("#b1").attr("value",aData[3]);
         $("#b2").attr("value",aData[0]);
     });
+    // Сетевые Устройства Б
+    var bTable = $("#equipB").dataTable({
+        "scrollY":        "300px",
+        "scrollCollapse": true,
+        "processing": true,
+        "ajax": "../../includes/findEq.ajax.php",
+        "columns": [
+            {"title": "№"},
+            {"title": "Тип сети"},
+            {"title": "IP-адрес"},
+            {"title": "Название в NMS"},
+            {"title": "Адрес расположения"},
+            {"title": "Производитель"},
+            {"title": "Модель"}
+        ]
+    });
+    // select entery row
+    $('#equipB tbody').on( 'click', 'tr', function () {
+        if ( $(this).hasClass('selected') ) {
+            $(this).removeClass('selected');
+        }
+        else {
+            bTable.$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
+        };
+        // отбор позиции строки и значение столбца
+        var bPos = bTable.fnGetPosition( this );
+        var bData = bTable.fnGetData( bPos );
+        $("#eqb_show").html('<font color="red">' + bData[3] + '</font>');
+        $("#d1").attr("value",bData[3]);
+        $("#d2").attr("value",bData[0]);
+    });
 
     $("#formadd").validate({
         rules:{
-            type_net:{
+            type_netA:{
                 required: true
             },
             equip_a:{
@@ -74,13 +102,13 @@ $(document).ready(function(){
             port_a:{
                 required: true
             },
-            client:{
+            type_netB:{
                 required: true
             },
-            cid:{
+            equip_b:{
                 required: true
             },
-            sla:{
+            port_b:{
                 required: true
             },
             speed:{
@@ -97,7 +125,7 @@ $(document).ready(function(){
             }
         },
         messages:{
-            type_net:{
+            type_netA:{
                 required: "Вернитесь на первую закладку и сделайте выбор"
             },
             equip_a:{
@@ -106,14 +134,14 @@ $(document).ready(function(){
             port_a:{
                 required: "Это поле обязательно для заполнения"
             },
-            client:{
+            type_netB:{
                 required: "Вернитесь на вторую закладку и сделайте выбор"
             },
-            cid:{
-                required: "Это поле обязательно для заполнения"
+            equip_b:{
+                required: "Вернитесь на вторую закладку и сделайте выбор"
             },
-            sla:{
-                required: "Вернитесь на третью закладку и сделайте выбор"
+            port_b:{
+                required: "Это поле обязательно для заполнения"
             },
             speed:{
                 required: "Это поле обязательно для заполнения"
@@ -122,7 +150,7 @@ $(document).ready(function(){
                 required: "Это поле обязательно для заполнения"
             },
             status:{
-                required: "Вернитесь на четвертую закладку и сделайте выбор"
+                required: "Вернитесь на третью закладку и сделайте выбор"
             },
             planer:{
                 required: "Это поле обязательно для заполнения"

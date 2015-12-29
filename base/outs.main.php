@@ -17,9 +17,9 @@
 <!-- Кнопки вверху -->
         <div class="row">
             <div class="col-md-12">
-                <a href="outs.main.info.php" target="_blank" class="btn btn-default" id="a1">Info</a>
-                <a href="outs.main.add.php" target="_blank" class="btn btn-default" id="a2">New</a>
-                <a href="outs.main.edit.php" target="_blank" class="btn btn-default" id="a3">Edit</a>
+                <a href="outs/outs.main.info.php" target="_blank" class="btn btn-default" id="a1">Info</a>
+                <a href="outs/outs.main.add.php" target="_blank" class="btn btn-default" id="a2">New</a>
+                <a href="outs/outs.main.edit.php" target="_blank" class="btn btn-default" id="a3">Edit</a>
             </div>
         </div>
         <br>
@@ -53,7 +53,7 @@
             $('#equipments tbody').on( 'click', 'tr', function () {
                 if ( $(this).hasClass('selected') ) {
                     $(this).removeClass('selected');
-                    $("#a1").attr("href","outs.main.info.php");
+                    $("#a1").attr("href","outs/outs.main.info.php");
                 }
                 else {
                     oTable.$('tr.selected').removeClass('selected');
@@ -61,8 +61,8 @@
                     // отбор позиции строки и значение столбца
                     var aPos = oTable.fnGetPosition( this );
                     var aData = oTable.fnGetData( aPos );
-                    $("#a1").attr("href","outs.main.info.php?outs_id=" + aData[0]);
-                    $("#a3").attr("href","outs.main.edit.php?outs_id=" + aData[0]);
+                    $("#a1").attr("href","outs/outs.main.info.php?outs_id=" + aData[0]);
+                    $("#a3").attr("href","outs/outs.main.edit.php?outs_id=" + aData[0]);
                 };
             })
 		});

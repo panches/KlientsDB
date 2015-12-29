@@ -2,23 +2,23 @@
 // проверка на существование открытой сессии (вставлять во все новые файлы)
     session_start();
     if(!isset($_SESSION["session_username"])) {
-        header("location: ../index.html");
+        header("location: ../../index.html");
     };
     header("Content-Type: text/html; charset=utf-8");
     if (!isset($_GET['outs_id'])) {
-       header("location: ../includes/info.error.php");
+       header("location: ../../includes/info.error.php");
     }
 ?>
 <!DOCTYPE html>
 <html>
 <head> 
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <link rel="stylesheet" type="text/css" href="css/fieldset.css" />
+  <link rel="stylesheet" type="text/css" href="../css/fieldset.css" />
   <title>info: Аутсорсинг #<?php echo $_GET['outs_id'] ?></title>
 </head>
 <body>
 <?php	
-    require "../includes/constants.php";
+    require "../../includes/constants.php";
 	//Open database connection
     $mysqli = mysqli_connect($host,$user,$password,$db)
                 or die("Ошибка " . mysqli_error($mysqli));

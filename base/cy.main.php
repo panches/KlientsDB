@@ -17,9 +17,9 @@ if(!isset($_SESSION["session_username"])) {
 <!-- Кнопки вверху -->
         <div class="row">
             <div class="col-md-12">
-                <a href="cy.main.info.php" target="_blank" class="btn btn-default" id="a1">Info</a>
-                <a href="cy.main.add.php" target="_blank" class="btn btn-default" id="a2">New</a>
-                <a href="cy.main.edit.php" target="_blank" class="btn btn-default" id="a3">Edit</a>
+                <a href="cy/cy.main.info.php" target="_blank" class="btn btn-default" id="a1">Info</a>
+                <a href="cy/cy.main.add.php" target="_blank" class="btn btn-default" id="a2">New</a>
+                <a href="cy/cy.main.edit.php" target="_blank" class="btn btn-default" id="a3">Edit</a>
            </div>
         </div>
         <br>
@@ -47,7 +47,7 @@ if(!isset($_SESSION["session_username"])) {
             $('#cytab tbody').on( 'click', 'tr', function () {
                 if ( $(this).hasClass('selected') ) {
                     $(this).removeClass('selected');
-                    $("#a1").attr("href","cy.main.info.php");
+                    $("#a1").attr("href","cy/cy.main.info.php");
                 }
                 else {
                     nTable.$('tr.selected').removeClass('selected');
@@ -55,8 +55,8 @@ if(!isset($_SESSION["session_username"])) {
                     // отбор позиции строки и значение столбца
                     var aPos = nTable.fnGetPosition( this );
                     var aData = nTable.fnGetData( aPos );
-                    $("#a1").attr("href","cy.main.info.php?cy_id=" + aData[0]);
-                    $("#a3").attr("href","cy.main.edit.php?cy_id=" + aData[0]);
+                    $("#a1").attr("href","cy/cy.main.info.php?cy_id=" + aData[0]);
+                    $("#a3").attr("href","cy/cy.main.edit.php?cy_id=" + aData[0]);
                 };
             })
         });

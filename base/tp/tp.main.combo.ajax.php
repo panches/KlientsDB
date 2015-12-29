@@ -2,7 +2,7 @@
 
 ini_set('default_charset',"UTF-8");
 
-require "../includes/constants.php";
+require "../../includes/constants.php";
 //Open database connection
 $mysqli = mysqli_connect($host,$user,$password,$db)
                 or die("Ошибка " . mysqli_error($mysqli));

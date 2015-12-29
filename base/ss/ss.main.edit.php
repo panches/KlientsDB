@@ -3,7 +3,7 @@
 header("Content-Type: text/html; charset=utf-8");
 
 if (!isset($_GET['ss_id'])) {
-    header("location: ../includes/info.error.php");
+    header("location: ../../includes/info.error.php");
 };
 
 switch ($_GET['ss_link']) {

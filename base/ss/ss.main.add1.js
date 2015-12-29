@@ -24,7 +24,7 @@ $(document).ready(function(){
         "scrollY":        "300px",
         "scrollCollapse": true,
         "processing": true,
-        "ajax": "../includes/findEq.ajax.php",
+        "ajax": "../../includes/findEq.ajax.php",
         "columns": [
             {"title": "№"},
             {"title": "Тип сети"},
@@ -56,7 +56,7 @@ $(document).ready(function(){
         "scrollY":        "300px",
         "scrollCollapse": true,
         "processing": true,
-        "ajax": "../includes/findEq.ajax.php",
+        "ajax": "../../includes/findEq.ajax.php",
         "columns": [
             {"title": "№"},
             {"title": "Тип сети"},
