@@ -17,6 +17,7 @@
 	//Open database connection
     $mysqli = mysqli_connect($host,$user,$password,$db)
                 or die("Ошибка " . mysqli_error($mysqli));
+    //Query to MySQL
 	$sql = "SELECT t.*,c.country,a.region,w.town,lcat.lease_category AS lc1,s.name AS statname,
 				tac.access_mode, ccat.condition_category AS cc,lcat2.lease_category AS lc2 
             FROM tblinform2 t 

@@ -14,12 +14,8 @@ require "../../includes/constants.php"; //Open database connection
     <link rel="stylesheet" href="../../css/jquery.dataTables.css" />
     <link rel="stylesheet" href="../../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../../css/dataTables.bootstrap.min.css" />
-    <style>
-        .error{
-            color: red;
-        }
-    </style>
-
+    <!-- style for validate: -->
+    <style>  .error{ color: red; }  </style>
 </head>
 <body>
 <?php

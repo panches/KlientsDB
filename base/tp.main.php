@@ -29,39 +29,39 @@
 <!-- footer: jQuery, SmartMenus + js -->
         <?php include("../includes/footer.php"); ?>
     </div>
-    <script>
-        $(function() {
-            var nTable = $('#nodes').dataTable({
-                "processing": true,
-                "pagingType": "full_numbers",
-                "iDisplayLength": 25,
-                "ajax": "all.main.ajax.php?base=tp",
-                "columns": [
-                    {"title": "№"},
-                    {"title": "Название"},
-                    {"title": "Страна"},
-                    {"title": "Область"},
-                    {"title": "Город"},
-                    {"title": "Адрес"}]
-            });
-            // select pressed row
-            $('#nodes tbody').on( 'click', 'tr', function () {
-                if ( $(this).hasClass('selected') ) {
-                    $(this).removeClass('selected');
-                    $("#a1").attr("onclick","window.open('tp/tp.main.info.php');");
-                }
-                else {
-                    nTable.$('tr.selected').removeClass('selected');
-                    $(this).addClass('selected');
-                    // отбор позиции строки и значение столбца
-                    var aPos = nTable.fnGetPosition( this );
-                    var aData = nTable.fnGetData( aPos );
-                    $("#a1").attr("onclick","window.open('tp/tp.main.info.php?tp_id=" + aData[0] + "');");
-                    $("#a3").attr("onclick","window.open('tp/tp.main.edit.php?tp_id=" + aData[0] + "');");
-                };
-            })
+<script>
+    $(function() {
+        var nTable = $('#nodes').dataTable({
+            "processing": true,
+            "pagingType": "full_numbers",
+            "iDisplayLength": 25,
+            "ajax": "all.main.ajax.php?base=tp",
+            "columns": [
+                {"title": "№"},
+                {"title": "Название"},
+                {"title": "Страна"},
+                {"title": "Область"},
+                {"title": "Город"},
+                {"title": "Адрес"}]
         });
-    </script>
+        // select pressed row
+        $('#nodes tbody').on( 'click', 'tr', function () {
+            if ( $(this).hasClass('selected') ) {
+                $(this).removeClass('selected');
+                $("#a1").attr("onclick","window.open('tp/tp.main.info.php');");
+            }
+            else {
+                nTable.$('tr.selected').removeClass('selected');
+                $(this).addClass('selected');
+                // отбор позиции строки и значение столбца
+                var aPos = nTable.fnGetPosition( this );
+                var aData = nTable.fnGetData( aPos );
+                $("#a1").attr("onclick","window.open('tp/tp.main.info.php?tp_id=" + aData[0] + "');");
+                $("#a3").attr("onclick","window.open('tp/tp.main.edit.php?tp_id=" + aData[0] + "');");
+            };
+        })
+    });
+</script>
 </body>
 </html>
 <?php
