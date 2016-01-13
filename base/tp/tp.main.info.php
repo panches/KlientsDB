@@ -190,8 +190,13 @@
         </div> 
         <div class="row">
             <div class="col-md-4"><label for="note3">Примечание:</label></div>
-            <div class="col-md-8"><textarea rows="3" name="note3" id="note3" class="note col-md-8"><?php $row['signalling_type'] ?></textarea></div>
-        </div>                            
+            <div class="col-md-8"><textarea rows="3" name="note3" id="note3" class="note col-md-8"><?php echo $row['signalling_type'] ?></textarea></div>
+        </div>
+      <legend>Владельцы узла и стойки</legend>
+        <div class="row">
+            <div class="col-md-4"><label for="note4">Примечание:</label></div>
+            <div class="col-md-8"><textarea rows="3" name="note4" id="note4" class="note col-md-8"><?php echo $row['owner'] ?></textarea></div>
+        </div>
   </div>
     <?php mysqli_close($mysqli); ?>
     <script src="../../js/jquery-1.11.0.min.js" type="text/javascript"></script>

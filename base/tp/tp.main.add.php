@@ -46,7 +46,7 @@ require "../../includes/constants.php";
                     <div class="col-sm-10">
                         <select name="country" id="country" class="form-control" onchange="javascript:selectRegion();">
                             <?php
-                            $sql = 'SELECT * FROM tab_country ORDER BY id';
+                            $sql = 'SELECT id,country FROM tab_country ORDER BY id';
                             $res = mysqli_query($mysqli, $sql);
                             echo '<option value="0"></option>';
                             while ($row = mysqli_fetch_array($res, MYSQLI_ASSOC)) {
@@ -158,19 +158,18 @@ require "../../includes/constants.php";
                     <div class="form-group">
                         <label class="col-sm-3 control-label">№ задачи Planner:</label>
                         <div class="col-sm-9">
-                            <input type="text" name="planner1" id="h1" class="form-control" value="" />
+                            <input type="text" name="planner1" id="h1" class="form-control" value="0" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Класс:</label>
                         <div class="col-sm-9">
                             <select name="class1" id="i1" class="form-control">
-                                <option>0</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                                <?php
+                                for($i=0;$i<6;$i++){
+                                    echo '<option>'.$i.'</option>';
+                                };
+                                ?>
                             </select>
                         </div>
                     </div>
@@ -184,7 +183,7 @@ require "../../includes/constants.php";
                               $res = mysqli_query($mysqli, $sql);
                               echo '<option value="0"></option>';
                               while ($row = mysqli_fetch_array($res, MYSQLI_ASSOC)) {
-                                  echo '<option value="'.$row['id'].'">'.$row['access_mode'].'</option>';
+                                    echo '<option value="' . $row['id'] . '">' . $row['access_mode'] . '</option>';
                               };
                               ?>
                           </select>
@@ -233,7 +232,7 @@ require "../../includes/constants.php";
                                 <option>AC</option>
                                 <option>DC</option>
                                 <option>AC/DC</option>
-                                <option>нет данных</option>
+                                <option selected>нет данных</option>
                             </select>
                         </div>
                     </div>
@@ -246,13 +245,13 @@ require "../../includes/constants.php";
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Потребляемая мощность (Вт.):</label>
                         <div class="col-sm-9">
-                            <input type="text" name="power1" id="q1" class="form-control" value="" />
+                            <input type="text" name="power1" id="q1" class="form-control" value="0" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Время автономности (ч.):</label>
                         <div class="col-sm-9">
-                            <input type="text" name="autonomy1" id="r1" class="form-control" value="" />
+                            <input type="text" name="autonomy1" id="r1" class="form-control" value="-1.00" />
                         </div>
                     </div>
                 <legend>Кондиционирование</legend>
@@ -265,7 +264,11 @@ require "../../includes/constants.php";
                                   $res = mysqli_query($mysqli, $sql);
                                   echo '<option value="0"></option>';
                                   while ($row = mysqli_fetch_array($res, MYSQLI_ASSOC)) {
-                                      echo '<option value="'.$row['id'].'">'.$row['condition_category'].'</option>';
+                                      if($row['condition_category'] == 'отсутствует'){
+                                          echo '<option value="'.$row['id'].'" selected>'.$row['condition_category'].'</option>';
+                                      } else {
+                                          echo '<option value="' . $row['id'] . '">' . $row['condition_category'] . '</option>';
+                                      }
                                   };
                                   ?>
                             </select>
@@ -349,7 +352,6 @@ require "../../includes/constants.php";
                         <textarea name="note3" id="u1" class="form-control"></textarea>
                     </div>
                 </div>
-
                 <legend>Владельцы узла и стойки</legend>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Примечание:</label>

@@ -1,4 +1,4 @@
-/** Created on 11.01.2016. */
+/** Created on 12.01.2016. */
 function selectRegion(){
     var id_country = $('select[name="country"]').val();
     if(!id_country){
@@ -194,3 +194,4 @@ $("#formadd").validate({
         }
     }
 });
+
