@@ -134,7 +134,7 @@ require "../../includes/constants.php"; //Open database connection
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Принят в эксплуатацию:</label>
                             <div class="col-sm-9">
-                                <input type="date" name="date_in" id="i" class="form-control" value="" />
+                                <input type="date" name="date_in" id="i" class="form-control" value="<?php echo date("Y-m-d"); ?>" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -165,7 +165,7 @@ require "../../includes/constants.php"; //Open database connection
                         <div class="form-group">
                             <label class="col-sm-3 control-label">№ в планере:</label>
                             <div class="col-sm-9">
-                                <input type="text" name="planer" id="o" class="form-control" value="" required />
+                                <input type="text" name="planer" id="o" class="form-control" value="" />
                             </div>
                         </div>
                         <div class="form-group">
