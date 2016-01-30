@@ -138,6 +138,46 @@
         $sql = "UPDATE tblinform2 SET m_water='$water2' WHERE inv_id='$str_n'";
         $temp = mysqli_query($mysqli, $sql);
     };
+    // открытие ТТ - если status = 'тестовая эксплуатация'
+    if ($status2 == 1) {
+        // берем время с сервера
+        $sql = 'SELECT NOW() as dt';
+        $temp = mysqli_query($mysqli, $sql);
+        $row = mysqli_fetch_assoc($temp);
+        $dt_str = htmlentities(mysqli_real_escape_string($mysqli, date("Y-m-d H:i:s", strtotime($row['dt']))));
+        $date_raw = (date('s') + strtotime("+13 day"));
+        switch (date('l', $date_raw)) {
+            case 'Saturdey':
+                $str = (date('s') + strtotime("+12 day"));
+                $dt_out = date('Y-m-d', $str);
+                break;
+            case 'Sunday':
+                $str = (date('s') + strtotime("+11 day"));
+                $dt_out = date('Y-m-d', $str);
+                break;
+            default:
+                $dt_out = date('Y-m-d', $date_raw);
+        };
+        $str_d = date('Y-m-d'); $str_t = date('H:i:s');
+        // !!! подкорректировать поле user_id
+        $sql = "INSERT INTO trubl (inv_num_kli, date_of_start, time_of_start, description, type_trubl_d, name_user, user_id, date_of_open, last_zapisi, tab_on, state_tt, ring_on,
+                    sostoyanie, otlogeno_data, otlogeno_time)
+                    VALUES ('$str_n','$str_d','$str_t','Прием в эксплуатацию','6','$user_nik','2400029','$dt_str','$dt_str','4','2','0',
+                    'отложено','$dt_out','10:00:00')";
+        $temp = mysqli_query($mysqli, $sql);
+        $sql = "SELECT num_of_trubl_tick FROM trubl WHERE (inv_num_kli='$str_n') AND (date_of_start='$str_d') AND (sostoyanie='отложено')";
+        $temp = mysqli_query($mysqli, $sql);
+        $row = mysqli_fetch_assoc($temp);
+        $str_tt = $row['num_of_trubl_tick'];
+        $str = 'До : '.$dt_out.' 10:00:00, Причина: Истек срок приема в эксплуатацию, приймите решение, по результату измените статус объекта на который открыт ТТ';
+        $sql = "INSERT INTO zapisi_trubl_tic (num_trubl, date_zapisi, time_zapisi, kontakt, desc_zapisi, name_user, col_centr, transition)
+                        VALUES ('$str_tt','$str_d','$str_t','Отложено','$str','$user_nik','0','23')";
+        $temp = mysqli_query($mysqli, $sql);
+    };
+    // добавить запись в табл tab_status_history
+    $status = htmlentities(mysqli_real_escape_string($mysqli, $_POST['status']));
+    $sql = "INSERT INTO tab_status_history  (id_zapisi, id_tab, old_status, new_status) VALUES ('$str_n','4','-','$status')";
+    $temp = mysqli_query($mysqli, $sql);
     // закрываем подключение
     mysqli_close($mysqli);
 ?>

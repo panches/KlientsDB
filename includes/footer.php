@@ -1,5 +1,5 @@
 	<footer>
-	© 2015 <a href="http://datagroup.ua/">DATAGROUP</a>. Все права защищены.
+	© 2015-2016 <a href="http://datagroup.ua/">DATAGROUP</a>. Все права защищены.
  	</footer>
 <!-- jQuery -->
 	<script src="../js/jquery-1.11.0.min.js"></script>

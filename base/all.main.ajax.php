@@ -130,5 +130,5 @@ if(!isset($_GET["base"])) {
     );
     echo json_encode($out);
 
-}
+};
 ?>
