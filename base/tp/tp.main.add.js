@@ -7,7 +7,7 @@ function selectRegion(){
     }else{
         $.ajax({
             type: "POST",
-            url: "tp.main.combo.ajax.php",
+            url: "../../includes/RegAreaTown.combo.ajax.php",
             data: { action: 'showRegionForInsert', id_country: id_country },
             cache: false,
             success: function(responce){ $('div[name="selectDataRegion"]').html(responce); }
@@ -25,7 +25,7 @@ function selectCity(){
     var id_country = $('select[name="country"]').val();
     $.ajax({
         type: "POST",
-        url: "tp.main.combo.ajax.php",
+        url: "../../includes/RegAreaTown.combo.ajax.php",
         data: { action: 'showCityForInsert', id_country: id_country, id_region: id_region },
         cache: false,
         success: function(responce){ $('div[name="selectDataCity"]').html(responce); }

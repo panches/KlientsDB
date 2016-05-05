@@ -32,7 +32,7 @@ if(!isset($_SESSION["session_username"])) {
                     <ul>
                         <li><a href="#tab1" data-toggle="tab">1.Устройство</a></li>
                         <li><a href="#tab2" data-toggle="tab">2.Свойства</a></li>
-                        <li><a href="#tab3" data-toggle="tab">3.Все Поля</a></li>
+                        <li><a href="#tab3" data-toggle="tab">3.Все поля</a></li>
                     </ul>
                 </div>
             </div>
