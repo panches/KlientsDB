@@ -65,6 +65,4 @@ if(!isset($_SESSION["session_username"])) {
     </script>
     </body>
     </html>
-<?php
-}
-?>
+<?php } ?>

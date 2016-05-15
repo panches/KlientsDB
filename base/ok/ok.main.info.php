@@ -17,8 +17,9 @@ require "../../includes/constants.php";
 //Open database connection
 $mysqli = mysqli_connect($host,$user,$password,$db);
 echo '<div class="container-fluid">';
-$sql = "select o.id_kli, o.klient, o.country_id, o.area_id, o.town_id, o.street, o.kont_tel, o.kont_email, o.device, o.device_id, o.port, o.CID_1, o.CID_2, o.CID_3, o.CID_4, o.CID_5,
-        o.chart_joint, o.chart_joint_nc, o.office, o.speed, o.equip, o.planerid, o.retail, o.inexp, o.status_d, o.note, o.in_exp, o.out_exp, k.*, t.town, c.country, a.region, s.name
+$sql = "select o.id_kli, o.klient, o.country_id, o.area_id, o.town_id, o.street, o.kont_tel, o.kont_email, o.device, o.device_id,
+          o.port, o.CID_1, o.CID_2, o.CID_3, o.CID_4, o.CID_5, o.chart_joint, o.chart_joint_nc, o.office, o.speed, o.equip, o.planerid,
+          o.retail, o.inexp, o.status_d, o.note, o.in_exp, o.out_exp, k.admin_phone, k.*, t.town, c.country, a.region, s.name
         from office_kli o, tab_klients k, tab_town t, tab_country c, tab_area a, tab_status s
         where o.klient = k.id and t.id=o.town_id and o.country_id=c.id and o.area_id=a.id and o.status_d=s.id
         and o.id_kli = ".$_GET['ok_id'];
@@ -56,12 +57,12 @@ $sql = "SELECT nik FROM equipments2 WHERE id = ".$kli['equip'];
 $res = mysqli_query($mysqli, $sql);
 $temp = mysqli_fetch_assoc($res);
 echo '<div>'.$temp['nik'].'</div>';
-echo '<div><font color="red">Контакт главного офиса: '.$kli['admin'].'</font></div>';
-echo '<div><font color="red">'.$kli['admin_phone'].', '.$kli['admin_email'].', '.$kli['admin_fax'].', '.$kli['comment'].'</font></div>';
+echo '<div><font color="red">Контакт главного офиса:</font> '.$kli['admin'].'</div>';
+echo '<div>'.$kli['admin_phone'].', '.$kli['admin_email'].', '.$kli['admin_fax'].', '.$kli['Comment'].'</div>';
 $sql = "SELECT nik FROM tab_access WHERE id=".$kli['manager'];
 $res = mysqli_query($mysqli, $sql);
 $temp = mysqli_fetch_assoc($res);
-echo '<div>Ответственный менеджер: '.$temp['nik'].'</div>';
+echo '<div><b>Ответственный менеджер:</b> '.$temp['nik'].'</div>';
 echo '</div>';
 mysqli_close($mysqli);
 ?>

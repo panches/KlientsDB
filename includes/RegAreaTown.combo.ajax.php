@@ -13,6 +13,7 @@ switch ($_POST['action']){
                 echo '<select name="area" id="area" class="form-control" onchange="javascript:selectCity();" >';
                 $sql = 'SELECT * FROM tab_area WHERE country_id='.$_POST['id_country'].' ORDER BY region ASC';
                 $res = mysqli_query($mysqli, $sql);
+                echo '<option value="0"></option>';
                 while ($row = mysqli_fetch_array($res, MYSQLI_ASSOC)) {
                         echo '<option value="'.$row['id'].'">'.$row['region'].'</option>';
                 };
@@ -24,6 +25,7 @@ switch ($_POST['action']){
                 echo '<select name="town" id="town" class="form-control" onchange="javascript:selectTown();">';
                 $sql = 'SELECT * FROM tab_town WHERE country_id='.$_POST['id_country'].' AND area_id='.$_POST['id_region'].' ORDER BY town ASC';
                 $res = mysqli_query($mysqli, $sql);
+                echo '<option value="0"></option>';
                 while ($row = mysqli_fetch_array($res, MYSQLI_ASSOC)) {
                         echo '<option value="'.$row['id'].'">'.$row['town'].'</option>';
                 };
