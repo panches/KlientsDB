@@ -157,8 +157,8 @@
                             <div class="col-sm-9">
                                 <select name="retail1" id="j1" onchange="javascript:selectRetail();" class="form-control">
                                     <?php
-                                    echo '<option value="0">ДА</option>';
-                                    echo '<option value="1">НЕТ</option>';
+                                    echo '<option value="0">НЕТ</option>';
+                                    echo '<option value="1">ДА</option>';
                                     ?>
                                 </select>
                                 <input type="hidden" name="retail2" id="j2" class="form-control" value="0" />

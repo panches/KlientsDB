@@ -48,7 +48,6 @@ if(!isset($_SESSION["session_username"])) {
             <div class="container">
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Страна:</label>
-
                     <div class="col-sm-10">
                         <select name="country" id="country" class="form-control" onchange="javascript:selectRegion();">
                             <?php
@@ -68,7 +67,6 @@ if(!isset($_SESSION["session_username"])) {
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Область:</label>
-
                     <div class="col-sm-10">
                         <div name="selectDataRegion">
                             <select name="area" id="area" class="form-control" onchange="javascript:selectCity();">
@@ -90,7 +88,6 @@ if(!isset($_SESSION["session_username"])) {
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Город:</label>
-
                     <div class="col-sm-10">
                         <div name="selectDataCity">
                             <select name="town" id="town" class="form-control" onchange="javascript:selectTown();">
@@ -112,7 +109,6 @@ if(!isset($_SESSION["session_username"])) {
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Категория аренды:</label>
-
                     <div class="col-sm-10">
                         <select name="lease" id="lease" class="form-control" onchange="javascript:selectLease();">
                             <?php
@@ -133,7 +129,6 @@ if(!isset($_SESSION["session_username"])) {
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Статус:</label>
-
                     <div class="col-sm-10">
                         <select name="status" id="status" class="form-control" onchange="javascript:selectStatus();">
                             <?php
@@ -160,24 +155,19 @@ if(!isset($_SESSION["session_username"])) {
         <legend>Адрес узла</legend>
         <div class="form-group">
             <label class="col-sm-3 control-label">Название:</label>
-
             <div class="col-sm-9">
                 <input type="text" name="name1" id="a1" class="form-control" value="<?php echo $node['node_old']; ?>"/>
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label">Страна:</label>
-
             <div class="col-sm-9">
-                <input type="text" name="country1" id="b1" class="form-control"
-                       value="<?php echo $node['country']; ?>"/>
-                <input type="hidden" name="country2" id="b2" class="form-control"
-                       value="<?php echo $node['country_id']; ?>"/>
+                <input type="text" name="country1" id="b1" class="form-control" value="<?php echo $node['country']; ?>"/>
+                <input type="hidden" name="country2" id="b2" class="form-control" value="<?php echo $node['country_id']; ?>"/>
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label">Область:</label>
-
             <div class="col-sm-9">
                 <input type="text" name="area1" id="c1" class="form-control" value="<?php echo $node['region']; ?>"/>
                 <input type="hidden" name="area2" id="c2" class="form-control" value="<?php echo $node['area_id']; ?>"/>
@@ -185,7 +175,6 @@ if(!isset($_SESSION["session_username"])) {
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label">Город:</label>
-
             <div class="col-sm-9">
                 <input type="text" name="town1" id="d1" class="form-control" value="<?php echo $node['town']; ?>"/>
                 <input type="hidden" name="town2" id="d2" class="form-control" value="<?php echo $node['town_id']; ?>"/>
@@ -193,41 +182,32 @@ if(!isset($_SESSION["session_username"])) {
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label">Адрес:</label>
-
             <div class="col-sm-9">
-                <input type="text" name="address1" id="e1" class="form-control"
-                       value="<?php echo $node['address']; ?>"/>
+                <input type="text" name="address1" id="e1" class="form-control" value="<?php echo $node['address']; ?>"/>
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label">Категория аренды:</label>
-
             <div class="col-sm-9">
                 <input type="text" name="lease1" id="f1" class="form-control" value="<?php echo $defLeaseCategory; ?>"/>
-                <input type="hidden" name="lease2" id="f2" class="form-control"
-                       value="<?php echo $node['lease_category_d']; ?>"/>
+                <input type="hidden" name="lease2" id="f2" class="form-control" value="<?php echo $node['lease_category_d']; ?>"/>
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label">Статус:</label>
-
             <div class="col-sm-9">
                 <input type="text" name="status1" id="g1" class="form-control" value="<?php echo $defStatus; ?>"/>
-                <input type="hidden" name="status2" id="g2" class="form-control"
-                       value="<?php echo $node['status_d']; ?>"/>
+                <input type="hidden" name="status2" id="g2" class="form-control" value="<?php echo $node['status_d']; ?>"/>
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label">№ задачи Planner:</label>
-
             <div class="col-sm-9">
-                <input type="text" name="planner1" id="h1" class="form-control"
-                       value="<?php echo $node['planerid']; ?>"/>
+                <input type="text" name="planner1" id="h1" class="form-control" value="<?php echo $node['planerid']; ?>"/>
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label">Класс:</label>
-
             <div class="col-sm-9">
                 <select name="class1" id="i1" class="form-control">
                     <?php
@@ -245,7 +225,6 @@ if(!isset($_SESSION["session_username"])) {
         <legend>Доступ к узлу</legend>
         <div class="form-group">
             <label class="col-sm-3 control-label">Режим доступа:</label>
-
             <div class="col-sm-9">
                 <select name="access1" id="j1" class="form-control" onchange="javascript:selectAccess();">
                     <?php
@@ -270,7 +249,6 @@ if(!isset($_SESSION["session_username"])) {
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label">Примечание:</label>
-
             <div class="col-sm-9">
                 <textarea name="note1" id="k1" class="form-control"><?php echo $node['node_memo']; ?></textarea>
             </div>
@@ -278,7 +256,6 @@ if(!isset($_SESSION["session_username"])) {
         <legend>Электропитание</legend>
         <div class="form-group">
             <label class="col-sm-3 control-label">Заземление:</label>
-
             <div class="col-sm-9">
                 <select name="grounding1" id="l1" class="form-control" onchange="javascript:selectPower('l1');">
                     <?php
@@ -307,7 +284,6 @@ if(!isset($_SESSION["session_username"])) {
         </div>
         <div class="form-group">
             <label class="col-sm-4 control-label">Возможность подключить генератор:</label>
-
             <div class="col-sm-8">
                 <select name="generator1" id="m1" class="form-control" onchange="javascript:selectPower('m1');">
                     <?php
@@ -332,12 +308,10 @@ if(!isset($_SESSION["session_username"])) {
                     ?>
                 </select>
             </div>
-            <input type="hidden" name="generator2" id="m2" class="form-control"
-                   value="<?php echo $node['el_generator']; ?>"/>
+            <input type="hidden" name="generator2" id="m2" class="form-control" value="<?php echo $node['el_generator']; ?>"/>
         </div>
         <div class="form-group">
             <label class="col-sm-4 control-label">Возможность подключить батмассив:</label>
-
             <div class="col-sm-8">
                 <select name="battery1" id="n1" class="form-control" onchange="javascript:selectPower('n1');">
                     <?php
@@ -362,12 +336,10 @@ if(!isset($_SESSION["session_username"])) {
                     ?>
                 </select>
             </div>
-            <input type="hidden" name="battery2" id="n2" class="form-control"
-                   value="<?php echo $node['el_battery']; ?>"/>
+            <input type="hidden" name="battery2" id="n2" class="form-control" value="<?php echo $node['el_battery']; ?>"/>
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label">Тип электропитания:</label>
-
             <div class="col-sm-9">
                 <select name="acdc1" id="o1" class="form-control">
                     <?php
@@ -407,31 +379,25 @@ if(!isset($_SESSION["session_username"])) {
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label">Примечание:</label>
-
             <div class="col-sm-9">
                 <textarea name="note2" id="p1" class="form-control"><?php echo $node['el_equipment']; ?></textarea>
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label">Потребляемая мощность (Вт.):</label>
-
             <div class="col-sm-9">
-                <input type="text" name="power1" id="q1" class="form-control"
-                       value="<?php echo $node['el_power_d']; ?>"/>
+                <input type="text" name="power1" id="q1" class="form-control" value="<?php echo $node['el_power_d']; ?>"/>
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label">Время автономности (ч.):</label>
-
             <div class="col-sm-9">
-                <input type="text" name="autonomy1" id="r1" class="form-control"
-                       value="<?php echo $node['el_autonomy_d']; ?>"/>
+                <input type="text" name="autonomy1" id="r1" class="form-control" value="<?php echo $node['el_autonomy_d']; ?>"/>
             </div>
         </div>
         <legend>Кондиционирование</legend>
         <div class="form-group">
             <label class="col-sm-3 control-label">Система:</label>
-
             <div class="col-sm-9">
                 <select name="system1" id="s1" class="form-control" onchange="javascript:selectSystem();">
                     <?php
@@ -452,12 +418,10 @@ if(!isset($_SESSION["session_username"])) {
                     ?>
                 </select>
             </div>
-            <input type="hidden" name="system2" id="s2" class="form-control"
-                   value="<?php echo $node['condition_category']; ?>"/>
+            <input type="hidden" name="system2" id="s2" class="form-control" value="<?php echo $node['condition_category']; ?>"/>
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label">Владелец:</label>
-
             <div class="col-sm-9">
                 <select name="proprietor1" id="t1" class="form-control" onchange="javascript:selectProprietor();">
                     <?php
@@ -478,13 +442,11 @@ if(!isset($_SESSION["session_username"])) {
                     ?>
                 </select>
             </div>
-            <input type="hidden" name="proprietor2" id="t2" class="form-control"
-                   value="<?php echo $node['cond_owner']; ?>"/>
+            <input type="hidden" name="proprietor2" id="t2" class="form-control" value="<?php echo $node['cond_owner']; ?>"/>
         </div>
         <legend>Система контроля и сигнализации</legend>
         <div class="form-group">
             <label class="col-sm-3 control-label">внешнее питание:</label>
-
             <div class="col-sm-9">
                 <select name="outpower" id="outpower" class="form-control"
                         onchange="javascript:selectControl('outpower');">
@@ -510,12 +472,10 @@ if(!isset($_SESSION["session_username"])) {
                     ?>
                 </select>
             </div>
-            <input type="hidden" name="outpower2" id="outpower2" class="form-control"
-                   value="<?php echo $node['m_power']; ?>"/>
+            <input type="hidden" name="outpower2" id="outpower2" class="form-control" value="<?php echo $node['m_power']; ?>"/>
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label">двери:</label>
-
             <div class="col-sm-9">
                 <select name="doors" id="doors" class="form-control" onchange="javascript:selectControl('doors');">
                     <?php
@@ -544,7 +504,6 @@ if(!isset($_SESSION["session_username"])) {
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label">температура:</label>
-
             <div class="col-sm-9">
                 <select name="temr" id="temr" class="form-control" onchange="javascript:selectControl('temr');">
                     <?php
@@ -569,12 +528,10 @@ if(!isset($_SESSION["session_username"])) {
                     ?>
                 </select>
             </div>
-            <input type="hidden" name="temr2" id="temr2" class="form-control"
-                   value="<?php echo $node['m_temperature']; ?>"/>
+            <input type="hidden" name="temr2" id="temr2" class="form-control" value="<?php echo $node['m_temperature']; ?>"/>
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label">влажность:</label>
-
             <div class="col-sm-9">
                 <select name="humidity" id="humidity" class="form-control"
                         onchange="javascript:selectControl('humidity');">
@@ -600,12 +557,10 @@ if(!isset($_SESSION["session_username"])) {
                     ?>
                 </select>
             </div>
-            <input type="hidden" name="humidity2" id="humidity2" class="form-control"
-                   value="<?php echo $node['m_humidity']; ?>"/>
+            <input type="hidden" name="humidity2" id="humidity2" class="form-control" value="<?php echo $node['m_humidity']; ?>"/>
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label">дым:</label>
-
             <div class="col-sm-9">
                 <select name="smoke" id="smoke" class="form-control" onchange="javascript:selectControl('smoke');">
                     <?php
@@ -630,12 +585,10 @@ if(!isset($_SESSION["session_username"])) {
                     ?>
                 </select>
             </div>
-            <input type="hidden" name="smoke2" id="smoke2" class="form-control"
-                   value="<?php echo $node['m_smoke']; ?>"/>
+            <input type="hidden" name="smoke2" id="smoke2" class="form-control" value="<?php echo $node['m_smoke']; ?>"/>
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label">вода:</label>
-
             <div class="col-sm-9">
                 <select name="water" id="water" class="form-control" onchange="javascript:selectControl('water');">
                     <?php
@@ -660,12 +613,10 @@ if(!isset($_SESSION["session_username"])) {
                     ?>
                 </select>
             </div>
-            <input type="hidden" name="water2" id="water2" class="form-control"
-                   value="<?php echo $node['m_water']; ?>"/>
+            <input type="hidden" name="water2" id="water2" class="form-control" value="<?php echo $node['m_water']; ?>"/>
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label">Примечание:</label>
-
             <div class="col-sm-9">
                 <textarea name="note3" id="u1" class="form-control"><?php echo $node['signalling_type']; ?></textarea>
             </div>
@@ -673,7 +624,6 @@ if(!isset($_SESSION["session_username"])) {
         <legend>Владельцы узла и стойки</legend>
         <div class="form-group">
             <label class="col-sm-3 control-label">Примечание:</label>
-
             <div class="col-sm-9">
                 <textarea name="note4" id="v1" class="form-control"><?php echo $node['owner']; ?></textarea>
             </div>

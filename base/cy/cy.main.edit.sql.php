@@ -11,7 +11,7 @@
     session_start();
     $user_id = $_SESSION['session_userid'];
     $user_nik = htmlentities(mysqli_real_escape_string($mysqli, $_SESSION['session_username']));
-    // inv_id
+    // id_equip
     $str_n = $_POST['id_equip2'];
     //present data
     $sql = 'SELECT e.id_equip,e.ip_address,e.name_nms,concat_WS(" ",t.town,i.address) as addr,concat_WS(" ",b.brend,b.model) as brend_model,

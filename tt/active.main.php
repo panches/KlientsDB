@@ -16,13 +16,13 @@
         <br>
 <!--Кнопки вверху таблицы-->
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <button type="button" class="btn btn-default" onclick="window.open('active.info.php');" id="a1">Info</button>
                 <button type="button" class="btn btn-default" onclick="window.open('active.closeTT.php');" id="a2">Закрыть</button>
                 <button type="button" class="btn btn-default" onclick="window.open('active.putAsideTT.php');" id="a3">Отложить</button>
                 <button type="button" class="btn btn-default" onclick="window.open('active.addTT.php');" id="a4">Добавить запись</button>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <form class="form-inline" role="form">
                     <div class="form-group">
                         <label for="rm1">Рабочее место:</label>
