@@ -102,7 +102,7 @@
                         </div>
                     </div>
                     <br><!-- сетевое устройство -->
-                    <label for="office">Подвязать к СУ:</label>
+                    <label for="equip">Подвязать к СУ:</label>
                     <table id="equip" class="display cell-border compact" cellspacing="0" width="100%"></table>
                     <div id="eq_show"><font color="red"></font></div>
                 </div>

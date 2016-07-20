@@ -14,7 +14,7 @@ if(!isset($_SESSION["session_username"])) {
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Добавить Сетевое Устройство</title>
+    <title>Редактировать Сетевое Устройство</title>
     <link rel="stylesheet" href="../../css/jquery.dataTables.css" />
     <link rel="stylesheet" href="../../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../../css/dataTables.bootstrap.min.css" />

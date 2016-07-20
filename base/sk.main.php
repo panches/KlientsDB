@@ -40,8 +40,8 @@ if(!isset($_SESSION["session_username"])) {
                     {"title": "Клиент"},
                     {"title": "Тип сервиса"},
                     {"title": "Емкость"},
-                    {"title": "Офисе А"},
-                    {"title": "Офисе Б"},
+                    {"title": "Офис А"},
+                    {"title": "Офис Б"},
                     {"title": "Статус"}]
             });
             // select pressed row

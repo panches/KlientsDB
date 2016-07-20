@@ -117,7 +117,7 @@ echo '<div>Особенности приема в эксплуатацию: '.$s
 // менеджер
 echo '<div><b>Менеджер: </b>'.$manager.'<b>, № в планере: </b>'.$sKli['planerid'].'</div>';
 echo '<div></div>';
-$sql = "SELECT o.kont_tel, o.kont_email, o.chart_joint, k.client, k.admin, k.admin_phone, k.admin_email, k.admin_fax
+$sql = "SELECT o.kont_tel, o.kont_email, o.chart_joint, k.client, k.admin, k.admin_phone, k.admin_email, k.admin_fax, k.Comment
         FROM office_kli o, tab_klients k
         WHERE o.klient = k.id and id_kli = ".$sKli['office_a'];
 $res = mysqli_query($mysqli, $sql);
@@ -138,7 +138,7 @@ $res = mysqli_query($mysqli, $sql);
 $temp = mysqli_fetch_assoc($res);
 echo '<div><font color="#8b0000">Контакт главного Офиса: </font>'.$temp['client'].'</div>';
 echo '<div>'.$temp['admin'].'</div>';
-echo '<div>'.$temp['admin_phone'].', '.$temp['admin_email'].', '.$temp['admin_fax'].', '.$temp['comment'].'</div>';
+echo '<div>'.$temp['admin_phone'].', '.$temp['admin_email'].', '.$temp['admin_fax'].', '.$temp['Comment'].'</div>';
 
 
 mysqli_close($mysqli);
