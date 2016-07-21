@@ -32,7 +32,7 @@ function selectRetail(){
     // перенести значения Retail в Форму
     var sel = $("select[name='retail1'] option:selected");
     $("#o2").attr("value", sel.val());
-    console.log(sel.val());
+    //console.log(sel.val());
 };
 function selectSLA(){
     // перенести значение SLA в скрытую строку
