@@ -44,7 +44,7 @@ require "../../includes/constants.php";
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Страна:</label>
                     <div class="col-sm-10">
-                        <select name="country" id="country" class="form-control" onchange="javascript:selectRegion();">
+                        <select name="countryA" id="countryA" class="form-control" onchange="javascript:selectRegionA();">
                             <?php
                             $sql = 'SELECT id,country FROM tab_country ORDER BY id';
                             $res = mysqli_query($mysqli, $sql);
@@ -59,16 +59,16 @@ require "../../includes/constants.php";
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Область:</label>
                     <div class="col-sm-10">
-                        <div  name="selectDataRegion">
-                            <select name="area" id="area" class="form-control" onchange="javascript:selectCity();" ></select>
+                        <div  name="selectDataRegionA">
+                            <select name="areaA" id="areaA" class="form-control" onchange="javascript:selectCityA();" ></select>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Город:</label>
                     <div class="col-sm-10">
-                        <div  name="selectDataCity">
-                            <select name="town" id="town" class="form-control" onchange="javascript:selectTown();"></select>
+                        <div  name="selectDataCityA">
+                            <select name="townA" id="townA" class="form-control" onchange="javascript:selectTownA();"></select>
                         </div>
                     </div>
                 </div>
@@ -117,21 +117,21 @@ require "../../includes/constants.php";
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Страна:</label>
                         <div class="col-sm-9">
-                            <input type="text" name="country1" id="b1" class="form-control" value="" />
+                            <input type="text" name="country1" id="b1" class="form-control" value="" readonly />
                             <input type="hidden" name="country2" id="b2" class="form-control" value="" />
                         </div>
                     </div>
                     <div class="form-group">
                             <label class="col-sm-3 control-label">Область:</label>
                             <div class="col-sm-9">
-                                <input type="text" name="area1" id="c1" class="form-control" value="" />
+                                <input type="text" name="area1" id="c1" class="form-control" value="" readonly />
                                 <input type="hidden" name="area2" id="c2" class="form-control" value="" />
                             </div>
                     </div>
                     <div class="form-group">
                             <label class="col-sm-3 control-label">Город:</label>
                             <div class="col-sm-9">
-                                <input type="text" name="town1" id="d1" class="form-control" value="" />
+                                <input type="text" name="town1" id="d1" class="form-control" value="" readonly />
                                 <input type="hidden" name="town2" id="d2" class="form-control" value="" />
                             </div>
                     </div>
@@ -144,14 +144,14 @@ require "../../includes/constants.php";
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Категория аренды:</label>
                         <div class="col-sm-9">
-                            <input type="text" name="lease1" id="f1" class="form-control" value="" />
+                            <input type="text" name="lease1" id="f1" class="form-control" value="" readonly />
                             <input type="hidden" name="lease2" id="f2" class="form-control" value="" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Статус:</label>
                         <div class="col-sm-9">
-                            <input type="text" name="status1" id="g1" class="form-control" value="" />
+                            <input type="text" name="status1" id="g1" class="form-control" value="" readonly />
                             <input type="hidden" name="status2" id="g2" class="form-control" value="" />
                         </div>
                     </div>
@@ -377,7 +377,7 @@ require "../../includes/constants.php";
 </div>
 <!-- Close connection database -->
   <?php mysqli_close($mysqli); ?>
-  <script src="../../js/jquery-1.11.0.min.js"></script>
+  <script src="../../js/jquery-1.12.4.min.js"></script>
   <script src="../../js/bootstrap.min.js"></script>
   <script src="../../js/jquery.bootstrap.wizard.min.js"></script>
   <script src="../../js/jquery.validate.min.js"></script>

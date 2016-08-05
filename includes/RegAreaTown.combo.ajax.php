@@ -10,7 +10,14 @@ $mysqli = mysqli_connect($host,$user,$password,$db)
 switch ($_POST['action']){
                 
         case "showRegionForInsert":
-                echo '<select name="area" id="area" class="form-control" onchange="javascript:selectCity();" >';
+                switch ($_POST['flg']) {
+                    case "A":
+                        echo '<select name="areaA" id="areaA" class="form-control" onchange="javascript:selectCityA();" >';
+                        break;
+                    case  "B":
+                        echo '<select name="areaB" id="areaB" class="form-control" onchange="javascript:selectCityB();" >';
+                        break;
+                };
                 $sql = 'SELECT * FROM tab_area WHERE country_id='.$_POST['id_country'].' ORDER BY region ASC';
                 $res = mysqli_query($mysqli, $sql);
                 echo '<option value="0"></option>';
@@ -22,7 +29,14 @@ switch ($_POST['action']){
                 break;
                 
         case "showCityForInsert":
-                echo '<select name="town" id="town" class="form-control" onchange="javascript:selectTown();">';
+                switch ($_POST['flg']) {
+                    case "A":
+                        echo '<select name="townA" id="townA" class="form-control" onchange="javascript:selectTownA();">';
+                        break;
+                    case  "B":
+                        echo '<select name="townB" id="townB" class="form-control" onchange="javascript:selectTownB();">';
+                        break;
+                };
                 $sql = 'SELECT * FROM tab_town WHERE country_id='.$_POST['id_country'].' AND area_id='.$_POST['id_region'].' ORDER BY town ASC';
                 $res = mysqli_query($mysqli, $sql);
                 echo '<option value="0"></option>';

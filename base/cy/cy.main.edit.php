@@ -15,7 +15,7 @@ if(!isset($_SESSION["session_username"])) {
         <head>
             <meta charset="utf-8" />
             <title>Добавить Сетевое Устройство</title>
-            <link rel="stylesheet" href="../../css/jquery.dataTables.css" />
+            <link rel="stylesheet" href="../../css/jquery.dataTables.min.css" />
             <link rel="stylesheet" href="../../css/bootstrap.min.css" />
             <link rel="stylesheet" href="../../css/dataTables.bootstrap.min.css" />
             <!-- style for validate: -->
@@ -156,7 +156,7 @@ if(!isset($_SESSION["session_username"])) {
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Тип сети:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="type_net" id="a1" class="form-control" value="<?php echo $equip['net']; ?>" />
+                                    <input type="text" name="type_net" id="a1" class="form-control" value="<?php echo $equip['net']; ?>" readonly />
                                     <input type="hidden" name="type_net2" id="a2" class="form-control" value="<?php echo $equip['net_d']; ?>" />
                                 </div>
                             </div>
@@ -176,7 +176,7 @@ if(!isset($_SESSION["session_username"])) {
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">из справочника:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="fromlist" id="d1" class="form-control" value="<?php echo $equip['brend_model']; ?>" />
+                                    <input type="text" name="fromlist" id="d1" class="form-control" value="<?php echo $equip['brend_model']; ?>" readonly />
                                     <input type="hidden" name="fromlist2" id="d2" class="form-control" value="<?php echo $equip['num_equip']; ?>" />
                                 </div>
                             </div>
@@ -187,14 +187,14 @@ if(!isset($_SESSION["session_username"])) {
                                     if($equip['linkage'] == 0){ $location = 'узел'; $location2 = 0; }
                                     else { $location = 'офис'; $location2 = 1; }
                                     ?>
-                                    <input type="text" name="location" id="e1" class="form-control" value="<?php echo $location ?>" />
+                                    <input type="text" name="location" id="e1" class="form-control" value="<?php echo $location ?>" readonly />
                                     <input type="hidden" name="location2" id="e2" class="form-control" value="<?php echo $location2 ?>" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">подвязан:</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="attach" id="f1" class="form-control" value="<?php echo $equip['addr']; ?>" />
+                                    <input type="text" name="attach" id="f1" class="form-control" value="<?php echo $equip['addr']; ?>" readonly />
                                     <input type="hidden" name="attach2" id="f2" class="form-control" value="<?php echo $equip['num_node']; ?>" />
                                 </div>
                             </div>
@@ -243,7 +243,7 @@ if(!isset($_SESSION["session_username"])) {
                                 <label class="col-sm-3 control-label">Статус соединения:</label>
                                 <div class="col-sm-9">
                                     <?php
-                                    echo '<input type="text" name="status" id="m1" class="form-control" value="'.$equip['st_name'].'" />';
+                                    echo '<input type="text" name="status" id="m1" class="form-control" value="'.$equip['st_name'].'" readonly />';
                                     echo '<input type="hidden" name="status2" id="m2" class="form-control" value="'.$equip['status_d'].'" />';
                                     ?>
 
@@ -280,7 +280,7 @@ if(!isset($_SESSION["session_username"])) {
         <!-- Close connection database -->
         <?php mysqli_close($mysqli); ?>
         <!-- Скрипты -->
-        <script src="../../js/jquery-1.11.3.min.js"></script>
+        <script src="../../js/jquery-1.12.4.min.js"></script>
         <script src="../../js/jquery.dataTables.min.js"></script>
         <script src="../../js/bootstrap.min.js"></script>
         <script src="../../js/jquery.bootstrap.wizard.min.js"></script>

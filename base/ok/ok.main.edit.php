@@ -15,7 +15,7 @@ if(!isset($_SESSION["session_username"])) {
 <head>
     <meta charset="utf-8" />
     <title>Редактировать Сетевое Устройство</title>
-    <link rel="stylesheet" href="../../css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="../../css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="../../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../../css/dataTables.bootstrap.min.css" />
     <!-- style for validate: -->
@@ -71,7 +71,7 @@ if(!isset($_SESSION["session_username"])) {
         <div class="form-group">
             <label class="col-sm-2 control-label">Страна:</label>
             <div class="col-sm-10">
-                <select name="country" id="country" class="form-control" onchange="javascript:selectRegion();">
+                <select name="countryA" id="countryA" class="form-control" onchange="javascript:selectRegionA();">
                     <?php
                     $sql = 'SELECT id,country FROM tab_country ORDER BY id';
                     $res = mysqli_query($mysqli, $sql);
@@ -90,8 +90,8 @@ if(!isset($_SESSION["session_username"])) {
         <div class="form-group">
             <label class="col-sm-2 control-label">Область:</label>
             <div class="col-sm-10">
-                <div  name="selectDataRegion">
-                    <select name="area" id="area" class="form-control" onchange="javascript:selectCity();" >
+                <div  name="selectDataRegionA">
+                    <select name="areaA" id="areaA" class="form-control" onchange="javascript:selectCityA();" >
                         <?php
                         $sql = "SELECT id,region FROM tab_area WHERE country_id=" . $office['country_id'] . " order by region";
                         $res = mysqli_query($mysqli, $sql);
@@ -111,8 +111,8 @@ if(!isset($_SESSION["session_username"])) {
         <div class="form-group">
             <label class="col-sm-2 control-label">Город:</label>
             <div class="col-sm-10">
-                <div  name="selectDataCity">
-                    <select name="town" id="town" class="form-control" onchange="javascript:selectTown();">
+                <div  name="selectDataCityA">
+                    <select name="townA" id="townA" class="form-control" onchange="javascript:selectTownA();">
                         <?php
                         $sql = "SELECT id,town FROM tab_town WHERE country_id=" . $office['country_id'] . " AND area_id=" . $office['area_id'] . " order by town";
                         $res = mysqli_query($mysqli, $sql);
@@ -160,22 +160,22 @@ if(!isset($_SESSION["session_username"])) {
             <div class="form-group">
                 <label class="col-sm-3 control-label">Клиент:</label>
                 <div class="col-sm-9">
-                    <input type="text" name="kli1" id="a1" class="form-control" value="<?php echo $office['client']; ?>" />
+                    <input type="text" name="kli1" id="a1" class="form-control" value="<?php echo $office['client']; ?>" readonly />
                     <input type="hidden" name="kli2" id="a2" class="form-control" value="<?php echo $office['klient']; ?>" />
                 </div>
                 <label class="col-sm-3 control-label">Страна:</label>
                 <div class="col-sm-9">
-                    <input type="text" name="country1" id="b1" class="form-control" value="<?php echo $office['country']; ?>" />
+                    <input type="text" name="country1" id="b1" class="form-control" value="<?php echo $office['country']; ?>" readonly />
                     <input type="hidden" name="country2" id="b2" class="form-control" value="<?php echo $office['country_id']; ?>" />
                 </div>
                 <label class="col-sm-3 control-label">Область:</label>
                 <div class="col-sm-9">
-                    <input type="text" name="area1" id="c1" class="form-control" value="<?php echo $office['region']; ?>" />
+                    <input type="text" name="area1" id="c1" class="form-control" value="<?php echo $office['region']; ?>" readonly />
                     <input type="hidden" name="area2" id="c2" class="form-control" value="<?php echo $office['area_id']; ?>" />
                 </div>
                 <label class="col-sm-3 control-label">Город:</label>
                 <div class="col-sm-9">
-                    <input type="text" name="town1" id="d1" class="form-control" value="<?php echo $office['town']; ?>" />
+                    <input type="text" name="town1" id="d1" class="form-control" value="<?php echo $office['town']; ?>" readonly />
                     <input type="hidden" name="town2" id="d2" class="form-control" value="<?php echo $office['town_id']; ?>" />
                 </div>
                 <label class="col-sm-3 control-label">Адрес:</label>
@@ -192,7 +192,7 @@ if(!isset($_SESSION["session_username"])) {
                 </div>
                 <label class="col-sm-3 control-label">Привязка к СУ на ТП:</label>
                 <div class="col-sm-9">
-                    <input type="text" name="office1" id="h1" class="form-control" value="<?php echo $office['device']; ?>" />
+                    <input type="text" name="office1" id="h1" class="form-control" value="<?php echo $office['device']; ?>" readonly />
                     <input type="hidden" name="office2" id="h2" class="form-control" value="<?php echo $office['device_id']; ?>" />
                 </div>
                 <label class="col-sm-3 control-label">Порт:</label>
@@ -294,7 +294,7 @@ if(!isset($_SESSION["session_username"])) {
                 </div>
                 <label class="col-sm-3 control-label">Статус клиента:</label>
                 <div class="col-sm-9">
-                    <input type="text" name="status1" id="t1" class="form-control" value="<?php echo $office['name']; ?>" />
+                    <input type="text" name="status1" id="t1" class="form-control" value="<?php echo $office['name']; ?>" readonly />
                     <input type="hidden" name="status2" id="t2" class="form-control" value="<?php echo $office['status_d']; ?>" />
                 </div>
                 <label class="col-sm-3 control-label">Примечание:</label>
@@ -324,7 +324,7 @@ if(!isset($_SESSION["session_username"])) {
 <!-- Close connection database -->
 <?php mysqli_close($mysqli); ?>
 <!-- Скрипты -->
-<script src="../../js/jquery-1.11.3.min.js"></script>
+<script src="../../js/jquery-1.12.4.min.js"></script>
 <script src="../../js/jquery.dataTables.min.js"></script>
 <script src="../../js/bootstrap.min.js"></script>
 <script src="../../js/jquery.bootstrap.wizard.min.js"></script>

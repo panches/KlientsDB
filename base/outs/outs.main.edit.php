@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../../css/jquery.steps.css">
-    <link rel="stylesheet" href="../../css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="../../css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="../css/fieldset.css" />
     <style type="text/css">
       input:required:invalid, input:focus:invalid {
@@ -31,11 +31,6 @@
         background-repeat: no-repeat;
       }
     </style>
-    <script src="../../js/jquery-1.11.0.min.js"></script>
-    <script src="../../js/modernizr-2.6.2.min.js"></script>
-    <script src="../../js/jquery.cookie-1.3.1.js"></script>
-    <script src="../../js/jquery.steps.min.js"></script>
-    <script src="../../js/jquery.dataTables.min.js"></script>
   </head>
   <body>
 <?php
@@ -108,15 +103,19 @@
   	</div>
 <?php  mysqli_close($mysqli); ?>
 <!-- JS -->
+    <script src="../../js/jquery-1.12.4.min.js"></script>
+    <script src="../../js/modernizr-2.6.2.min.js"></script>
+    <script src="../../js/jquery.cookie-1.3.1.js"></script>
+    <script src="../../js/jquery.steps.min.js"></script>
+    <script src="../../js/jquery.dataTables.min.js"></script>
     <script> // wizard
-    	$(function(){
-    	    $("#wizard").steps({
-        		headerTag: "h2",
-                bodyTag: "section"
-       		});
-    	});
-    </script>
-    <script>
+    $(function(){
+        $("#wizard").steps({
+            headerTag: "h2",
+            bodyTag: "section"
+        });
+    });
+
     $(document).ready(function(){
     // Офисы Клиентов  
       var oTable = $("#office").dataTable({

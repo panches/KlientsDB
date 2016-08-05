@@ -11,7 +11,7 @@ require "../../includes/constants.php"; //Open database connection
 <head>
     <meta charset="utf-8" />
     <title>Добавить Сетевое Соединение</title>
-    <link rel="stylesheet" href="../../css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="../../css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="../../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../../css/dataTables.bootstrap.min.css" />
     <!-- style for validate: -->
@@ -46,6 +46,7 @@ require "../../includes/constants.php"; //Open database connection
                                 <?php
                                 $sql = 'SELECT id,net FROM tab_nets ORDER BY id';
                                 $res = mysqli_query($mysqli, $sql);
+                                echo '<option value="0"></option>';
                                 while ($row = mysqli_fetch_array($res, MYSQLI_ASSOC)) {
                                     echo '<option value="'.$row['id'].'">'.$row['net'].'</option>';
                                 };
@@ -89,14 +90,14 @@ require "../../includes/constants.php"; //Open database connection
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Тип сети:</label>
                             <div class="col-sm-9">
-                                <input type="text" name="type_net" id="a1" class="form-control" value="" />
+                                <input type="text" name="type_net" id="a1" class="form-control" value="" readonly />
                                 <input type="hidden" name="type_net2" id="a2" class="form-control" value="" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Устройство А:</label>
                             <div class="col-sm-9">
-                                <input type="text" name="equip_a" id="b1" class="form-control" value="" />
+                                <input type="text" name="equip_a" id="b1" class="form-control" value="" readonly />
                                 <input type="hidden" name="equip_a2" id="b2" class="form-control" value="" />
                             </div>
                         </div>
@@ -109,7 +110,7 @@ require "../../includes/constants.php"; //Open database connection
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Устройство Б:</label>
                             <div class="col-sm-9">
-                                <input type="text" name="equip_b" id="d1" class="form-control" value="" />
+                                <input type="text" name="equip_b" id="d1" class="form-control" value="" readonly />
                                 <input type="hidden" name="equip_b2" id="d2" class="form-control" value="" />
                             </div>
                         </div>
@@ -152,7 +153,7 @@ require "../../includes/constants.php"; //Open database connection
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Статус соединения:</label>
                             <div class="col-sm-9">
-                                <input type="text" name="status" id="m1" class="form-control" value="" />
+                                <input type="text" name="status" id="m1" class="form-control" value="" readonly />
                                 <input type="hidden" name="status2" id="m2" class="form-control" value="" />
                             </div>
                         </div>
@@ -195,7 +196,7 @@ require "../../includes/constants.php"; //Open database connection
 <?php mysqli_close($mysqli); ?>
 
 <!-- JS -->
-<script src="../../js/jquery-1.11.3.min.js"></script>
+<script src="../../js/jquery-1.12.4.min.js"></script>
 <script src="../../js/jquery.dataTables.min.js"></script>
 <script src="../../js/bootstrap.min.js"></script>
 <script src="../../js/jquery.bootstrap.wizard.min.js"></script>

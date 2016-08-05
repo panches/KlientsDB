@@ -14,7 +14,7 @@ require "../../includes/constants.php"; //Open database connection
 <head>
     <meta charset="utf-8" />
     <title>Изменить Сетевое Соединение</title>
-    <link rel="stylesheet" href="../../css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="../../css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="../../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../../css/dataTables.bootstrap.min.css" />
     <!-- style for validate: -->
@@ -161,7 +161,7 @@ require "../../includes/constants.php"; //Open database connection
                     <label class="col-sm-3 control-label">Тип сети:</label>
                     <div class="col-sm-9">
                         <?php
-                        echo '<input type="text" name="type_net" id="aa1" class="form-control" value="'.$link['sign_net'].'" />';
+                        echo '<input type="text" name="type_net" id="aa1" class="form-control" value="'.$link['sign_net'].'" readonly />';
                         ?>
                     </div>
                 </div>
@@ -169,7 +169,7 @@ require "../../includes/constants.php"; //Open database connection
                     <label class="col-sm-3 control-label">Устройство А:</label>
                     <div class="col-sm-9">
                         <?php
-                        echo '<input type="text" name="equip_a" id="b1" class="form-control" value="'.$link['eq1name'].'" />';
+                        echo '<input type="text" name="equip_a" id="b1" class="form-control" value="'.$link['eq1name'].'" readonly />';
                         echo '<input type="hidden" name="equip_a2" id="b2" class="form-control" value="'.$link['eq1id'].'" />';
                         ?>
                     </div>
@@ -186,7 +186,7 @@ require "../../includes/constants.php"; //Open database connection
                     <label class="col-sm-3 control-label">Партнер:</label>
                     <div class="col-sm-9">
                         <?php
-                        echo '<input type="text" name="client" id="d1" class="form-control" value="'.$link['eq2name'].'" />';
+                        echo '<input type="text" name="client" id="d1" class="form-control" value="'.$link['eq2name'].'" readonly />';
                         echo '<input type="hidden" name="client2" id="d2" class="form-control" value="'.$link['eq2id'].'" />';
                         ?>
                     </div>
@@ -203,7 +203,7 @@ require "../../includes/constants.php"; //Open database connection
                     <label class="col-sm-3 control-label">SLA:</label>
                     <div class="col-sm-9">
                         <?php
-                        echo '<input type="text" name="sla" id="ea1" class="form-control" value="'.$link['slaname'].'" />';
+                        echo '<input type="text" name="sla" id="ea1" class="form-control" value="'.$link['slaname'].'" readonly />';
                         echo '<input type="hidden" name="sla2" id="ea2" class="form-control" value="'.$link['SLA'].'" />';
                         ?>
                     </div>
@@ -252,7 +252,7 @@ require "../../includes/constants.php"; //Open database connection
                     <label class="col-sm-3 control-label">Статус соединения:</label>
                     <div class="col-sm-9">
                         <?php
-                        echo '<input type="text" name="status" id="m1" class="form-control" value="'.$link['st_name'].'" />';
+                        echo '<input type="text" name="status" id="m1" class="form-control" value="'.$link['st_name'].'" readonly />';
                         echo '<input type="hidden" name="status2" id="m2" class="form-control" value="'.$link['status_d'].'" />';
                         ?>
                     </div>
@@ -303,7 +303,7 @@ require "../../includes/constants.php"; //Open database connection
 <?php mysqli_close($mysqli); ?>
 
 <!-- JS -->
-<script src="../../js/jquery-1.11.3.min.js"></script>
+<script src="../../js/jquery-1.12.4.min.js"></script>
 <script src="../../js/jquery.dataTables.min.js"></script>
 <script src="../../js/bootstrap.min.js"></script>
 <script src="../../js/jquery.bootstrap.wizard.min.js"></script>

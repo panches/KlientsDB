@@ -15,7 +15,7 @@ if(!isset($_SESSION["session_username"])) {
 <head>
     <meta charset="utf-8" />
     <title>Добавить Сервис Клиента</title>
-    <link rel="stylesheet" href="../../css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="../../css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="../../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../../css/dataTables.bootstrap.min.css" />
     <!-- style for validate: -->
@@ -87,17 +87,17 @@ if(!isset($_SESSION["session_username"])) {
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Клиент:</label>
                             <div class="col-sm-9">
-                                <input type="text" name="kli1" id="a1" class="form-control" value="" />
+                                <input type="text" name="kli1" id="a1" class="form-control" value="" readonly />
                                 <input type="hidden" name="kli2" id="a2" class="form-control" value="" />
                             </div>
                             <label class="col-sm-3 control-label">Офис А:</label>
                             <div class="col-sm-9">
-                                <input type="text" name="officeA1" id="b1" class="form-control" value="" />
+                                <input type="text" name="officeA1" id="b1" class="form-control" value="" readonly />
                                 <input type="hidden" name="officeA2" id="b2" class="form-control" value="" />
                             </div>
                             <label class="col-sm-3 control-label">Офис Б:</label>
                             <div class="col-sm-9">
-                                <input type="text" name="officeB1" id="c1" class="form-control" value="" />
+                                <input type="text" name="officeB1" id="c1" class="form-control" value="" readonly />
                                 <input type="hidden" name="officeB2" id="c2" class="form-control" value="" />
                             </div>
                             <label class="col-sm-3 control-label">Тип сервиса:</label>
@@ -159,7 +159,7 @@ if(!isset($_SESSION["session_username"])) {
                             </div>
                             <label class="col-sm-3 control-label">Статус клиента:</label>
                             <div class="col-sm-9">
-                                <input type="text" name="status1" id="n1" class="form-control" value="в эксплуатации" />
+                                <input type="text" name="status1" id="n1" class="form-control" value="в эксплуатации" readonly />
                                 <input type="hidden" name="status2" id="n2" class="form-control" value="2" />
                             </div>
                             <label class="col-sm-3 control-label">Retail-клиент:</label>
@@ -212,7 +212,7 @@ if(!isset($_SESSION["session_username"])) {
     <!-- Close connection database -->
     <?php mysqli_close($mysqli); ?>
     <!-- Скрипты -->
-    <script src="../../js/jquery-1.11.3.min.js"></script>
+    <script src="../../js/jquery-1.12.4.min.js"></script>
     <script src="../../js/jquery.dataTables.min.js"></script>
     <script src="../../js/bootstrap.min.js"></script>
     <script src="../../js/jquery.bootstrap.wizard.min.js"></script>

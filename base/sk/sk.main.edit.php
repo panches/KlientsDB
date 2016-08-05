@@ -15,7 +15,7 @@ require "../../includes/constants.php";
 <head>
     <meta charset="utf-8"/>
     <title>Редактировать Сервис Клиента</title>
-    <link rel="stylesheet" href="../../css/jquery.dataTables.css"/>
+    <link rel="stylesheet" href="../../css/jquery.dataTables.min.css"/>
     <link rel="stylesheet" href="../../css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../../css/dataTables.bootstrap.min.css"/>
     <!-- style for validate: -->
@@ -121,19 +121,19 @@ require "../../includes/constants.php";
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Клиент:</label>
                         <div class="col-sm-9">
-                            <input type="text" name="kli1" id="a1" class="form-control" value="<?php echo htmlentities($service['kli']); ?>"/>
+                            <input type="text" name="kli1" id="a1" class="form-control" value="<?php echo htmlentities($service['kli']); ?>" readonly />
                             <input type="hidden" name="kli2" id="a2" class="form-control" value="<?php echo $service['client']; ?>"/>
                         </div>
 
                         <label class="col-sm-3 control-label">Офис А:</label>
                         <div class="col-sm-9">
-                            <input type="text" name="officeA1" id="b1" class="form-control" value="<?php echo $office_a; ?>"/>
+                            <input type="text" name="officeA1" id="b1" class="form-control" value="<?php echo $office_a; ?>" readonly />
                             <input type="hidden" name="officeA2" id="b2" class="form-control" value="<?php echo $service['office_a']; ?>"/>
                         </div>
 
                         <label class="col-sm-3 control-label">Офис Б:</label>
                         <div class="col-sm-9">
-                            <input type="text" name="officeB1" id="c1" class="form-control" value="<?php echo $office_b; ?>"/>
+                            <input type="text" name="officeB1" id="c1" class="form-control" value="<?php echo $office_b; ?>" readonly />
                             <input type="hidden" name="officeB2" id="c2" class="form-control" value="<?php echo $service['office_b']; ?>"/>
                         </div>
 
@@ -216,7 +216,7 @@ require "../../includes/constants.php";
 
                         <label class="col-sm-3 control-label">Статус клиента:</label>
                         <div class="col-sm-9">
-                            <input type="text" name="status1" id="n1" class="form-control" value="<?php echo $service['sk_status']; ?>"/>
+                            <input type="text" name="status1" id="n1" class="form-control" value="<?php echo $service['sk_status']; ?>" readonly />
                             <input type="hidden" name="status2" id="n2" class="form-control" value="<?php echo $service['status_d']; ?>"/>
                         </div>
 
@@ -278,7 +278,7 @@ require "../../includes/constants.php";
 <!-- Close connection database -->
 <?php mysqli_close($mysqli); ?>
 <!-- Скрипты -->
-<script src="../../js/jquery-1.11.3.min.js"></script>
+<script src="../../js/jquery-1.12.4.min.js"></script>
 <script src="../../js/jquery.dataTables.min.js"></script>
 <script src="../../js/bootstrap.min.js"></script>
 <script src="../../js/jquery.bootstrap.wizard.min.js"></script>

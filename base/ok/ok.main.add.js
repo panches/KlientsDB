@@ -1,4 +1,3 @@
-/** Created on 12.05.2016. */
 // формирование закладок (Визарда)
 $('#rootwizard').bootstrapWizard();
 // заполнение полей формы
@@ -10,49 +9,49 @@ function selectKli(){
     //console.log(sel.html());
 };
 // каскад Страна - Область - Город
-function selectRegion(){
-    var id_country = $('select[name="country"]').val();
+function selectRegionA(){
+    var id_country = $('select[name="countryA"]').val();
     if(!id_country){
-        $('div[name="selectDataRegion"]').html('<select name="area" id="area" class="form-control"></select>');
-        $('div[name="selectDataCity"]').html('<select name="town" id="town" class="form-control"></select>');
+        $('div[name="selectDataRegionA"]').html('<select name="areaA" id="areaA" class="form-control"></select>');
+        $('div[name="selectDataCityA"]').html('<select name="townA" id="townA" class="form-control"></select>');
     }else{
         $.ajax({
             type: "POST",
             url: "../../includes/RegAreaTown.combo.ajax.php",
-            data: { action: 'showRegionForInsert', id_country: id_country },
+            data: { action: 'showRegionForInsert', id_country: id_country, flg: 'A' },
             cache: false,
-            success: function(responce){ $('div[name="selectDataRegion"]').html(responce); }
+            success: function(responce){ $('div[name="selectDataRegionA"]').html(responce); }
         });
-        $('div[name="selectDataCity"]').html('<select name="town" id="town" class="form-control" onchange="javascript:selectTown();"></select>');
+        $('div[name="selectDataCityA"]').html('<select name="townA" id="townA" class="form-control" onchange="javascript:selectTownA();"></select>');
         // перенести значения Страна в Форму
-        var sel = $("#country option:selected");
+        var sel = $("#countryA option:selected");
         $("#b1").attr("value", sel.html());
         $("#b2").attr("value", sel.val());
-        //    console.log(sel.html());
+        console.log(sel.html());
     };
 };
-function selectCity(){
-    var id_region = $('select[name="area"]').val();
-    var id_country = $('select[name="country"]').val();
+function selectCityA(){
+    var id_region = $('select[name="areaA"]').val();
+    var id_country = $('select[name="countryA"]').val();
     $.ajax({
         type: "POST",
         url: "../../includes/RegAreaTown.combo.ajax.php",
-        data: { action: 'showCityForInsert', id_country: id_country, id_region: id_region },
+        data: { action: 'showCityForInsert', id_country: id_country, id_region: id_region, flg: 'A' },
         cache: false,
-        success: function(responce){ $('div[name="selectDataCity"]').html(responce); }
+        success: function(responce){ $('div[name="selectDataCityA"]').html(responce); }
     });
     // перенести значения Область в Форму
-    var sel = $("#area option:selected");
+    var sel = $("#areaA option:selected");
     $("#c1").attr("value", sel.html());
     $("#c2").attr("value", sel.val());
-    //console.log( sel.html() );
+    console.log( sel.html() );
 };
-function selectTown(){
+function selectTownA(){
     // перенести значения Город в Форму
-    var sel = $("#town option:selected");
+    var sel = $("#townA option:selected");
     $("#d1").attr("value", sel.html());
     $("#d2").attr("value", sel.val());
-    //console.log(sel.html());
+    console.log(sel.html());
 };
 function selectRetail(){
     // перенести значения Retail в Форму
