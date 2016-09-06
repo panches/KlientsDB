@@ -10,6 +10,11 @@
 
     session_start();
     $user_id = $_SESSION['session_userid'];
+    // поиск max(id_equip)
+    $sql = 'select max(outs_id) as id from `outs_hardware`';
+    $res = mysqli_query($mysqli, $sql);
+    $row = mysqli_fetch_assoc($res);
+    $str_n = (int)$row['id'] + 1;
     // экранизация символов в строке
     $office2 = htmlentities(mysqli_real_escape_string($mysqli, $_POST['office2']));
     $name = htmlentities(mysqli_real_escape_string($mysqli, $_POST['name']));
@@ -18,8 +23,8 @@
     $license = htmlentities(mysqli_real_escape_string($mysqli, $_POST['license']));
     $note = htmlentities(mysqli_real_escape_string($mysqli, $_POST['note']));
     // SQL запрос
-	$sql = "INSERT INTO `outs_hardware` (`clients`,`hostname`,`hardware`,`serial`,`license`,`info`,change_login)
-            VALUES ('$office2','$name','$equip2','$num','$license','$note','$user_id')";
+	$sql = "INSERT INTO `outs_hardware` (outs_id,`clients`,`hostname`,`hardware`,`serial`,`license`,`info`,change_login)
+            VALUES ('$str_n','$office2','$name','$equip2','$num','$license','$note','$user_id')";
   	//Get records from database
 	if (mysqli_query($mysqli, $sql) === TRUE) {
         header("location: ../../includes/info.ok.php?info=1");

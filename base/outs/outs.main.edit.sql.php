@@ -17,9 +17,9 @@
     $num = htmlentities(mysqli_real_escape_string($mysqli, $_POST['num']));
     $license = htmlentities(mysqli_real_escape_string($mysqli, $_POST['license']));
     $note = htmlentities(mysqli_real_escape_string($mysqli, $_POST['note']));
-    $id_outs = htmlentities(mysqli_real_escape_string($mysqli, $_POST['id_outs']));
+    $id_outs = $_POST['id_outs'];
 	// SQL запрос
-    $sql = "UPDATE `outs_hardware` SET `clients`='$office2',`hostname`='$name',`hardware`='$equip2',`serial`='$num',`license`='$license',`info`='$note',change_login='$user_id' WHERE outs_id='$id_outs'";
+    $sql = "UPDATE outs_hardware SET clients='$office2',hostname='$name',hardware='$equip2',serial='$num',license='$license',info='$note',change_login='$user_id' WHERE outs_id=$id_outs";
   	//Get records from database
 	if (mysqli_query($mysqli, $sql) === TRUE) {
         header("location: ../../includes/info.ok.php?info=2");

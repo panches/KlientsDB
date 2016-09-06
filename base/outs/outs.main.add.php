@@ -9,91 +9,102 @@
   <head>
     <meta charset="utf-8" />
     <title>Добавить Аутсорсинг</title>
-    <link rel="stylesheet" href="../css/normalize.css">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../../css/jquery.steps.css">
     <link rel="stylesheet" href="../../css/jquery.dataTables.min.css" />
-    <link rel="stylesheet" href="../css/fieldset.css" />
-    <style type="text/css">
-        input:required:invalid, input:focus:invalid {
-          background-image: url(../../img/invalid.png);
-          background-position: right top;
-          background-repeat: no-repeat;
-        }
-        input:required:valid {
-          background-image: url(../../img/valid.png);
-          background-position: right top;
-          background-repeat: no-repeat;
-        }
-    </style>
-  </head>
-  <body>
-  	<div id="wizard">
-	    <h2>Абонент</h2>
-    	<section>
-<!-- Таблица Абонент -->
-      <table id="office" class="display cell-border compact" cellspacing="0" width="100%"></table>
-      <div id="ok_show"><font color="red"></font></div>
-      </section>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../css/dataTables.bootstrap.min.css" />
+    <!-- style for validate: -->
+    <style>  .error{ color: red; }  </style>
 
-	    <h2>Модель устройства</h2>
-    	<section>
-<!-- Таблица Модель устройства -->
-      <table id="equip" class="display cell-border compact" cellspacing="0" width="100%"></table>
-      <div id="eq_show"><font color="red"></font></div>
-      </section>
 
-	    <h2>Остальные данные</h2>
-    	<section>
-<!-- Форма Остальные данные -->
-      <form method="post" action="outs.main.add.sql.php">
-        <fieldset>
-        <legend>Новая запись</legend>
-        <div>
-          <label for="office">Абонент:</label>
-          <input type="text" name="office" id="a1" class="txt" value="" required />
-          <input type="hidden" name="office2" id="a2" class="txt" value="" />
-        </div>
-        <div>
-          <label for="name">Имя узла сети:</label>
-          <input type="text" name="name" id="b" class="txt" value="" required />
-        </div>
-        <div>
-          <label for="equip">Модель устройства:</label>
-          <input type="text" name="equip" id="c1" class="txt" value="" required />
-          <input type="hidden" name="equip2" id="c2" class="txt" value="" />
-        </div>
-        <div>
-          <label for="num">Серийный номер:</label>
-          <input type="text" name="num" id="d" class="txt" value="" required />
-        </div>
-        <div>
-          <label for="license">Тип лицензии:</label>
-          <input type="text" name="license" id="e" class="txt" value="" required />
-        </div>
-        <div>
-          <label for="note">Примечание:</label>
-          <textarea   cols="35" rows="3" name="note" id="f" class="note"></textarea>
-        </div>
-        </fieldset>
-        <div>
-         <button name="btnOk" id="btnOk" class="btnOk"><img src="../../img/ok.png" style="vertical-align: middle"> Ok</button>
-        </div>
-      </form>
-      </section>
-  	</div>
-<!-- JS -->
-    <script src="../../js/jquery-1.12.4.min.js"></script>
-    <script src="../../js/modernizr-2.6.2.min.js"></script>
-    <script src="../../js/jquery.cookie-1.3.1.js"></script>
-    <script src="../../js/jquery.steps.min.js"></script>
-    <script src="../../js/jquery.dataTables.min.js"></script>
-    <script> // wizard
+</head>
+<body>
+  <div id="rootwizard">
+      <div class="navbar">
+          <div class="navbar-inner">
+              <div class="container">
+                  <ul>
+                      <li><a href="#tab1" data-toggle="tab">1.Абонент</a></li>
+                      <li><a href="#tab2" data-toggle="tab">2.Модель устройства</a></li>
+                      <li><a href="#tab3" data-toggle="tab">3.Все поля</a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      <div class="tab-content">
+          <div class="tab-pane" id="tab1">
+              <div  class="container">
+              <!-- офис -->
+                  <label for="office">Название:</label>
+                  <table id="office" class="display cell-border compact" cellspacing="0" width="100%"></table>
+                  <div id="office_show"><font color="red"></font></div>
+              </div>
+          </div>
+          <div class="tab-pane" id="tab2">
+              <div  class="container">
+              <!-- устройства -->
+                  <label for="equip">Название:</label>
+                  <table id="equip" class="display cell-border compact" cellspacing="0" width="100%"></table>
+                  <div id="equip_show"><font color="red"></font></div>
+              </div>
+          </div>
+          <div class="tab-pane" id="tab3">
+              <div  class="container">
+                  <div class="form-group">
+                      <form id="formadd" method="post" action="outs.main.add.sql.php">
+                          <label class="col-sm-3 control-label">Абонент:</label>
+                          <div class="col-sm-9">
+                              <input type="text" name="office" id="a1" class="form-control" value="" readonly />
+                              <input type="hidden" name="office2" id="a2" class="txt" value="" />
+                          </div>
+                          <label class="col-sm-3 control-label">Имя узла сети:</label>
+                          <div class="col-sm-9">
+                            <input type="text" name="name" id="b" class="form-control" value="" />
+                          </div>
+                          <label class="col-sm-3 control-label">Модель устройства:</label>
+                          <div class="col-sm-9">
+                            <input type="text" name="equip" id="c1" class="form-control" value="" readonly />
+                            <input type="hidden" name="equip2" id="c2" class="txt" value="" />
+                          </div>
+                          <label class="col-sm-3 control-label">Серийный номер:</label>
+                          <div class="col-sm-9">
+                            <input type="text" name="num" id="d" class="form-control" value="" />
+                          </div>
+                          <label class="col-sm-3 control-label">Тип лицензии:</label>
+                          <div class="col-sm-9">
+                            <input type="text" name="license" id="e" class="form-control" value="" />
+                          </div>
+                          <label class="col-sm-3 control-label">Примечание:</label>
+                          <div class="col-sm-9">
+                            <textarea   cols="35" rows="3" name="note" id="f" class="form-control"></textarea>
+                          </div>
+                          <legend></legend>
+                          <div class="col-sm-13 col-sm-offset-11">
+                              <button name="btnOk" id="btnOk" class="btn"><img src="../../img/ok.png"> Ok</button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+          <ul class="pager wizard">
+              <li class="previous first" style="display:none;"><a href="#">First</a></li>
+              <li class="previous"><a href="#">Previous</a></li>
+              <li class="next last" style="display:none;"><a href="#">Last</a></li>
+              <li class="next"><a href="#">Next</a></li>
+          </ul>
+      </div>
+  </div>
+  <!-- Скрипты -->
+  <script src="../../js/jquery-1.12.4.min.js"></script>
+  <script src="../../js/jquery.dataTables.min.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
+  <script src="../../js/jquery.bootstrap.wizard.min.js"></script>
+  <script src="../../js/dataTables.bootstrap.min.js"></script>
+  <script src="../../js/jquery.bootstrap.wizard.min.js"></script>
+  <script src="../../js/jquery.validate.min.js"></script>
+  <script> // wizard
     $(function(){
-        $("#wizard").steps({
-            headerTag: "h2",
-            bodyTag: "section"
-        });
+        // формирование закладок (Визарда)
+        $('#rootwizard').bootstrapWizard();
     });
 
     $(document).ready(function(){
@@ -127,7 +138,7 @@
         // отбор позиции строки и значение столбца
         var oPos = oTable.fnGetPosition( this );
         var oData = oTable.fnGetData( oPos );
-        $("#ok_show").html('<font color="red">' + oData[1] + ", " + oData[2] + ", " + oData[3] + '</font>');
+        $("#office_show").html('<font color="red">' + oData[1] + ", " + oData[2] + ", " + oData[3] + '</font>');
         $("#a1").attr("value",oData[1] + ", " + oData[2] + ", " + oData[3]);
         $("#a2").attr("value",oData[0]);
       });
@@ -159,10 +170,29 @@
         // отбор позиции строки и значение столбца
         var ePos = eTable.fnGetPosition( this );
         var eData = eTable.fnGetData( ePos );
-        $("#eq_show").html('<font color="red">' + eData[3] + '</font>');
+        $("#equip_show").html('<font color="red">' + eData[3] + '</font>');
         $("#c1").attr("value",eData[3]);
         $("#c2").attr("value",eData[0]);
       });
+        // валидация формы
+        $("#formadd").validate({
+            rules: {
+                office: {
+                    required: true
+                },
+                equip: {
+                    required: true
+                }
+            },
+            messages: {
+                office: {
+                    required: "Вернитесь на закладку №1 и сделайте выбор"
+                },
+                equip: {
+                    required: "Вернитесь на закладку №2 и сделайте выбор"
+                }
+            }
+        });
     })
     </script>
   </body>

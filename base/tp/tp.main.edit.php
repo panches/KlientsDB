@@ -14,7 +14,7 @@ if(!isset($_SESSION["session_username"])) {
         <html>
         <head>
             <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-            <title>Добавить Тех.Площадку</title>
+            <title>Редактировать Тех.Площадку</title>
             <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
             <!-- style for validate: -->
             <style> .error { color: red; } </style>
