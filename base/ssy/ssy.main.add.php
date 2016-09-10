@@ -298,14 +298,14 @@ or die("Ошибка " . mysqli_error($mysqli));
                 <label class="col-sm-3 control-label">Договор:</label>
                 <div class="col-sm-9">
                     <div  name="dogovor">
-                        <select name="dogov1" id="сa1" class="form-control" onchange="javascript:selectDogov();" ></select>
+                        <select name="dogov" id="dogov" class="form-control" onchange="javascript:selectDogov();" ></select>
                     </div>
                     <input type="hidden" name="dogov2" id="сa2" class="form-control" value="0" />
                 </div>
                 <label class="col-sm-3 control-label">Доп.Договор:</label>
                 <div class="col-sm-9">
                     <div  name="dopdogovor">
-                        <select name="dopdogov1" id="cb1" class="form-control" onchange="javascript:selectDopdogov();" ></select>
+                        <select name="dopdogov" id="dopdogov" class="form-control" onchange="javascript:selectDopdogov();" ></select>
                     </div>
                     <input type="hidden" name="dopdogov2" id="сb2" class="form-control" value="0" />
                 </div>

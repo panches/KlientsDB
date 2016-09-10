@@ -11,7 +11,7 @@ if (!isset($_POST['sk_id'])) {
     session_start();
     $user_id = $_SESSION['session_userid'];
     $user_nik = htmlentities(mysqli_real_escape_string($mysqli, $_SESSION['session_username']));
-    // id_kli
+    // id_sk
     $str_n = $_POST['sk_id'];
     //present data
     $sql = 'SELECT net_data.*, k.client AS kli, s.name AS sk_status, t.name AS sk_type FROM net_data, tab_klients k, tab_status s, tab_katal_sk_type t

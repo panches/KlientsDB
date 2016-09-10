@@ -8,7 +8,7 @@ if (!isset($_GET['ssy_id'])) {
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <link rel="stylesheet" type="text/css" href="../css/fieldset.css" />
+        <link rel="stylesheet" type="text/css" href="../css/w3.css" />
         <title>info: ССу #<?php echo $_GET['ssy_id'] ?></title>
     </head>
     <body>
@@ -16,8 +16,7 @@ if (!isset($_GET['ssy_id'])) {
 require "../../includes/constants.php";
 //Open database connection
 $mysqli = mysqli_connect($host,$user,$password,$db);
-echo '<div class="container-fluid">';
-$sql = 'SELECT net_o.id_oper,tb_ta.town AS ta,net_o.side_a,tb_tb.town AS tb,net_o.side_b,net_o.speed_d,oper.client,net_o.cost,net_o.num_canal,
+$sql = 'SELECT net_o.id_oper,tb_ta.town AS ta,net_o.side_a,tb_tb.town AS tb,net_o.side_b,net_o.speed_d,oper.client,net_o.cost,net_o.num_canal,net_o.note,
         tab_catal_dogovor.dogovor,tab_catal_dogovor_dop.dop_dogovor,
         CONCAT(tab_catal_dogovor.dogovor," от ",DATE_FORMAT(tab_catal_dogovor.dt_dogovor,"%d.%m.%Y")) AS dogovor_dt,CONCAT(tab_catal_dogovor_dop.dop_dogovor," от ",DATE_FORMAT(tab_catal_dogovor_dop.dt_dogovor_dop,"%d.%m.%Y")) AS dop_dogovor_dt,
         net_o.contract_main,net_o.contract,tab_catal_sreda_peredachi.name_sredi,tab_katal_sk_type.name AS name_sk,net_o.plannerid,net_o.in_date,nmclient.client AS nmcli,net_o.nameclient_gridin,net_o.capex,
@@ -40,25 +39,59 @@ $sql = 'SELECT net_o.id_oper,tb_ta.town AS ta,net_o.side_a,tb_tb.town AS tb,net_
         LEFT JOIN  tab_catal_dogovor ON net_o.contract_main_d=tab_catal_dogovor.id
         LEFT JOIN  tab_catal_dogovor_dop ON net_o.dop_dogovor_d=tab_catal_dogovor_dop.id
         LEFT JOIN  tab_catal_our_company ON net_o.our_company=tab_catal_our_company.id_our
-        where id_oper = '.$_GET['ssy_id'];
+        WHERE id_oper = '.$_GET['ssy_id'];
 $res = mysqli_query($mysqli, $sql);
 $ssy = mysqli_fetch_assoc($res);
-echo '<div>Точка А: '.$ssy['ta'].', '.$ssy['side_a'].'</div>';
-echo '<div>Точка Б: '.$ssy['tb'].', '.$ssy['side_b'].'</div>';
-echo '<div>Скорость: '.$ssy['speed_d'].'</div>';
-echo '<div>Субпровайдер: '.$ssy['client'].'</div>';
-echo '<div>Стоимость: '.$ssy['cost'].'</div>';
-echo '<div>№ задачи: '.$ssy['plannerid'].'</div>';
-echo '<div>Тип услуги: '.$ssy['name_sk'].'</div>';
-echo '<div>Название клиента: '.$ssy['nmcli'].'</div>';
-echo '<div>corp\retail: '.$ssy['corp_retail'].'</div>';
-echo '<div>Дата включения: '.date("d.m.Y",strtotime($ssy['condition_d'])).'</div>';
-echo '<div>Состояние: '.$ssy['name_s'].'</div>';
-$sql = 'SELECT note FROM net_operators WHERE id_oper='.$_GET['ssy_id'];
-$res = mysqli_query($mysqli, $sql);
-$temp = mysqli_fetch_assoc($res);
-echo '<div>Примечание: '.$temp['note'].'</div>';
-echo '</div>';
+?>
+    <div class="w3-container">
+        <div class="w3-text-red w3-col" style="width:15%">Точка А:</div>
+        <div class="w3-rest"><?php echo $ssy['ta'].', '.$ssy['side_a'] ?></div>
+    </div>
+    <div class="w3-container">
+        <div class="w3-text-pink w3-col" style="width:15%">Точка Б:</div>
+        <div class="w3-rest"><?php echo $ssy['tb'].', '.$ssy['side_b'] ?></div>
+    </div>
+    <div class="w3-container">
+        <div class="w3-text-teal w3-col" style="width:15%">Скорость:</div>
+        <div class="w3-rest"><?php echo $ssy['speed_d'] ?></div>
+    </div>
+    <div class="w3-container">
+        <div class="w3-text-deep-purple w3-col" style="width:15%">Субпровайдер:</div>
+        <div class="w3-rest"><?php echo $ssy['client'] ?></div>
+    </div>
+    <div class="w3-container">
+        <div class="w3-text-blue-grey w3-col" style="width:15%">Стоимость:</div>
+        <div class="w3-rest"><?php echo $ssy['cost'] ?></div>
+    </div>
+    <div class="w3-container">
+        <div class="w3-text-blue w3-col" style="width:15%">№ задачи:</div>
+        <div class="w3-rest"><?php echo $ssy['plannerid'] ?></div>
+    </div>
+    <div class="w3-container">
+        <div class="w3-text-deep-orange w3-col" style="width:15%">Тип услуги:</div>
+        <div class="w3-rest"><?php echo $ssy['name_sk'] ?></div>
+    </div>
+    <div class="w3-container">
+        <div class="w3-text-lime w3-col" style="width:15%">Название клиента:</div>
+        <div class="w3-rest"><?php echo $ssy['nmcli'] ?></div>
+    </div>
+    <div class="w3-container">
+        <div class="w3-text-green w3-col" style="width:15%">corp\retail:</div>
+        <div class="w3-rest"><?php echo $ssy['corp_retail'] ?></div>
+    </div>
+    <div class="w3-container">
+        <div class="w3-text-grey w3-col" style="width:15%">Дата включения:</div>
+        <div class="w3-rest"><?php echo date("d.m.Y",strtotime($ssy['condition_d'])) ?></div>
+    </div>
+    <div class="w3-container">
+        <div class="w3-text-orange w3-col" style="width:15%">Состояние:</div>
+        <div class="w3-rest"><?php echo $ssy['name_s'] ?></div>
+    </div>
+    <div class="w3-container">
+        <div class="w3-text-brown w3-col" style="width:15%">Примечание:</div>
+        <div class="w3-rest"><?php echo $ssy['note'] ?></div>
+    </div>
+<?php
 mysqli_close($mysqli);
 ?>
 </body>
