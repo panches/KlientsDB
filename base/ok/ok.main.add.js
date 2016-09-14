@@ -79,6 +79,12 @@ function selectStatus(){
     $("#t1").attr("value", sel.html());
     $("#t2").attr("value", sel.val());
 };
+// calendar for "date_in"
+$("#o").datepicker({
+    language: 'ru',
+    format: "dd.mm.yyyy"
+});
+
 $(document).ready(function(){
     // Сетевые Устройства
     var eTable = $("#equip").dataTable({

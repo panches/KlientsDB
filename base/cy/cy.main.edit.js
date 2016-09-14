@@ -37,6 +37,17 @@ function selectStatus(){
 };
 // формирование закладок (Визарда)
 $('#rootwizard').bootstrapWizard();
+// calendar for "date_in"
+$("#i").datepicker({
+    language: 'ru',
+    format: "dd.mm.yyyy"
+});
+// calendar for "date_outе"
+$("#j").datepicker({
+    language: 'ru',
+    format: "dd.mm.yyyy"
+});
+
 // признак Узла/Офиса из MySQL
 var linkage = "<?php echo $equip['linkage'] ?>";
 

@@ -26,10 +26,16 @@ function selectStatus() {
     $("#m1").attr("value", sel.html());
     $("#m2").attr("value", sel.val());
 };
+// calendar for "date_in"
+$("#i").datepicker({
+    language: 'ru',
+    format: "dd.mm.yyyy"
+});
 
 $(document).ready(function(){
     // wizard
     $('#rootwizard').bootstrapWizard();
+
     // Сетевые Устройства A
     var aTable = $("#equipA").dataTable({
         "scrollY":        "300px",

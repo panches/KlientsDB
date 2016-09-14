@@ -15,6 +15,7 @@ require "../../includes/constants.php";
     <link rel="stylesheet" href="../../css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="../../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../../css/dataTables.bootstrap.min.css" />
+    <link rel="stylesheet" href="../../css/bootstrap-datepicker.min.css" />
     <!-- style for validate: -->
     <style>  .error{ color: red; }  </style>
 </head>
@@ -344,11 +345,11 @@ or die("Ошибка " . mysqli_error($mysqli));
                 </div>
                 <label class="col-sm-3 control-label">Дата включения:</label>
                 <div class="col-sm-9">
-                    <input type="date" name="date_in" id="g" class="form-control" value="" />
+                    <input type="text" name="date_in" id="g" class="form-control" value="" />
                 </div>
                 <label class="col-sm-3 control-label">Дата подачи услуги:</label>
                 <div class="col-sm-9">
-                    <input type="date" name="date_in_work" id="h" class="form-control" value="" />
+                    <input type="text" name="date_in_work" id="h" class="form-control" value="" />
                 </div>
                 <label class="col-sm-3 control-label">№ канала:</label>
                 <div class="col-sm-9">
@@ -369,7 +370,7 @@ or die("Ошибка " . mysqli_error($mysqli));
                 </div>
                 <label class="col-sm-3 control-label">Дата постановки задачи:</label>
                 <div class="col-sm-9">
-                    <input type="date" name="date_in_task" id="l" class="form-control" value="" />
+                    <input type="text" name="date_in_task" id="l" class="form-control" value="" />
                 </div>
                 <label class="col-sm-3 control-label">Подразделение:</label>
                 <div class="col-sm-9">
@@ -392,7 +393,7 @@ or die("Ошибка " . mysqli_error($mysqli));
                 </div>
                 <label class="col-sm-3 control-label">Дата отключения:</label>
                 <div class="col-sm-9">
-                    <input type="date" name="date_out" id="q" class="form-control" value="" />
+                    <input type="text" name="date_out" id="q" class="form-control" value="" readonly />
                 </div>
                 <label class="col-sm-3 control-label">Налоговая накладная:</label>
                 <div class="col-sm-9">
@@ -451,6 +452,8 @@ or die("Ошибка " . mysqli_error($mysqli));
 <script src="../../js/jquery.bootstrap.wizard.min.js"></script>
 <script src="../../js/dataTables.bootstrap.min.js"></script>
 <script src="../../js/jquery.bootstrap.wizard.min.js"></script>
+<script src="../../js/bootstrap-datepicker.min.js"></script>
+<script src="../../js/bootstrap-datepicker.ru.min.js" charset="UTF-8"></script>
 <script src="../../js/jquery.validate.min.js"></script>
 <!-- MyScript -->
 <script src="ssy.main.add.js"></script>

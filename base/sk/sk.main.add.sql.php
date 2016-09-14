@@ -35,7 +35,8 @@ if (!isset($_POST['kli1'])) {
     $start_dt = htmlentities(mysqli_real_escape_string($mysqli, date("Y-m-d h:i:s")));
     $planer = htmlentities(mysqli_real_escape_string($mysqli, $_POST['planer']));
     $retail2 = htmlentities(mysqli_real_escape_string($mysqli, $_POST['retail2']));
-    $date_in = htmlentities(mysqli_real_escape_string($mysqli, date("Y-m-d", strtotime($_POST['date_in']))));
+    $d = new DateTime($_POST['date_in']);
+    $date_in = htmlentities(mysqli_real_escape_string($mysqli, $d->format("Y-m-d")));
     $date_out = htmlentities(mysqli_real_escape_string($mysqli, '0000-00-00'));
     $in_out = htmlentities(mysqli_real_escape_string($mysqli, $_POST['in_out']));
 

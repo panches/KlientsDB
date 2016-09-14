@@ -23,8 +23,14 @@ if ($_POST['sign'] == "сетевое") {
     $sla2 = '0';
     $speed = htmlentities(mysqli_real_escape_string($mysqli, $_POST['speed']));
     $scheme = htmlentities(mysqli_real_escape_string($mysqli, $_POST['scheme']));
-    $date_in = htmlentities(mysqli_real_escape_string($mysqli, date("Y-m-d", strtotime($_POST['date_in']))));
-    $date_out = htmlentities(mysqli_real_escape_string($mysqli, '0000-00-00'));
+    $d = new DateTime($_POST['date_in']);
+    $date_in = htmlentities(mysqli_real_escape_string($mysqli, $d->format("Y-m-d")));
+    if($_POST['date_out'] == ''){
+        $date_out='0000-00-00';
+    } else {
+        $d = new DateTime($_POST['date_out']);
+        $date_out = htmlentities(mysqli_real_escape_string($mysqli,  $d->format("Y-m-d")));
+    };
     $in_out = htmlentities(mysqli_real_escape_string($mysqli, $_POST['in_out']));
     $status2 = htmlentities(mysqli_real_escape_string($mysqli, $_POST['status2']));
     $sign = '0';
@@ -51,8 +57,14 @@ if ($_POST['sign'] == "межсетевое") {
     $sla2 = '0';
     $speed = htmlentities(mysqli_real_escape_string($mysqli, $_POST['speed']));
     $scheme = htmlentities(mysqli_real_escape_string($mysqli, $_POST['scheme']));
-    $date_in = htmlentities(mysqli_real_escape_string($mysqli, date("Y-m-d", strtotime($_POST['date_in']))));
-    $date_out = htmlentities(mysqli_real_escape_string($mysqli, '0000-00-00'));
+    $d = new DateTime($_POST['date_in']);
+    $date_in = htmlentities(mysqli_real_escape_string($mysqli, $d->format("Y-m-d")));
+    if($_POST['date_out'] == ''){
+        $date_out='0000-00-00';
+    } else {
+        $d = new DateTime($_POST['date_out']);
+        $date_out = htmlentities(mysqli_real_escape_string($mysqli,  $d->format("Y-m-d")));
+    };
     $in_out = htmlentities(mysqli_real_escape_string($mysqli, $_POST['in_out']));
     $status2 = htmlentities(mysqli_real_escape_string($mysqli, $_POST['status2']));
     $sign = '2';
@@ -78,8 +90,14 @@ if ($_POST['sign'] == "сервис провайдера") {
     $sla2 = htmlentities(mysqli_real_escape_string($mysqli, $_POST['sla2']));
     $speed = htmlentities(mysqli_real_escape_string($mysqli, $_POST['speed']));
     $scheme = htmlentities(mysqli_real_escape_string($mysqli, $_POST['scheme']));
-    $date_in = htmlentities(mysqli_real_escape_string($mysqli, date("Y-m-d", strtotime($_POST['date_in']))));
-    $date_out = htmlentities(mysqli_real_escape_string($mysqli, '0000-00-00'));
+    $d = new DateTime($_POST['date_in']);
+    $date_in = htmlentities(mysqli_real_escape_string($mysqli, $d->format("Y-m-d")));
+    if($_POST['date_out'] == ''){
+        $date_out='0000-00-00';
+    } else {
+        $d = new DateTime($_POST['date_out']);
+        $date_out = htmlentities(mysqli_real_escape_string($mysqli,  $d->format("Y-m-d")));
+    };
     $in_out = htmlentities(mysqli_real_escape_string($mysqli, $_POST['in_out']));
     $status2 = htmlentities(mysqli_real_escape_string($mysqli, $_POST['status2']));
     $sign = '3';

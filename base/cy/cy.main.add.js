@@ -37,6 +37,11 @@ function selectStatus(){
 };
 // формирование закладок (Визарда)
 $('#rootwizard').bootstrapWizard();
+// calendar for "date_in"
+$("#i").datepicker({
+    language: 'ru',
+    format: "dd.mm.yyyy"
+});
 
 $(document).ready(function() {
     // таблица Узлов

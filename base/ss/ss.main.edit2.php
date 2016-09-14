@@ -17,6 +17,7 @@ require "../../includes/constants.php"; //Open database connection
     <link rel="stylesheet" href="../../css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="../../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../../css/dataTables.bootstrap.min.css" />
+    <link rel="stylesheet" href="../../css/bootstrap-datepicker.min.css" />
     <!-- style for validate: -->
     <style>  .error{ color: red; }  </style>
 </head>
@@ -26,7 +27,7 @@ require "../../includes/constants.php"; //Open database connection
     $mysqli = mysqli_connect($host,$user,$password,$db)
                     or die("Ошибка " . mysqli_error($mysqli));
 
-    $sql = 'SELECT *,
+    $sql = 'SELECT link.*,
              eq1.id_equip AS eq1id,eq1.name_nms AS eq1name,
              eq2.id_equip AS eq2id,eq2.name_nms AS eq2name,
              st.name AS st_name
@@ -206,7 +207,7 @@ require "../../includes/constants.php"; //Open database connection
                         <label class="col-sm-3 control-label">Принят в эксплуатацию:</label>
                         <div class="col-sm-9">
                             <?php
-                            echo '<input type="date" name="date_in" id="i" class="form-control" value="'.date("Y-m-d", strtotime($link['in_exp'])).'" />';
+                            echo '<input type="text" name="date_in" id="i" class="form-control" value="'.date("d.m.Y", strtotime($link['in_exp'])).'" />';
                             ?>
                         </div>
                     </div>
@@ -214,7 +215,7 @@ require "../../includes/constants.php"; //Open database connection
                         <label class="col-sm-3 control-label">Выведен из эксплуатации:</label>
                         <div class="col-sm-9">
                             <?php
-                            echo '<input type="date" name="date_out" id="j" class="form-control" value="'.date("Y-m-d", strtotime($link['out_exp'])).'" />';
+                            echo '<input type="text" name="date_out" id="j" class="form-control" value="'.date("d.m.Y", strtotime($link['out_exp'])).'" />';
                             ?>
                         </div>
                     </div>
@@ -238,7 +239,7 @@ require "../../includes/constants.php"; //Open database connection
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Признак соединения:</label>
                         <div class="col-sm-9">
-                            <input type="text" name="sign" id="n" class="form-control" value="межсетевое" />
+                            <input type="text" name="sign" id="n" class="form-control" value="межсетевое" readonly />
                         </div>
                     </div>
                     <div class="form-group">
@@ -287,9 +288,11 @@ require "../../includes/constants.php"; //Open database connection
 <script src="../../js/jquery.bootstrap.wizard.min.js"></script>
 <script src="../../js/dataTables.bootstrap.min.js"></script>
 <script src="../../js/jquery.bootstrap.wizard.min.js"></script>
+<script src="../../js/bootstrap-datepicker.min.js"></script>
+<script src="../../js/bootstrap-datepicker.ru.min.js" charset="UTF-8"></script>
 <script src="../../js/jquery.validate.min.js"></script>
 <!-- MyScript -->
-<script src="ss.main.add2.js"></script>
+<script src="ss.main.edit2.js"></script>
 <script>
     $(function() {
 // найти все записи в таблицах, которые содержат выбранный тип сети

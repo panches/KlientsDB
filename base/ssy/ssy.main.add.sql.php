@@ -31,7 +31,8 @@ if (!isset($_POST['areaA1'])) {
     $title2 = htmlentities(mysqli_real_escape_string($mysqli, $_POST['title2']));
     $base2 = htmlentities(mysqli_real_escape_string($mysqli, $_POST['base2']));
     $cost = htmlentities(mysqli_real_escape_string($mysqli, $_POST['cost']));
-    $date_in = htmlentities(mysqli_real_escape_string($mysqli, date("Y-m-d", strtotime($_POST['date_in']))));
+    $d = new DateTime($_POST['date_in']);
+    $date_in = htmlentities(mysqli_real_escape_string($mysqli, $d->format("Y-m-d")));
     $chanel = htmlentities(mysqli_real_escape_string($mysqli, $_POST['chanel']));
     $planer = htmlentities(mysqli_real_escape_string($mysqli, $_POST['planer']));
     $note = htmlentities(mysqli_real_escape_string($mysqli, $_POST['note']));
@@ -39,16 +40,18 @@ if (!isset($_POST['areaA1'])) {
     $kli2 = htmlentities(mysqli_real_escape_string($mysqli, $_POST['kli2']));
     $sign1 = htmlentities(mysqli_real_escape_string($mysqli, $_POST['sign1']));
     $service_type2 = htmlentities(mysqli_real_escape_string($mysqli, $_POST['service_type2']));
-    $date_in_task = htmlentities(mysqli_real_escape_string($mysqli, date("Y-m-d", strtotime($_POST['date_in_task']))));
+    $d = new DateTime($_POST['date_in_task']);
+    $date_in_task = htmlentities(mysqli_real_escape_string($mysqli, $d->format("Y-m-d")));
     $subunit2 = htmlentities(mysqli_real_escape_string($mysqli, $_POST['subunit2']));
-    $date_out = htmlentities(mysqli_real_escape_string($mysqli, date("Y-m-d", strtotime($_POST['date_out']))));
+    $d = new DateTime($_POST['date_in_work']);
+    $date_in_work = htmlentities(mysqli_real_escape_string($mysqli, $d->format("Y-m-d")));
+    $date_out = htmlentities(mysqli_real_escape_string($mysqli, '0000-00-00'));
     $rent_service2 = htmlentities(mysqli_real_escape_string($mysqli, $_POST['rent_service2']));
     $DogovIn2 = htmlentities(mysqli_real_escape_string($mysqli, $_POST['DogovIn2']));
     $cost_in = htmlentities(mysqli_real_escape_string($mysqli, $_POST['cost_in']));
     $tax_bill = htmlentities(mysqli_real_escape_string($mysqli, $_POST['tax_bill']));
     $act = htmlentities(mysqli_real_escape_string($mysqli, $_POST['act']));
     $bill = htmlentities(mysqli_real_escape_string($mysqli, $_POST['bill']));
-    $date_in_work = htmlentities(mysqli_real_escape_string($mysqli, date("Y-m-d", strtotime($_POST['date_in_work']))));
     $dogov2 = htmlentities(mysqli_real_escape_string($mysqli, $_POST['dogov2']));
     $dopdogov2 = htmlentities(mysqli_real_escape_string($mysqli, $_POST['dopdogov2']));
 

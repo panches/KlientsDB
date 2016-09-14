@@ -14,10 +14,11 @@ if(!isset($_SESSION["session_username"])) {
         <html>
         <head>
             <meta charset="utf-8" />
-            <title>Добавить Сетевое Устройство</title>
+            <title>Изменить Сетевое Устройство</title>
             <link rel="stylesheet" href="../../css/jquery.dataTables.min.css" />
             <link rel="stylesheet" href="../../css/bootstrap.min.css" />
             <link rel="stylesheet" href="../../css/dataTables.bootstrap.min.css" />
+            <link rel="stylesheet" href="../../css/bootstrap-datepicker.min.css" />
             <!-- style for validate: -->
             <style>  .error{ color: red; }  </style>
         </head>
@@ -215,7 +216,7 @@ if(!isset($_SESSION["session_username"])) {
                                 <label class="col-sm-3 control-label">Принят в эксплуатацию:</label>
                                 <div class="col-sm-9">
                                     <?php
-                                    echo '<input type="date" name="date_in" id="i" class="form-control" value="'.date("Y-m-d", strtotime($equip['in_exp'])).'" />';
+                                    echo '<input type="text" name="date_in" id="i" class="form-control" value="'.date("d.m.Y", strtotime($equip['in_exp'])).'" />';
                                     ?>
                                 </div>
                             </div>
@@ -224,9 +225,9 @@ if(!isset($_SESSION["session_username"])) {
                                 <div class="col-sm-9">
                                     <?php
                                     if(date("Y-m-d", strtotime($equip['out_exp'])) == '1970-01-01'){
-                                        echo '<input type="date" name="date_out" id="j" class="form-control" value="" />';
+                                        echo '<input type="text" name="date_out" id="j" class="form-control" value="" />';
                                     } else {
-                                        echo '<input type="date" name="date_out" id="j" class="form-control" value="'.date("Y-m-d", strtotime($equip['out_exp'])).'" />';
+                                        echo '<input type="text" name="date_out" id="j" class="form-control" value="'.date("d.m.Y", strtotime($equip['out_exp'])).'" />';
                                     };
                                     ?>
                                 </div>
@@ -286,6 +287,8 @@ if(!isset($_SESSION["session_username"])) {
         <script src="../../js/jquery.bootstrap.wizard.min.js"></script>
         <script src="../../js/dataTables.bootstrap.min.js"></script>
         <script src="../../js/jquery.bootstrap.wizard.min.js"></script>
+        <script src="../../js/bootstrap-datepicker.min.js"></script>
+        <script src="../../js/bootstrap-datepicker.ru.min.js" charset="UTF-8"></script>
         <script src="../../js/jquery.validate.min.js"></script>
         <!-- MyScript -->
         <script src="cy.main.edit.js"></script>

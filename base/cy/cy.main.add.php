@@ -15,6 +15,7 @@ if(!isset($_SESSION["session_username"])) {
         <link rel="stylesheet" href="../../css/jquery.dataTables.min.css" />
         <link rel="stylesheet" href="../../css/bootstrap.min.css" />
         <link rel="stylesheet" href="../../css/dataTables.bootstrap.min.css" />
+        <link rel="stylesheet" href="../../css/bootstrap-datepicker.min.css" />
         <!-- style for validate: -->
         <style>  .error{ color: red; }  </style>
     </head>
@@ -175,7 +176,7 @@ if(!isset($_SESSION["session_username"])) {
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Принят в эксплуатацию:</label>
                             <div class="col-sm-9">
-                                <input type="date" name="date_in" id="i" class="form-control" value="<?php echo date("Y-m-d"); ?>" />
+                                <input type="text" name="date_in" id="i" class="form-control" value="<?php echo date("d.m.Y"); ?>" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -228,7 +229,8 @@ if(!isset($_SESSION["session_username"])) {
     <script src="../../js/bootstrap.min.js"></script>
     <script src="../../js/jquery.bootstrap.wizard.min.js"></script>
     <script src="../../js/dataTables.bootstrap.min.js"></script>
-    <script src="../../js/jquery.bootstrap.wizard.min.js"></script>
+    <script src="../../js/bootstrap-datepicker.min.js"></script>
+    <script src="../../js/bootstrap-datepicker.ru.min.js" charset="UTF-8"></script>
     <script src="../../js/jquery.validate.min.js"></script>
     <!-- MyScript -->
     <script src="cy.main.add.js"></script>

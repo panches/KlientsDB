@@ -24,7 +24,8 @@ if (!isset($_POST['type_net'])) {
     $attach2 = htmlentities(mysqli_real_escape_string($mysqli, $_POST['attach2']));
     $scheme = htmlentities(mysqli_real_escape_string($mysqli, $_POST['scheme']));
     $status2 = htmlentities(mysqli_real_escape_string($mysqli, $_POST['status2']));
-    $date_in = htmlentities(mysqli_real_escape_string($mysqli, date("Y-m-d", strtotime($_POST['date_in']))));
+    $d = new DateTime($_POST['date_in']);
+    $date_in = htmlentities(mysqli_real_escape_string($mysqli, $d->format("Y-m-d")));
     $date_out = htmlentities(mysqli_real_escape_string($mysqli, '0000-00-00'));
     $sql = "INSERT INTO net_equip (id_equip, net, ip_address, name_nms, linkage, num_node, scheme, status_d, in_exp, out_exp, user_id)
        VALUES ('$str_n', '$type_net2', '$ipaddr', '$nms', '$location2', '$attach2', '$scheme', '$status2', '$date_in', '$date_out', '$user_id')";

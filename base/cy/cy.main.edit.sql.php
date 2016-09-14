@@ -63,15 +63,17 @@
         $sql = "UPDATE net_equip SET status_d='$status2' WHERE id_equip='$str_n'";
         $temp = mysqli_query($mysqli, $sql);
     };
-    $date_in = htmlentities(mysqli_real_escape_string($mysqli, date("Y-m-d", strtotime($_POST['date_in']))));
+    $d = new DateTime($_POST['date_in']);
+    $date_in = htmlentities(mysqli_real_escape_string($mysqli, $d->format("Y-m-d")));
     if($date_in != htmlentities(mysqli_real_escape_string($mysqli, date("Y-m-d", strtotime($equip['in_exp']))))){
         $sql = "UPDATE net_equip SET in_exp='$date_in' WHERE id_equip='$str_n'";
         $temp = mysqli_query($mysqli, $sql);
     };
-    if($equip['out_exp'] == ''){
+    if($_POST['date_out'] == ''){
         $date_out='0000-00-00';
     } else {
-        $date_out = htmlentities(mysqli_real_escape_string($mysqli,  date("Y-m-d", strtotime($equip['out_exp']))));
+        $d = new DateTime($_POST['date_out']);
+        $date_out = htmlentities(mysqli_real_escape_string($mysqli,  $d->format("Y-m-d")));
     }
     if($date_out != htmlentities(mysqli_real_escape_string($mysqli, date("Y-m-d", strtotime($equip['out_exp']))))){
         $sql = "UPDATE net_equip SET out_exp='$date_out' WHERE id_equip='$str_n'";

@@ -23,7 +23,8 @@
         $sla2 = '0';
         $speed = htmlentities(mysqli_real_escape_string($mysqli, $_POST['speed']));
         $scheme = htmlentities(mysqli_real_escape_string($mysqli, $_POST['scheme']));
-        $date_in = htmlentities(mysqli_real_escape_string($mysqli, date("Y-m-d", strtotime($_POST['date_in']))));
+        $d = new DateTime($_POST['date_in']);
+        $date_in = htmlentities(mysqli_real_escape_string($mysqli, $d->format("Y-m-d")));
         $date_out = htmlentities(mysqli_real_escape_string($mysqli, '0000-00-00'));
         $in_out = htmlentities(mysqli_real_escape_string($mysqli, $_POST['in_out']));
         $status2 = htmlentities(mysqli_real_escape_string($mysqli, $_POST['status2']));
@@ -48,7 +49,8 @@
         $sla2 = '0';
         $speed = htmlentities(mysqli_real_escape_string($mysqli, $_POST['speed']));
         $scheme = htmlentities(mysqli_real_escape_string($mysqli, $_POST['scheme']));
-        $date_in = htmlentities(mysqli_real_escape_string($mysqli, date("Y-m-d", strtotime($_POST['date_in']))));
+        $d = new DateTime($_POST['date_in']);
+        $date_in = htmlentities(mysqli_real_escape_string($mysqli, $d->format("Y-m-d")));
         $date_out = htmlentities(mysqli_real_escape_string($mysqli, '0000-00-00'));
         $in_out = htmlentities(mysqli_real_escape_string($mysqli, $_POST['in_out']));
         $status2 = htmlentities(mysqli_real_escape_string($mysqli, $_POST['status2']));
@@ -72,7 +74,8 @@
         $sla2 = htmlentities(mysqli_real_escape_string($mysqli, $_POST['sla2']));
         $speed = htmlentities(mysqli_real_escape_string($mysqli, $_POST['speed']));
         $scheme = htmlentities(mysqli_real_escape_string($mysqli, $_POST['scheme']));
-        $date_in = htmlentities(mysqli_real_escape_string($mysqli, date("Y-m-d", strtotime($_POST['date_in']))));
+        $d = new DateTime($_POST['date_in']);
+        $date_in = htmlentities(mysqli_real_escape_string($mysqli, $d->format("Y-m-d")));
         $date_out = htmlentities(mysqli_real_escape_string($mysqli, '0000-00-00'));
         $in_out = htmlentities(mysqli_real_escape_string($mysqli, $_POST['in_out']));
         $status2 = htmlentities(mysqli_real_escape_string($mysqli, $_POST['status2']));

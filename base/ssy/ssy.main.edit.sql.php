@@ -87,7 +87,12 @@ if (!isset($_POST['ssy_id'])) {
         $sql = 'UPDATE net_operators SET name_data="'.$title1.'" WHERE id_oper="'.$str_n.'"';
         $temp = mysqli_query($mysqli, $sql);
     };
-    $date_in_task = htmlentities(mysqli_real_escape_string($mysqli, date("Y-m-d", strtotime($_POST['date_in_task']))));
+    if($_POST['date_in_task'] == ''){
+        $date_in_task='0000-00-00';
+    } else {
+        $d = new DateTime($_POST['date_in_task']);
+        $date_in_task = htmlentities(mysqli_real_escape_string($mysqli,  $d->format("Y-m-d")));
+    };
     if (htmlentities(mysqli_real_escape_string($mysqli, date("Y-m-d", strtotime($oper['in_date'])))) !=  $date_in_task) {
         $sql = 'UPDATE net_operators SET `in_date`="'.$date_in_task.'" WHERE id_oper="'.$str_n.'"';
         $temp = mysqli_query($mysqli, $sql);
@@ -102,12 +107,22 @@ if (!isset($_POST['ssy_id'])) {
         $sql = 'UPDATE net_operators SET `cost`="'.$cost.'" WHERE id_oper="'.$str_n.'"';
         $temp = mysqli_query($mysqli, $sql);
     };
-    $date_in = htmlentities(mysqli_real_escape_string($mysqli, date("Y-m-d", strtotime($_POST['date_in']))));
+    if($_POST['date_in'] == ''){
+        $date_in='0000-00-00';
+    } else {
+        $d = new DateTime($_POST['date_in']);
+        $date_in = htmlentities(mysqli_real_escape_string($mysqli,  $d->format("Y-m-d")));
+    };
     if (htmlentities(mysqli_real_escape_string($mysqli, date("Y-m-d", strtotime($oper['condition_d'])))) !=  $date_in) {
         $sql = 'UPDATE net_operators SET `condition_d`="'.$date_in.'" WHERE id_oper="'.$str_n.'"';
         $temp = mysqli_query($mysqli, $sql);
     };
-    $date_in_work = htmlentities(mysqli_real_escape_string($mysqli, date("Y-m-d", strtotime($_POST['date_in_work']))));
+    if($_POST['date_in_work'] == ''){
+        $date_in_work='0000-00-00';
+    } else {
+        $d = new DateTime($_POST['date_in_work']);
+        $date_in_work = htmlentities(mysqli_real_escape_string($mysqli,  $d->format("Y-m-d")));
+    };
     if (htmlentities(mysqli_real_escape_string($mysqli, date("Y-m-d", strtotime($oper['d_stServ_clientu'])))) !=  $date_in_work) {
         $sql = 'UPDATE net_operators SET `d_stServ_clientu`="'.$date_in_work.'" WHERE id_oper="'.$str_n.'"';
         $temp = mysqli_query($mysqli, $sql);
@@ -157,7 +172,12 @@ if (!isset($_POST['ssy_id'])) {
         $sql = 'UPDATE net_operators SET `podrazd`="'.$subunit2.'" WHERE id_oper="'.$str_n.'"';
         $temp = mysqli_query($mysqli, $sql);
     };
-    $date_out = htmlentities(mysqli_real_escape_string($mysqli, date("Y-m-d", strtotime($_POST['date_out']))));
+    if($_POST['date_out'] == ''){
+        $date_out='0000-00-00';
+    } else {
+        $d = new DateTime($_POST['date_out']);
+        $date_out = htmlentities(mysqli_real_escape_string($mysqli,  $d->format("Y-m-d")));
+    };
     if (htmlentities(mysqli_real_escape_string($mysqli, date("Y-m-d", strtotime($oper['date_end'])))) !=  $date_out) {
         $sql = 'UPDATE net_operators SET `date_end`="'.$date_out.'" WHERE id_oper="'.$str_n.'"';
         $temp = mysqli_query($mysqli, $sql);

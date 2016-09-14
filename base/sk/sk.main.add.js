@@ -38,6 +38,11 @@ function selectSLA(){
     $("#p2").attr("value", sel.val());
 
 };
+// calendar for "date_in"
+$("#k").datepicker({
+    language: 'ru',
+    format: "dd.mm.yyyy"
+});
 
 $(document).ready(function() {
 // таблица Офисов A

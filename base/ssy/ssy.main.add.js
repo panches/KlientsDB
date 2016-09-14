@@ -207,6 +207,23 @@ function selectRent(){
     var sel = $("select[name='rent_service1'] option:selected");
     $("#s2").attr("value", sel.val());
 };
+// calendar for "date_in"
+$("#g").datepicker({
+    language: 'ru',
+    format: "dd.mm.yyyy"
+});
+// calendar for "date_in_work"
+$("#h").datepicker({
+    language: 'ru',
+    format: "dd.mm.yyyy"
+});
+// calendar for "date_in_task"
+$("#l").datepicker({
+    language: 'ru',
+    format: "dd.mm.yyyy"
+});
+
+
 $(document).ready(function(){
     // Сервисы Субпровайдеров
     var eTable = $("#equip").dataTable({

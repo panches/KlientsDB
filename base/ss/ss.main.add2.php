@@ -14,6 +14,7 @@ require "../../includes/constants.php"; //Open database connection
     <link rel="stylesheet" href="../../css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="../../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../../css/dataTables.bootstrap.min.css" />
+    <link rel="stylesheet" href="../../css/bootstrap-datepicker.min.css" />
     <!-- style for validate: -->
     <style>  .error{ color: red; }  </style>
 </head>
@@ -162,7 +163,7 @@ require "../../includes/constants.php"; //Open database connection
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Принят в эксплуатацию:</label>
                             <div class="col-sm-9">
-                                <input type="date" name="date_in" id="i" class="form-control" value="<?php echo date("Y-m-d"); ?>" />
+                                <input type="text" name="date_in" id="i" class="form-control" value="<?php echo date("d.m.Y"); ?>" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -187,7 +188,7 @@ require "../../includes/constants.php"; //Open database connection
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Признак соединения:</label>
                             <div class="col-sm-9">
-                                <input type="text" name="sign" id="n" class="form-control" value="межсетевое" />
+                                <input type="text" name="sign" id="n" class="form-control" value="межсетевое" readonly />
                             </div>
                         </div>
                         <div class="form-group">
@@ -229,6 +230,8 @@ require "../../includes/constants.php"; //Open database connection
 <script src="../../js/jquery.bootstrap.wizard.min.js"></script>
 <script src="../../js/dataTables.bootstrap.min.js"></script>
 <script src="../../js/jquery.bootstrap.wizard.min.js"></script>
+<script src="../../js/bootstrap-datepicker.min.js"></script>
+<script src="../../js/bootstrap-datepicker.ru.min.js" charset="UTF-8"></script>
 <script src="../../js/jquery.validate.min.js"></script>
 <!-- MyScript -->
 <script src="ss.main.add2.js"></script>

@@ -40,6 +40,16 @@ function selectSLA(){
     $("#p2").attr("value", sel.val());
     //console.log(sel.val());
 };
+// calendar for "date_in"
+$("#k").datepicker({
+    language: 'ru',
+    format: "dd.mm.yyyy"
+});
+// calendar for "date_out"
+$("#l").datepicker({
+    language: 'ru',
+    format: "dd.mm.yyyy"
+});
 
 $(document).ready(function() {
 // таблица Офисов A

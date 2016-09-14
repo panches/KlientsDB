@@ -18,6 +18,7 @@ if(!isset($_SESSION["session_username"])) {
             <link rel="stylesheet" href="../../css/jquery.dataTables.min.css" />
             <link rel="stylesheet" href="../../css/bootstrap.min.css" />
             <link rel="stylesheet" href="../../css/dataTables.bootstrap.min.css" />
+            <link rel="stylesheet" href="../../css/bootstrap-datepicker.min.css" />
             <!-- style for validate: -->
             <style>  .error{ color: red; }  </style>
         </head>
@@ -516,9 +517,9 @@ if(!isset($_SESSION["session_username"])) {
                         <div class="col-sm-9">
                             <?php
                             if(date("Y-m-d", strtotime($oper['condition_d'])) == '1970-01-01'){
-                                echo '<input type="date" name="date_in" id="g" class="form-control" value="" />';
+                                echo '<input type="text" name="date_in" id="g" class="form-control" value="" />';
                             } else {
-                                echo '<input type="date" name="date_in" id="g" class="form-control" value="'.date("Y-m-d", strtotime($oper['condition_d'])).'" />';
+                                echo '<input type="text" name="date_in" id="g" class="form-control" value="'.date("d.m.Y", strtotime($oper['condition_d'])).'" />';
                             };
                             ?>
                         </div>
@@ -526,9 +527,9 @@ if(!isset($_SESSION["session_username"])) {
                         <div class="col-sm-9">
                             <?php
                             if(date("Y-m-d", strtotime($oper['d_stServ_clientu'])) == '1970-01-01'){
-                                echo '<input type="date" name="date_in_work" id="h" class="form-control" value="" />';
+                                echo '<input type="text" name="date_in_work" id="h" class="form-control" value="" />';
                             } else {
-                                echo '<input type="date" name="date_in_work" id="h" class="form-control" value="'.date("Y-m-d", strtotime($oper['d_stServ_clientu'])).'" />';
+                                echo '<input type="text" name="date_in_work" id="h" class="form-control" value="'.date("d.m.Y", strtotime($oper['d_stServ_clientu'])).'" />';
                             };
                             ?>
                         </div>
@@ -553,9 +554,9 @@ if(!isset($_SESSION["session_username"])) {
                         <div class="col-sm-9">
                             <?php
                             if(date("Y-m-d", strtotime($oper['in_date'])) == '1970-01-01'){
-                                echo '<input type="date" name="date_in_task" id="l" class="form-control" value="" />';
+                                echo '<input type="text" name="date_in_task" id="l" class="form-control" value="" />';
                             } else {
-                                echo '<input type="date" name="date_in_task" id="l" class="form-control" value="'.date("Y-m-d", strtotime($oper['in_date'])).'" />';
+                                echo '<input type="text" name="date_in_task" id="l" class="form-control" value="'.date("d.m.Y", strtotime($oper['in_date'])).'" />';
                             };
                             ?>
                         </div>
@@ -582,9 +583,9 @@ if(!isset($_SESSION["session_username"])) {
                         <div class="col-sm-9">
                             <?php
                             if(date("Y-m-d", strtotime($oper['date_end'])) == '1970-01-01'){
-                                echo '<input type="date" name="date_out" id="q" class="form-control" value="" />';
+                                echo '<input type="text" name="date_out" id="q" class="form-control" value="" />';
                             } else {
-                                echo '<input type="date" name="date_out" id="q" class="form-control" value="'.date("Y-m-d", strtotime($oper['date_end'])).'" />';
+                                echo '<input type="text" name="date_out" id="q" class="form-control" value="'.date("d.m.Y", strtotime($oper['date_end'])).'" />';
                             };
                             ?>
                         </div>
@@ -648,6 +649,8 @@ if(!isset($_SESSION["session_username"])) {
         <script src="../../js/jquery.bootstrap.wizard.min.js"></script>
         <script src="../../js/dataTables.bootstrap.min.js"></script>
         <script src="../../js/jquery.bootstrap.wizard.min.js"></script>
+        <script src="../../js/bootstrap-datepicker.min.js"></script>
+        <script src="../../js/bootstrap-datepicker.ru.min.js" charset="UTF-8"></script>
         <script src="../../js/jquery.validate.min.js"></script>
         <!-- MyScript -->
         <script src="ssy.main.edit.js"></script>
