@@ -1,19 +1,16 @@
 <?php 
-/* Open session */	
+// Open session
 	session_start();
-/* Open database connection*/
-    require ("constants.php");
-/* проверка подключения */
-    $mysqli = mysqli_connect($host,$user,$password,$db);
-	if (mysqli_connect_errno()) {
-    	printf("Не удалось подключиться: %s\n", mysqli_connect_error());
-    	exit();
-	} 
 // в целях проверки
 	if(isset($_SESSION["session_username"])){
-	// вывод "Session is set"
+    /* Перенаправление браузера */
 		header("Location: ../base/tp.main.php");
 	}
+// Open database connection
+    require ("constants.php");
+// проверка подключения
+    $mysqli = mysqli_connect($host,$user,$password,$db)
+                or die("Ошибка " . mysqli_error($mysqli));
 // нажата кнопка?
 	if(isset($_POST["login"])){
 		// валидация
@@ -23,7 +20,10 @@
 			$query =mysqli_query($mysqli, "SELECT * FROM tab_access WHERE login='".$username."' AND pwd='".$password."'");
 			$numrows=mysqli_num_rows($query);
 			if($numrows!=0) {
-				$_SESSION['session_username']=$username;	 
+                $access = mysqli_fetch_assoc($query);
+				$_SESSION['session_userid']=$access['id'];
+                $_SESSION['session_userlogin']=$access['login'];
+                $_SESSION['session_username']=$access['nik'];
 			 /* Перенаправление браузера */
    				header("Location: ../base/tp.main.php");
 			} else {
@@ -33,4 +33,6 @@
     		echo "All fields are required!";
 		}
 	};
+// закрываем подключение
+    mysqli_close($mysqli);
 ?>

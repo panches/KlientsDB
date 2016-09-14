@@ -27,4 +27,6 @@
 		    <li><a href="#">Все выезды</a></li>
 	      </ul>
   		</li>
+ <!--       <li><a href="../base/base.test.php">TEST</a></li>
+ -->
 	</ul>

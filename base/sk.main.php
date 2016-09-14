@@ -17,9 +17,9 @@ if(!isset($_SESSION["session_username"])) {
 <!-- Кнопки вверху -->
         <div class="row">
             <div class="col-md-12">
-                <a href="sk.main.info.php" target="_blank" class="btn btn-default" id="a1">Info</a>
-                <a href="sk.main.add.php" target="_blank" class="btn btn-default" id="a2">New</a>
-                <a href="sk.main.edit.php" target="_blank" class="btn btn-default" id="a3">Edit</a>
+                <a href="sk/sk.main.info.php" target="_blank" class="btn btn-default" id="a1">Info</a>
+                <a href="sk/sk.main.add.php" target="_blank" class="btn btn-default" id="a2">New</a>
+                <a href="sk/sk.main.edit.php" target="_blank" class="btn btn-default" id="a3">Edit</a>
             </div>
         </div>
         <br>
@@ -33,21 +33,22 @@ if(!isset($_SESSION["session_username"])) {
             var nTable = $('#sktab').dataTable({
                 "processing": true,
                 "pagingType": "full_numbers",
+                "iDisplayLength": 25,
                 "ajax": "all.main.ajax.php?base=sk",
                 "columns": [
                     {"title": "№"},
                     {"title": "Клиент"},
                     {"title": "Тип сервиса"},
                     {"title": "Емкость"},
-                    {"title": "Офисе А"},
-                    {"title": "Офисе Б"},
+                    {"title": "Офис А"},
+                    {"title": "Офис Б"},
                     {"title": "Статус"}]
             });
             // select pressed row
             $('#sktab tbody').on( 'click', 'tr', function () {
                 if ( $(this).hasClass('selected') ) {
                     $(this).removeClass('selected');
-                    $("#a1").attr("href","sk.main.info.php");
+                    $("#a1").attr("href","sk/sk.main.info.php");
                 }
                 else {
                     nTable.$('tr.selected').removeClass('selected');
@@ -55,8 +56,8 @@ if(!isset($_SESSION["session_username"])) {
                     // отбор позиции строки и значение столбца
                     var aPos = nTable.fnGetPosition( this );
                     var aData = nTable.fnGetData( aPos );
-                    $("#a1").attr("href","sk.main.info.php?sk_id=" + aData[0]);
-                    $("#a3").attr("href","sk.main.edit.php?sk_id=" + aData[0]);
+                    $("#a1").attr("href","sk/sk.main.info.php?sk_id=" + aData[0]);
+                    $("#a3").attr("href","sk/sk.main.edit.php?sk_id=" + aData[0]);
                 };
             })
         });

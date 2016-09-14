@@ -1,7 +1,11 @@
 <?php
-// закрыть сессию
+// уничтожении сессии
 	session_start();
-	unset($_SESSION['session_username']);
+    $_SESSION = array();
+    // уничтожение куки с идентификатором сессии
+    if (session_id() != "" || isset($_COOKIE[session_name()]))
+        setcookie(session_name(), '', time()-2592000, '/');
 	session_destroy();
-	header("location: ../index.html");
+    // перенаправить на страницу ввхода
+    header("location: ../index.html");
 ?>
